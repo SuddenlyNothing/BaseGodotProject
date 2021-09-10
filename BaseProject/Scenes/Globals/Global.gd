@@ -8,7 +8,6 @@ var previous_scene : String
 func _ready() -> void:
 	var root = get_tree().get_root()
 	current_scene = root.get_child( root.get_child_count() -1 )
-	OS.window_maximized = true
 
 
 func goto_scene(path : String) -> void:
