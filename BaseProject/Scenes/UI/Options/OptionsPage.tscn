@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="OptionsPage" type="Control"]
+anchor_left = 0.195312
+anchor_top = 0.0833333
+anchor_right = 0.804688
+anchor_bottom = 0.916667
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.219608, 0.215686, 0.231373, 1 )

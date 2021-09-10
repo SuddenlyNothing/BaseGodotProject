@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/UI/Options/InputRemap/InputRemap.gd" type="Script" id=1]
+
+[node name="InputRemap" type="Control" groups=[
+"save",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SC" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="SC"]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="SC/V"]
+margin_top = 91.0
+margin_right = 1024.0
+margin_bottom = 105.0
+size_flags_vertical = 6
+text = "Controls"
+align = 1
+
+[node name="V" type="VBoxContainer" parent="SC/V"]
+margin_top = 299.0
+margin_right = 1024.0
+margin_bottom = 299.0
+size_flags_vertical = 6
+custom_constants/separation = 10
+
+[node name="Button" type="Button" parent="SC/V"]
+margin_left = 480.0
+margin_top = 491.0
+margin_right = 543.0
+margin_bottom = 511.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Options"

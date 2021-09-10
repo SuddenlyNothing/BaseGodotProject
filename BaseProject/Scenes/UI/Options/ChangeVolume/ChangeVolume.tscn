@@ -1,0 +1,104 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/UI/Options/ChangeVolume/VolumeSlider.tscn" type="PackedScene" id=1]
+
+[node name="ChangeVolume" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="V"]
+margin_top = 91.0
+margin_right = 1024.0
+margin_bottom = 105.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Audio"
+align = 1
+valign = 1
+
+[node name="V" type="VBoxContainer" parent="V"]
+margin_top = 243.0
+margin_right = 1024.0
+margin_bottom = 355.0
+size_flags_vertical = 6
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="H" type="HBoxContainer" parent="V/V"]
+margin_right = 1024.0
+margin_bottom = 16.0
+
+[node name="Label" type="Label" parent="V/V/H"]
+margin_left = 233.0
+margin_top = 1.0
+margin_right = 277.0
+margin_bottom = 15.0
+size_flags_horizontal = 6
+text = "Master"
+
+[node name="VolumeSlider" parent="V/V/H" instance=ExtResource( 1 )]
+margin_left = 514.0
+margin_right = 1024.0
+size_flags_horizontal = 3
+
+[node name="H2" type="HBoxContainer" parent="V/V"]
+margin_top = 48.0
+margin_right = 1024.0
+margin_bottom = 64.0
+
+[node name="Label" type="Label" parent="V/V/H2"]
+margin_left = 244.0
+margin_top = 1.0
+margin_right = 266.0
+margin_bottom = 15.0
+size_flags_horizontal = 6
+text = "SFX"
+
+[node name="VolumeSlider" parent="V/V/H2" instance=ExtResource( 1 )]
+margin_left = 514.0
+margin_right = 1024.0
+size_flags_horizontal = 3
+audio_bus_name = "SFX"
+
+[node name="H3" type="HBoxContainer" parent="V/V"]
+margin_top = 96.0
+margin_right = 1024.0
+margin_bottom = 112.0
+
+[node name="Label" type="Label" parent="V/V/H3"]
+margin_left = 236.0
+margin_top = 1.0
+margin_right = 274.0
+margin_bottom = 15.0
+size_flags_horizontal = 6
+text = "Music"
+
+[node name="VolumeSlider" parent="V/V/H3" instance=ExtResource( 1 )]
+margin_left = 514.0
+margin_right = 1024.0
+size_flags_horizontal = 3
+audio_bus_name = "Music"
+
+[node name="Button" type="Button" parent="V"]
+margin_left = 480.0
+margin_top = 491.0
+margin_right = 543.0
+margin_bottom = 511.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Options"
