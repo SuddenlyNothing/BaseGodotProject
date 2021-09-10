@@ -31,4 +31,10 @@ func load_data() -> void:
 			"contrast":1,
 			"saturation":1
 		}
+
+
+func _on_Reset_pressed():
+	brightness.value = 1
+	contrast.value = 1
+	saturation.value = 1
 	

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Testing/BaseTest.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Characters/TestCharacter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Shaders/ScreenSettings.tres" type="Material" id=3]
+[ext_resource path="res://Assets/Shaders/ScreenFilter.tres" type="Material" id=3]
 
 [node name="BaseTest" type="Node2D"]
 script = ExtResource( 1 )

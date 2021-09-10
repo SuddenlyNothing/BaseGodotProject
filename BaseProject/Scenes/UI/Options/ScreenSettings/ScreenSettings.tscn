@@ -29,11 +29,11 @@ align = 1
 valign = 1
 
 [node name="V" type="VBoxContainer" parent="V"]
-margin_top = 265.0
+margin_top = 201.0
 margin_right = 1024.0
-margin_bottom = 333.0
+margin_bottom = 398.0
 size_flags_horizontal = 3
-size_flags_vertical = 6
+size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="H" type="HBoxContainer" parent="V/V"]
@@ -104,6 +104,15 @@ max_value = 1.5
 step = 0.01
 value = 1.0
 
+[node name="Reset" type="Button" parent="V/V"]
+margin_left = 488.0
+margin_top = 127.0
+margin_right = 536.0
+margin_bottom = 147.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Reset"
+
 [node name="Button" type="Button" parent="V"]
 margin_left = 480.0
 margin_top = 491.0
@@ -116,3 +125,4 @@ text = "Options"
 [connection signal="value_changed" from="V/V/H/Brightness" to="." method="_on_Brightness_value_changed"]
 [connection signal="value_changed" from="V/V/H2/Contrast" to="." method="_on_Contrast_value_changed"]
 [connection signal="value_changed" from="V/V/H3/Saturation" to="." method="_on_Saturation_value_changed"]
+[connection signal="pressed" from="V/V/Reset" to="." method="_on_Reset_pressed"]

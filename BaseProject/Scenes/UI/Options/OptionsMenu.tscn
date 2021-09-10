@@ -160,10 +160,6 @@ anchor_bottom = 0.0
 margin_right = 586.0
 margin_bottom = 458.0
 
-[node name="V" parent="M/TabContainer/InputRemap/M/InputRemap/SC" index="0"]
-margin_right = 586.0
-margin_bottom = 458.0
-
 [node name="ScreenSettings" type="Control" parent="M/TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -195,7 +191,7 @@ margin_bottom = 458.0
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/ScreenSettings" to="." method="_on_ScreenSettings_pressed"]
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="M/TabContainer/ChangeVolume/M/ChangeVolume/V/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="M/TabContainer/InputRemap/M/InputRemap/SC/V/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="M/TabContainer/InputRemap/M/InputRemap/V/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="M/TabContainer/ScreenSettings/M/ScreenSettings/V/Button" to="." method="_on_Button_pressed"]
 
 [editable path="M/TabContainer/ChangeVolume/M/ChangeVolume"]

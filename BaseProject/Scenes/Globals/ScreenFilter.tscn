@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Shaders/ScreenSettings.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Shaders/ScreenFilter.tres" type="Material" id=1]
 [ext_resource path="res://Scenes/Globals/ScreenFilter.gd" type="Script" id=2]
 
 [node name="ScreenFilter" type="CanvasLayer"]
+layer = 2
 script = ExtResource( 2 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 material = ExtResource( 1 )
-z_index = 4096
-z_as_relative = false
