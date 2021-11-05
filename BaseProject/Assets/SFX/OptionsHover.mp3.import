@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/OptionsHover.mp3-beb4564479658a232ba833b719440c46.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/OptionsHover.mp3"
+dest_files=[ "res://.import/OptionsHover.mp3-beb4564479658a232ba833b719440c46.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

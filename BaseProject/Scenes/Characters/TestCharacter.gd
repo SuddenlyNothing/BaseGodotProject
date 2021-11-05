@@ -2,6 +2,7 @@ extends Sprite
 
 var speed := 500
 
+# Simple player controller.
 func _physics_process(delta : float) -> void:
 	var dir = Vector2()
 	dir.x = Input.get_action_strength("right") - Input.get_action_strength("left")

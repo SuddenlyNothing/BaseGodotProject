@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/UI/Options/InputRemap/InputRemap.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/ButtonSFX.gd" type="Script" id=2]
 
 [node name="InputRemap" type="Control" groups=[
 "save",
@@ -51,6 +52,7 @@ margin_bottom = 576.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "reset"
+script = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="V"]
 margin_left = 480.0
@@ -60,5 +62,6 @@ margin_bottom = 600.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Options"
+script = ExtResource( 2 )
 
 [connection signal="pressed" from="V/Reset" to="." method="_on_Reset_pressed"]

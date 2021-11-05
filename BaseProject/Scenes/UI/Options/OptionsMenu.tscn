@@ -1,14 +1,25 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/UI/Options/InputRemap/InputRemap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Options/OptionsMenu.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/UI/Options/ChangeVolume/ChangeVolume.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/UI/Options/ScreenSettings/ScreenSettings.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/UI/Themes/BixTheme.tres" type="Theme" id=5]
+[ext_resource path="res://Assets/UI/Themes/BixTheme/BixTheme.tres" type="Theme" id=5]
+[ext_resource path="res://Scenes/UI/ButtonSFX.gd" type="Script" id=6]
 
 [node name="OptionsMenu" type="CanvasLayer"]
 pause_mode = 2
+layer = 64
 script = ExtResource( 2 )
+
+[node name="MouseCapture" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="M" type="MarginContainer" parent="."]
 visible = false
@@ -16,6 +27,10 @@ anchor_left = 0.195312
 anchor_top = 0.0833333
 anchor_right = 0.804688
 anchor_bottom = 0.916667
+margin_left = 0.000518799
+margin_top = -50.0
+margin_right = -0.000488281
+margin_bottom = 49.9998
 theme = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -23,7 +38,7 @@ __meta__ = {
 
 [node name="TabContainer" type="TabContainer" parent="M"]
 margin_right = 624.0
-margin_bottom = 500.0
+margin_bottom = 600.0
 tabs_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,10 +47,8 @@ __meta__ = {
 [node name="OptionSelect" type="Control" parent="M/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 8.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_right = -3.0
 
 [node name="M" type="MarginContainer" parent="M/TabContainer/OptionSelect"]
 anchor_right = 1.0
@@ -49,14 +62,13 @@ __meta__ = {
 }
 
 [node name="V" type="VBoxContainer" parent="M/TabContainer/OptionSelect/M"]
-margin_right = 586.0
-margin_bottom = 458.0
+margin_right = 588.0
+margin_bottom = 570.0
 
 [node name="Label" type="Label" parent="M/TabContainer/OptionSelect/M/V"]
-margin_left = 191.0
-margin_top = 52.0
-margin_right = 394.0
-margin_bottom = 91.0
+margin_top = 64.0
+margin_right = 588.0
+margin_bottom = 103.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "Options Menu"
@@ -64,56 +76,58 @@ align = 1
 valign = 1
 
 [node name="V" type="VBoxContainer" parent="M/TabContainer/OptionSelect/M/V"]
-margin_top = 148.0
-margin_right = 586.0
-margin_bottom = 309.0
+margin_top = 171.0
+margin_right = 588.0
+margin_bottom = 398.0
 size_flags_vertical = 6
 custom_constants/separation = 10
 alignment = 1
 
 [node name="Audio" type="Button" parent="M/TabContainer/OptionSelect/M/V/V"]
-margin_left = 247.0
-margin_right = 339.0
-margin_bottom = 47.0
+margin_left = 245.0
+margin_right = 343.0
+margin_bottom = 69.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 text = "Audio"
+script = ExtResource( 6 )
 
 [node name="Controls" type="Button" parent="M/TabContainer/OptionSelect/M/V/V"]
-margin_left = 229.0
-margin_top = 57.0
-margin_right = 357.0
-margin_bottom = 104.0
+margin_left = 227.0
+margin_top = 79.0
+margin_right = 361.0
+margin_bottom = 148.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 text = "Controls"
+script = ExtResource( 6 )
 
 [node name="ScreenSettings" type="Button" parent="M/TabContainer/OptionSelect/M/V/V"]
-margin_left = 175.0
-margin_top = 114.0
-margin_right = 411.0
-margin_bottom = 161.0
+margin_left = 183.0
+margin_top = 158.0
+margin_right = 404.0
+margin_bottom = 227.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 text = "Screen Settings"
+script = ExtResource( 6 )
 
 [node name="Back" type="Button" parent="M/TabContainer/OptionSelect/M/V"]
-margin_left = 254.0
-margin_top = 362.0
-margin_right = 331.0
-margin_bottom = 409.0
+margin_left = 246.0
+margin_top = 451.0
+margin_right = 341.0
+margin_bottom = 520.0
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Back"
+script = ExtResource( 6 )
 
 [node name="ChangeVolume" type="Control" parent="M/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 8.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_right = -3.0
 
 [node name="M" type="MarginContainer" parent="M/TabContainer/ChangeVolume"]
 anchor_right = 1.0
@@ -130,17 +144,15 @@ __meta__ = {
 [node name="ChangeVolume" parent="M/TabContainer/ChangeVolume/M" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 586.0
-margin_bottom = 458.0
+margin_right = 588.0
+margin_bottom = 570.0
 
 [node name="InputRemap" type="Control" parent="M/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 8.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_right = -3.0
 
 [node name="M" type="MarginContainer" parent="M/TabContainer/InputRemap"]
 anchor_right = 1.0
@@ -157,17 +169,15 @@ __meta__ = {
 [node name="InputRemap" parent="M/TabContainer/InputRemap/M" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 586.0
-margin_bottom = 458.0
+margin_right = 588.0
+margin_bottom = 570.0
 
 [node name="ScreenSettings" type="Control" parent="M/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 8.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_right = -3.0
 
 [node name="M" type="MarginContainer" parent="M/TabContainer/ScreenSettings"]
 anchor_right = 1.0
@@ -183,8 +193,8 @@ __meta__ = {
 [node name="ScreenSettings" parent="M/TabContainer/ScreenSettings/M" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 586.0
-margin_bottom = 458.0
+margin_right = 588.0
+margin_bottom = 570.0
 
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/Audio" to="." method="_on_Audio_pressed"]
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/Controls" to="." method="_on_Controls_pressed"]

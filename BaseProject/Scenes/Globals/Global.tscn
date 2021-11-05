@@ -13,5 +13,6 @@ __meta__ = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 96
 
 [node name="Transition" parent="CanvasLayer" instance=ExtResource( 2 )]

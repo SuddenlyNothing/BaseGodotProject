@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/UI/Options/ScreenSettings/ScreenSettings.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/ButtonSFX.gd" type="Script" id=2]
 
 [node name="ScreenSettings" type="Control" groups=[
 "save",
@@ -112,6 +113,7 @@ margin_bottom = 147.0
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Reset"
+script = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="V"]
 margin_left = 480.0
@@ -121,6 +123,7 @@ margin_bottom = 511.0
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Options"
+script = ExtResource( 2 )
 
 [connection signal="value_changed" from="V/V/H/Brightness" to="." method="_on_Brightness_value_changed"]
 [connection signal="value_changed" from="V/V/H2/Contrast" to="." method="_on_Contrast_value_changed"]

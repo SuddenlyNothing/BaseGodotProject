@@ -5,11 +5,13 @@ onready var transition := $CanvasLayer/Transition
 var current_scene : Node
 var previous_scene : String
 
+# Sets the current scene.
 func _ready() -> void:
 	var root = get_tree().get_root()
 	current_scene = root.get_child( root.get_child_count() -1 )
 
-
+# Goes to scene with a fade out fade in transition.
+# Pauses the game during transition.
 func goto_scene(path : String) -> void:
 	get_tree().paused = true
 	previous_scene = current_scene.filename
@@ -17,7 +19,7 @@ func goto_scene(path : String) -> void:
 	yield(transition, "faded_out")
 	call_deferred("_deferred_goto_scene",path)
 
-
+# Called by goto_scene to handle freeing the current scene.
 func _deferred_goto_scene(path : String) -> void:
 	# Immediately free the current scene,
 	# there is no risk here.
@@ -38,6 +40,6 @@ func _deferred_goto_scene(path : String) -> void:
 	transition.fade_in()
 	get_tree().paused = false
 
-
+# Exits and returns to current scene.
 func restart_scene() -> void:
 	goto_scene(current_scene.filename)

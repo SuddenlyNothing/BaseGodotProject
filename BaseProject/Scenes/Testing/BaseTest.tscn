@@ -1,35 +1,56 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Testing/BaseTest.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Characters/TestCharacter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Shaders/ScreenFilter.tres" type="Material" id=3]
+[ext_resource path="res://Scenes/UI/InputFormatLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/UI/Themes/BixTheme/BixTheme.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/UI/ButtonSFX.gd" type="Script" id=5]
 
 [node name="BaseTest" type="Node2D"]
 script = ExtResource( 1 )
 next_scene = "res://Scenes/Testing/BaseTest.tscn"
 
-[node name="Button" type="Button" parent="."]
-margin_left = 379.162
-margin_top = 139.998
-margin_right = 585.162
-margin_bottom = 210.998
-text = "Change Scene"
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="V" type="VBoxContainer" parent="Control"]
+margin_right = 395.0
+margin_bottom = 115.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/V"]
+margin_right = 395.0
+margin_bottom = 42.0
+text = "Press 'esc' to view options menu"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="Control/V"]
+margin_left = 51.0
+margin_top = 46.0
+margin_right = 343.0
+margin_bottom = 115.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Change Scene Button"
+script = ExtResource( 5 )
+
+[node name="InputFormatLabel" parent="Control" instance=ExtResource( 3 )]
+margin_top = 119.0
+margin_right = 274.0
+margin_bottom = 194.0
+size_flags_horizontal = 4
+text = "press {up}, {down},
+{left}, {right} to move"
 
 [node name="TestCharacter" parent="." instance=ExtResource( 2 )]
 position = Vector2( 320.131, 271.373 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = ExtResource( 3 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/V/Button" to="." method="_on_Button_pressed"]

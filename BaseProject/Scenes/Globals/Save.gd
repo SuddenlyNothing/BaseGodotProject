@@ -5,11 +5,12 @@ const SAVE_DIR = "user://saves/"
 var save_path = SAVE_DIR + "save.txt"
 var data
 
+# Loads data of all nodes that are in group "save".
 func _ready() -> void:
 	load_data()
 	get_tree().call_group("save", "load_data")
 
-
+# Loads data from folder if the folder filepath exists.
 func load_data() -> void:
 	var file = File.new()
 	if file.file_exists(save_path):
@@ -20,7 +21,7 @@ func load_data() -> void:
 	else:
 		data = {}
 
-
+# Saves data to folder filepath.
 func save_data() -> void:
 	var dir = Directory.new()
 	if not dir.dir_exists(SAVE_DIR):
@@ -32,8 +33,9 @@ func save_data() -> void:
 		file.store_var(data)
 	file.close()
 
-
+# Handles saving when the game is closed.
+# If you want to quit the game use this:
+# get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST).
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		save_data()
-		get_tree().quit()

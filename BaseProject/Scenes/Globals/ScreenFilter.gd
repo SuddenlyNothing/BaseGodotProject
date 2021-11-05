@@ -1,14 +1,16 @@
 extends CanvasLayer
+# Shader can be found in the material section of the ColorRect
 
-onready var canvas_modulate := $CanvasModulate
+onready var color_rect := $ColorRect
 
+# Sets shader param for brightness.
 func set_brightness(val) -> void:
-	canvas_modulate.get_material().set_shader_param("brightness", val)
+	color_rect.get_material().set_shader_param("brightness", val)
 
-
+# Sets shader param for contrast
 func set_contrast(val) -> void:
-	canvas_modulate.get_material().set_shader_param("contrast", val)
+	color_rect.get_material().set_shader_param("contrast", val)
 
-
+# Sets shader param for saturation
 func set_saturation(val) -> void:
-	canvas_modulate.get_material().set_shader_param("saturation", val)
+	color_rect.get_material().set_shader_param("saturation", val)
