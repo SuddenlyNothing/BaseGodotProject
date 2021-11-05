@@ -25,12 +25,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Control/V"]
+[node name="InputFormatLabel" parent="Control/V" instance=ExtResource( 3 )]
 margin_right = 395.0
 margin_bottom = 42.0
-text = "Press 'esc' to view options menu"
+text = "Press {pause} to view settings"
 align = 1
-valign = 1
 
 [node name="Button" type="Button" parent="Control/V"]
 margin_left = 51.0
