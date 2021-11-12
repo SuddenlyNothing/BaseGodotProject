@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Characters/TestCharacter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/UI/InputFormatLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/UI/Themes/BixTheme/BixTheme.tres" type="Theme" id=4]
-[ext_resource path="res://Scenes/UI/ButtonSFX.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/UI/ChangeScene.gd" type="Script" id=6]
 
 [node name="BaseTest" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,15 +31,17 @@ margin_bottom = 42.0
 text = "Press {pause} to view settings"
 align = 1
 
-[node name="Button" type="Button" parent="Control/V"]
+[node name="change_scene" type="Button" parent="Control/V"]
 margin_left = 51.0
 margin_top = 46.0
 margin_right = 343.0
 margin_bottom = 115.0
+focus_mode = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Change Scene Button"
-script = ExtResource( 5 )
+script = ExtResource( 6 )
+next_scene = "res://Scenes/Testing/BaseTest.tscn"
 
 [node name="InputFormatLabel" parent="Control" instance=ExtResource( 3 )]
 margin_top = 119.0
@@ -51,5 +53,3 @@ text = "press {up}, {down},
 
 [node name="TestCharacter" parent="." instance=ExtResource( 2 )]
 position = Vector2( 320.131, 271.373 )
-
-[connection signal="pressed" from="Control/V/Button" to="." method="_on_Button_pressed"]
