@@ -34,7 +34,7 @@ _global_script_class_icons={
 
 config/name="BaseProject"
 run/main_scene="res://Scenes/Testing/BaseTest.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/UI/Themes/BixTheme/Button.png"
 
 [autoload]
 
