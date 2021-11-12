@@ -1,5 +1,6 @@
 extends Button
 class_name ButtonSFX
+# warnings-disable
 
 # Connects mouse_entered signal to play hover sfx.
 func _ready() -> void:

@@ -1,5 +1,6 @@
 extends Node
 class_name StateMachine
+#warnings-disable
 
 var state = null
 var previous_state = null
@@ -26,13 +27,13 @@ func _get_transition(delta : float):
 # Called on entering state.
 # new_state is the state being entered.
 # old_state is the state being exited.
-func _enter_state(new_state : String, old_state : String) -> void:
+func _enter_state(new_state : String, old_state) -> void:
 	pass
 
 # Called on exiting state.
 # old_state is the state being exited.
 # new_state is the state being entered.
-func _exit_state(old_state : String, new_state : String) -> void:
+func _exit_state(old_state, new_state : String) -> void:
 	pass
 
 # Sets state while calling _exit_state and _enter_state
