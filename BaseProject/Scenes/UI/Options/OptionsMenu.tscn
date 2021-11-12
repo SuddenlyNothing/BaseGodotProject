@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/UI/Options/InputRemap/InputRemap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Options/OptionsMenu.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/UI/Options/ScreenSettings/ScreenSettings.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/UI/Themes/BixTheme/BixTheme.tres" type="Theme" id=5]
 [ext_resource path="res://Scenes/UI/ButtonSFX.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/UI/ChangeScene.gd" type="Script" id=7]
 
 [node name="OptionsMenu" type="CanvasLayer"]
 pause_mode = 2
@@ -66,9 +67,9 @@ margin_right = 588.0
 margin_bottom = 570.0
 
 [node name="Label" type="Label" parent="M/TabContainer/OptionSelect/M/V"]
-margin_top = 64.0
+margin_top = 34.0
 margin_right = 588.0
-margin_bottom = 103.0
+margin_bottom = 76.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "Options Menu"
@@ -76,9 +77,9 @@ align = 1
 valign = 1
 
 [node name="V" type="VBoxContainer" parent="M/TabContainer/OptionSelect/M/V"]
-margin_top = 171.0
+margin_top = 115.0
 margin_right = 588.0
-margin_bottom = 398.0
+margin_bottom = 342.0
 size_flags_vertical = 6
 custom_constants/separation = 10
 alignment = 1
@@ -112,11 +113,29 @@ size_flags_vertical = 3
 text = "Screen Settings"
 script = ExtResource( 6 )
 
-[node name="Back" type="Button" parent="M/TabContainer/OptionSelect/M/V"]
+[node name="V2" type="VBoxContainer" parent="M/TabContainer/OptionSelect/M/V"]
+margin_top = 384.0
+margin_right = 588.0
+margin_bottom = 532.0
+size_flags_vertical = 6
+size_flags_stretch_ratio = 2.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Menu" type="Button" parent="M/TabContainer/OptionSelect/M/V/V2"]
+margin_left = 215.0
+margin_right = 373.0
+margin_bottom = 69.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Main Menu"
+script = ExtResource( 7 )
+
+[node name="Back" type="Button" parent="M/TabContainer/OptionSelect/M/V/V2"]
 margin_left = 246.0
-margin_top = 451.0
+margin_top = 79.0
 margin_right = 341.0
-margin_bottom = 520.0
+margin_bottom = 148.0
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Back"
@@ -199,7 +218,8 @@ margin_bottom = 570.0
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/Audio" to="." method="_on_Audio_pressed"]
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/Controls" to="." method="_on_Controls_pressed"]
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/ScreenSettings" to="." method="_on_ScreenSettings_pressed"]
-[connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V2/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V2/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="M/TabContainer/ChangeVolume/M/ChangeVolume/V/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="M/TabContainer/InputRemap/M/InputRemap/V/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="M/TabContainer/ScreenSettings/M/ScreenSettings/V/Button" to="." method="_on_Button_pressed"]

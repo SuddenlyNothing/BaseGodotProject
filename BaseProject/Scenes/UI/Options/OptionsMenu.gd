@@ -32,7 +32,7 @@ func _on_ScreenSettings_pressed():
 
 # Closes option menu.
 func _on_Back_pressed():
-	self.active = false
+	set_active(false)
 
 # Sets the active of the option menu.
 func set_active(val) -> void:
@@ -42,3 +42,6 @@ func set_active(val) -> void:
 	mouse_capture.visible = val
 	get_tree().paused = val
 
+# Closes option menu.
+func _on_Menu_pressed():
+	set_active(false)
