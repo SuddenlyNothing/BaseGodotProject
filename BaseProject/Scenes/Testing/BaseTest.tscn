@@ -1,14 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/Testing/BaseTest.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Characters/TestCharacter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/UI/InputFormatLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/UI/Themes/BixTheme/BixTheme.tres" type="Theme" id=4]
 [ext_resource path="res://Scenes/UI/ChangeScene.gd" type="Script" id=6]
 
 [node name="BaseTest" type="Node2D"]
-script = ExtResource( 1 )
-next_scene = "res://Scenes/Testing/BaseTest.tscn"
 
 [node name="Control" type="Control" parent="."]
 margin_right = 40.0
