@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="BaseProject"
-run/main_scene="res://Scenes/Testing/BaseTest.tscn"
+run/main_scene="res://Scenes/Testing/Demo.tscn"
 run/delta_smoothing=false
 config/icon="res://Assets/UI/Themes/BixTheme/Button.png"
 
