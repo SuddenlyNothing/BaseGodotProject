@@ -55,7 +55,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Change Scene Button"
 script = ExtResource( 4 )
-next_scene = "res://Scenes/Testing/BaseTest.tscn"
+next_scene = "res://Scenes/Testing/Demo.tscn"
 
 [node name="InputFormatLabel2" parent="CanvasLayer/Control/V2/V" instance=ExtResource( 5 )]
 margin_left = 45.0
