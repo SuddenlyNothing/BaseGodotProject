@@ -8,7 +8,7 @@ var active = false setget set_active
 # Toggles option menu on "pause" press
 func _input(event):
 	if event is InputEventKey:
-		if event.is_pressed():
+		if event.is_pressed() and not event.is_echo():
 			for i in InputMap.get_action_list("pause"):
 				if event.scancode == i.scancode:
 					self.active = not active
