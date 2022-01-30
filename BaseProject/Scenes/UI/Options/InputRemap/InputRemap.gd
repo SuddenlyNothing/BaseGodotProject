@@ -4,8 +4,10 @@ extends Control
 # NOTE: Will erase mouse inputs on load after save and reset!!
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-var InputRemapButton := preload("res://Scenes/UI/Options/InputRemap/InputRemapButton.tscn")
-var InputRemapModule := preload("res://Scenes/UI/Options/InputRemap/InputRemapModule.tscn")
+const InputRemapButton := preload("res://Scenes/UI/Options/InputRemap/"+
+		"InputRemapButton.tscn")
+const InputRemapModule := preload("res://Scenes/UI/Options/InputRemap/"+
+		"InputRemapModule.tscn")
 
 onready var v_box := $V/SC/V
 

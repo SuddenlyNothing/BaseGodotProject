@@ -29,16 +29,19 @@ func _input(event) -> void:
 	if event is InputEventKey:
 		if event.scancode == scancode:
 			pressed = false
+			accept_event()
 			return
 		for i in InputMap.get_action_list(action):
 			if not i is InputEventKey:
 				continue
 			if i.scancode == event.scancode:
 				pressed = false
+				accept_event()
 				return
 		change_to_scancode(event.scancode)
 		pressed = false
 		event.set_pressed(false)
+		accept_event()
 
 # Updates InputMap as well as label to new_scancode
 func change_to_scancode(new_scancode) -> void:
