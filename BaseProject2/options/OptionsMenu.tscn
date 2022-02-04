@@ -169,7 +169,17 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 1 )
 tabs_visible = false
 
-[node name="VolumeSettings" parent="M/H/V2/Settings" instance=ExtResource( 6 )]
+[node name="ScrollContainer" type="ScrollContainer" parent="M/H/V2/Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VolumeSettings" parent="M/H/V2/Settings/ScrollContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 302.0
+margin_bottom = 449.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Controls" type="Control" parent="M/H/V2/Settings"]
 visible = false
@@ -186,75 +196,79 @@ __meta__ = {
 
 [node name="H" type="HBoxContainer" parent="M/H/V2/Settings/Controls/V"]
 margin_right = 302.0
-margin_bottom = 37.0
+margin_bottom = 39.0
 
 [node name="Label" type="Label" parent="M/H/V2/Settings/Controls/V/H"]
+margin_top = 1.0
 margin_right = 149.0
-margin_bottom = 36.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "UP"
 
 [node name="ButtonSFX" type="Button" parent="M/H/V2/Settings/Controls/V/H"]
 margin_left = 153.0
 margin_right = 302.0
-margin_bottom = 37.0
+margin_bottom = 39.0
 size_flags_horizontal = 3
 text = "W"
 script = ExtResource( 1 )
 
 [node name="H2" type="HBoxContainer" parent="M/H/V2/Settings/Controls/V"]
-margin_top = 47.0
+margin_top = 49.0
 margin_right = 302.0
-margin_bottom = 84.0
+margin_bottom = 88.0
 
 [node name="Label" type="Label" parent="M/H/V2/Settings/Controls/V/H2"]
+margin_top = 1.0
 margin_right = 149.0
-margin_bottom = 36.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "DOWN"
 
 [node name="ButtonSFX" type="Button" parent="M/H/V2/Settings/Controls/V/H2"]
 margin_left = 153.0
 margin_right = 302.0
-margin_bottom = 37.0
+margin_bottom = 39.0
 size_flags_horizontal = 3
 text = "S"
 script = ExtResource( 1 )
 
 [node name="H3" type="HBoxContainer" parent="M/H/V2/Settings/Controls/V"]
-margin_top = 94.0
+margin_top = 98.0
 margin_right = 302.0
-margin_bottom = 131.0
+margin_bottom = 137.0
 
 [node name="Label" type="Label" parent="M/H/V2/Settings/Controls/V/H3"]
+margin_top = 1.0
 margin_right = 149.0
-margin_bottom = 36.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "LEFT"
 
 [node name="ButtonSFX" type="Button" parent="M/H/V2/Settings/Controls/V/H3"]
 margin_left = 153.0
 margin_right = 302.0
-margin_bottom = 37.0
+margin_bottom = 39.0
 size_flags_horizontal = 3
 text = "A"
 script = ExtResource( 1 )
 
 [node name="H4" type="HBoxContainer" parent="M/H/V2/Settings/Controls/V"]
-margin_top = 141.0
+margin_top = 147.0
 margin_right = 302.0
-margin_bottom = 178.0
+margin_bottom = 186.0
 
 [node name="Label" type="Label" parent="M/H/V2/Settings/Controls/V/H4"]
+margin_top = 1.0
 margin_right = 149.0
-margin_bottom = 36.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "RIGHT"
 
 [node name="ButtonSFX" type="Button" parent="M/H/V2/Settings/Controls/V/H4"]
 margin_left = 153.0
 margin_right = 302.0
-margin_bottom = 37.0
+margin_bottom = 39.0
 size_flags_horizontal = 3
 text = "D"
 script = ExtResource( 1 )

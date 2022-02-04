@@ -13,8 +13,10 @@ __meta__ = {
 }
 
 [node name="ResetAll" type="Button" parent="."]
+margin_left = 935.0
 margin_right = 1024.0
 margin_bottom = 20.0
+size_flags_horizontal = 8
 text = "Reset Audio"
 expand_icon = true
 script = ExtResource( 2 )
