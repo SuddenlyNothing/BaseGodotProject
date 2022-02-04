@@ -7,29 +7,35 @@
 
 [sub_resource type="StyleBoxEmpty" id=8]
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0, 0, 0, 1 )
+[sub_resource type="StyleBoxFlat" id=12]
+content_margin_left = 10.0
+bg_color = Color( 0.137255, 0.137255, 0.137255, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 3
 border_color = Color( 0.8, 0.8, 0.8, 0.784314 )
+corner_radius_top_left = 10
 
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+[sub_resource type="StyleBoxFlat" id=13]
+content_margin_left = 10.0
+bg_color = Color( 0.27451, 0.27451, 0.27451, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 3
 border_color = Color( 0.8, 0.8, 0.8, 0.784314 )
+corner_radius_top_left = 10
 
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.580392, 0.564706, 0.501961, 1 )
+[sub_resource type="StyleBoxFlat" id=14]
+content_margin_left = 10.0
+bg_color = Color( 0.501961, 0.501961, 0.501961, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
-border_width_bottom = 1
+border_width_bottom = 3
 border_color = Color( 0.8, 0.8, 0.8, 0.784314 )
+corner_radius_top_left = 10
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 1, 1, 1, 1 )
@@ -66,9 +72,9 @@ font_data = ExtResource( 1 )
 default_font = SubResource( 2 )
 Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 0.784314 )
 Button/styles/focus = SubResource( 8 )
-Button/styles/hover = SubResource( 4 )
-Button/styles/normal = SubResource( 5 )
-Button/styles/pressed = SubResource( 6 )
+Button/styles/hover = SubResource( 12 )
+Button/styles/normal = SubResource( 13 )
+Button/styles/pressed = SubResource( 14 )
 HSlider/icons/grabber = ExtResource( 3 )
 HSlider/icons/grabber_disabled = ExtResource( 2 )
 HSlider/icons/grabber_highlight = ExtResource( 4 )

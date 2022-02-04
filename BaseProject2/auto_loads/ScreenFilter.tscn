@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Shaders/ScreenFilter.tres" type="Material" id=1]
+[ext_resource path="res://auto_loads/ScreenFilter.gd" type="Script" id=2]
+
+[node name="ScreenFilter" type="CanvasLayer"]
+layer = 128
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

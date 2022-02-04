@@ -2,7 +2,7 @@ extends VBoxContainer
 
 const VolumeModule := preload("res://options/VolumeSettings/VolumeModule.tscn")
 
-# will load audio bus data from this array if not empty
+# Will load audio bus data from this array if not empty
 const AUDIO_BUSES : Array = []
 
 
@@ -16,7 +16,7 @@ func load_volume_modules() -> void:
 			load_module(AudioServer.get_bus_name(i))
 	else:
 		for i in AUDIO_BUSES:
-			load_module(AudioServer.get_bus_name(i))
+			load_module(i)
 
 
 func load_module(bus_name: String) -> void:

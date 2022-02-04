@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://utils/ButtonSFX.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/themes/OptionsSelect.tres" type="Theme" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://utils/ButtonChangeScene.gd" type="Script" id=4]
 [ext_resource path="res://assets/ui/themes/Settings.tres" type="Theme" id=5]
 [ext_resource path="res://options/VolumeSettings/VolumeSettings.tscn" type="PackedScene" id=6]
+[ext_resource path="res://options/ScreenSettings/ScreenSettings.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/fonts/RobotoRegular32.tres" type="DynamicFont" id=8]
 
 [sub_resource type="Shader" id=3]
@@ -262,10 +263,12 @@ size_flags_horizontal = 3
 text = "D"
 script = ExtResource( 1 )
 
-[node name="ScreenSettings" type="Control" parent="M/H/V2/Settings"]
+[node name="ScreenSettings2" parent="M/H/V2/Settings" instance=ExtResource( 7 )]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
 
 [connection signal="toggled" from="M/H/V/Audio" to="M/H" method="_on_Audio_toggled"]
 [connection signal="toggled" from="M/H/V/Controls" to="M/H" method="_on_Controls_toggled"]
