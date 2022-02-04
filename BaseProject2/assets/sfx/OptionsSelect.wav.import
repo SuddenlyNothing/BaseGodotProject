@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/OptionsSelect.wav-da27bab00fa246d778bfaa49db145350.sample"
+
+[deps]
+
+source_file="res://assets/sfx/OptionsSelect.wav"
+dest_files=[ "res://.import/OptionsSelect.wav-da27bab00fa246d778bfaa49db145350.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

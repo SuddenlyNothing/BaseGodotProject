@@ -1,0 +1,55 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Button",
+"class": "ButtonSFX",
+"language": "GDScript",
+"path": "res://utils/ButtonSFX.gd"
+}, {
+"base": "ButtonSFX",
+"class": "ChangeScene",
+"language": "GDScript",
+"path": "res://utils/ButtonChangeScene.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://scenes/characters/StateMachine.gd"
+} ]
+_global_script_class_icons={
+"ButtonSFX": "",
+"ChangeScene": "",
+"StateMachine": ""
+}
+
+[application]
+
+config/name="Base Project 2"
+run/main_scene="res://scenes/Demo.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+SceneHandler="*res://auto_loads/SceneHandler.tscn"
+Save="*res://auto_loads/Save.gd"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

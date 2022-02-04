@@ -13,9 +13,7 @@ margin_right = 18.0
 margin_top = 21.0
 margin_bottom = 18.0
 
-[node name="VolumeSliderMute" type="HBoxContainer" groups=[
-"save",
-]]
+[node name="VolumeSliderMute" type="HBoxContainer" groups=["save"]]
 margin_right = 40.0
 margin_bottom = 40.0
 alignment = 1
