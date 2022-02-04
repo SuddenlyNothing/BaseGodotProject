@@ -21,9 +21,9 @@ border_color = Color( 1, 1, 1, 1 )
 
 [resource]
 default_font = ExtResource( 1 )
-Button/colors/font_color = Color( 0.470588, 0.470588, 0.470588, 1 )
-Button/colors/font_color_hover = Color( 0.371094, 0.371094, 0.371094, 1 )
-Button/colors/font_color_pressed = Color( 0.176471, 0.176471, 0.176471, 1 )
+Button/colors/font_color = Color( 0.246, 0.3, 0.2964, 0.666667 )
+Button/colors/font_color_hover = Color( 0.1955, 0.23, 0.222525, 0.784314 )
+Button/colors/font_color_pressed = Color( 0.0313726, 0.164706, 0.192157, 1 )
 Button/styles/focus = SubResource( 4 )
 Button/styles/hover = SubResource( 1 )
 Button/styles/normal = SubResource( 2 )

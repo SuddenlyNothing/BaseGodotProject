@@ -14,18 +14,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Reset" type="Button" parent="."]
-margin_right = 1024.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-text = "Reset Screen Settings"
-script = ExtResource( 2 )
-
 [node name="V" type="VBoxContainer" parent="."]
-margin_top = 50.0
 margin_right = 1024.0
-margin_bottom = 85.0
+margin_bottom = 35.0
 custom_constants/separation = 5
 
 [node name="Label" type="Label" parent="V"]
@@ -45,9 +36,9 @@ step = 0.01
 value = 1.0
 
 [node name="V2" type="VBoxContainer" parent="."]
-margin_top = 115.0
+margin_top = 65.0
 margin_right = 1024.0
-margin_bottom = 150.0
+margin_bottom = 100.0
 custom_constants/separation = 5
 
 [node name="Label" type="Label" parent="V2"]
@@ -67,9 +58,9 @@ step = 0.01
 value = 1.0
 
 [node name="V3" type="VBoxContainer" parent="."]
-margin_top = 180.0
+margin_top = 130.0
 margin_right = 1024.0
-margin_bottom = 215.0
+margin_bottom = 165.0
 custom_constants/separation = 5
 
 [node name="Label" type="Label" parent="V3"]
@@ -88,6 +79,15 @@ max_value = 1.5
 step = 0.01
 value = 1.0
 
-[connection signal="pressed" from="Reset" to="." method="_on_Reset_pressed"]
+[node name="Reset" type="Button" parent="."]
+margin_top = 195.0
+margin_right = 1024.0
+margin_bottom = 215.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Reset Screen"
+script = ExtResource( 2 )
+
 [connection signal="value_changed" from="V/Brightness" to="." method="_on_Brightness_value_changed"]
 [connection signal="value_changed" from="V2/Contrast" to="." method="_on_Contrast_value_changed"]
+[connection signal="pressed" from="Reset" to="." method="_on_Reset_pressed"]
