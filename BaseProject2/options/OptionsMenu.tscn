@@ -76,6 +76,7 @@ alignment = 1
 margin_right = 241.0
 margin_bottom = 84.0
 size_flags_vertical = 3
+disabled = true
 toggle_mode = true
 pressed = true
 text = "Audio"

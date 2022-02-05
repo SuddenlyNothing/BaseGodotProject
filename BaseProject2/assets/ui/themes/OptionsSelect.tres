@@ -2,6 +2,11 @@
 
 [ext_resource path="res://assets/fonts/RobotoRegular32.tres" type="DynamicFont" id=1]
 
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.894118, 0.941176, 0.952941, 1 )
+border_width_top = 3
+border_color = Color( 1, 1, 1, 1 )
+
 [sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -14,16 +19,13 @@ bg_color = Color( 0.862745, 0.968627, 0.988235, 0.588235 )
 border_width_top = 3
 border_color = Color( 1, 1, 1, 0.588235 )
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.894118, 0.941176, 0.952941, 1 )
-border_width_top = 3
-border_color = Color( 1, 1, 1, 1 )
-
 [resource]
 default_font = ExtResource( 1 )
-Button/colors/font_color = Color( 0.2128, 0.26992, 0.28, 0.392157 )
+Button/colors/font_color = Color( 0.211765, 0.270588, 0.278431, 0.392157 )
+Button/colors/font_color_disabled = Color( 0.0509804, 0.243137, 0.278431, 1 )
 Button/colors/font_color_hover = Color( 0.243137, 0.341176, 0.32549, 0.588235 )
 Button/colors/font_color_pressed = Color( 0.0509804, 0.243137, 0.278431, 1 )
+Button/styles/disabled = SubResource( 3 )
 Button/styles/focus = SubResource( 4 )
 Button/styles/hover = SubResource( 1 )
 Button/styles/normal = SubResource( 2 )

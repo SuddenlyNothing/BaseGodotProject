@@ -27,7 +27,7 @@ func _play_hover_sfx() -> void:
 	sfx.bus = "SFX"
 	sfx.stream = preload("res://Assets/SFX/OptionsHover.wav")
 	sfx.pause_mode = Node.PAUSE_MODE_PROCESS
-	sfx.volume_db = -15
+	sfx.volume_db = -20
 	add_child(sfx)
 	sfx.play()
 	sfx.connect("finished", sfx, "queue_free")
