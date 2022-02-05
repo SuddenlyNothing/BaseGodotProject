@@ -2,7 +2,7 @@ extends Node
 
 const SAVE_DIR = "user://saves/"
 
-var save_path = SAVE_DIR + "save.dat"
+var settings_save_path = SAVE_DIR + "settings.dat"
 var data
 
 
@@ -15,10 +15,10 @@ func _ready() -> void:
 # Loads data from folder if the folder filepath exists.
 func load_data() -> void:
 	var file = File.new()
-	if file.file_exists(save_path):
-		var error = file.open(save_path, File.READ)
+	if file.file_exists(settings_save_path):
+		var error = file.open(settings_save_path, File.READ)
 		if error == OK:
-			data = file.get_var()
+			data = file.get_var(true)
 		file.close()
 	else:
 		data = {}
@@ -31,9 +31,9 @@ func save_data() -> void:
 		dir.make_dir_recursive(SAVE_DIR)
 	
 	var file = File.new()
-	var error = file.open(save_path, File.WRITE)
+	var error = file.open(settings_save_path, File.WRITE)
 	if error == OK:
-		file.store_var(data)
+		file.store_var(data, true)
 	file.close()
 
 

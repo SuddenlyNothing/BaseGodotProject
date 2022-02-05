@@ -5,22 +5,27 @@ const VolumeModule := preload("res://options/VolumeSettings/VolumeModule.tscn")
 # Will load audio bus data from this array if not empty
 const AUDIO_BUSES : Array = []
 
-
-func _ready():
-	load_volume_modules()
+onready var reset_all := $ResetAll
 
 
-func load_volume_modules() -> void:
-	if AUDIO_BUSES.empty():
-		for i in AudioServer.bus_count:
-			load_module(AudioServer.get_bus_name(i))
+func load_data() -> void:
+	if "audio_buses" in Save.data:
+		for audio_bus in Save.data.audio_buses:
+			load_module(audio_bus)
 	else:
-		for i in AUDIO_BUSES:
-			load_module(i)
+		Save.data["audio_buses"] = {}
+		if AUDIO_BUSES.empty():
+			for i in AudioServer.bus_count:
+				load_module(AudioServer.get_bus_name(i))
+		else:
+			for i in AUDIO_BUSES:
+				load_module(i)
+		
 
 
 func load_module(bus_name: String) -> void:
 	var volume_module = VolumeModule.instance()
+	volume_module.connect("updated", self, "_on_volume_module_updated")
 	add_child(volume_module)
 	volume_module.audio_bus_name = bus_name
 
@@ -28,3 +33,11 @@ func load_module(bus_name: String) -> void:
 func _on_ResetAll_pressed() -> void:
 	for i in range(1, get_child_count()):
 		get_child(i).reset()
+
+
+func _on_volume_module_updated() -> void:
+	for i in range(1, get_child_count()):
+		if not get_child(i).is_default:
+			reset_all.disabled = false
+			return
+	reset_all.disabled = true

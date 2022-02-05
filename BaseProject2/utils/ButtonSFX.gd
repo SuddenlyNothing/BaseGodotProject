@@ -21,6 +21,8 @@ func _pressed() -> void:
 
 # Plays SFX on hover.
 func _play_hover_sfx() -> void:
+	if disabled:
+		return
 	var sfx := AudioStreamPlayer.new()
 	sfx.bus = "SFX"
 	sfx.stream = preload("res://Assets/SFX/OptionsHover.wav")

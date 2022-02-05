@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://utils/ButtonSFX.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/reset.png" type="Texture" id=2]
+
+[node name="InputRemapModule" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="H" type="HBoxContainer" parent="."]
+margin_right = 408.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="H"]
+margin_top = 3.0
+margin_right = 269.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Input"
+
+[node name="Reset" type="Button" parent="H"]
+margin_left = 273.0
+margin_right = 408.0
+margin_bottom = 20.0
+size_flags_horizontal = 11
+size_flags_vertical = 3
+icon = ExtResource( 2 )
+expand_icon = true
+script = ExtResource( 1 )
+
+[node name="V" type="VBoxContainer" parent="."]
+margin_left = 412.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+alignment = 1
