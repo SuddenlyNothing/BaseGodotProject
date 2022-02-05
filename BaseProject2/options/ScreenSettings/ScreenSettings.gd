@@ -61,6 +61,8 @@ func _on_Reset_pressed() -> void:
 	check_defaults()
 
 
+# Checks if brightness, contrast, and saturation values are at their default and
+# sets reset to disabled if they are not at their defaults.
 func check_defaults() -> void:
 	if brightness.value == DEFAULT_BRIGHTNESS &&\
 			contrast.value == DEFAULT_CONTRAST &&\

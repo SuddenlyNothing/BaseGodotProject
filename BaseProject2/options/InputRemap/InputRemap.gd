@@ -42,6 +42,10 @@ func _input(event: InputEvent) -> void:
 	input_to_text(event)
 
 
+# Adds an input remap module as a child
+# {action} is the action the module is representing
+# {events} are the events that can be remapped
+# {from_save} is if the provided action and events are from save data
 func add_new_input_remap_module(action: String, events: Array, from_save: bool = true) -> void:
 	var input_remap_module = InputRemapModule.instance()
 	input_remap_module.get_node("H/Label").text = action

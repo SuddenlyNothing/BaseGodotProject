@@ -4,7 +4,9 @@ signal updated
 
 var audio_bus_name : String setget set_audio_bus_name
 
+# Is volume and mute at default value
 var is_default : bool
+
 var bus : int
 var default_mute : bool
 var default_volume : float
@@ -73,6 +75,7 @@ func reset() -> void:
 	set_reset_show()
 
 
+# Sets default and reset.visible based on if the values are at default.
 func set_reset_show() -> void:
 	if mute.pressed == default_mute && volume_slider.value == default_volume:
 		is_default = true
