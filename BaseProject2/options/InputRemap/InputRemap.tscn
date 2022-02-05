@@ -5,6 +5,7 @@
 [node name="InputRemap" type="VBoxContainer" groups=["save"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_clip_content = true
 custom_constants/separation = 10
 script = ExtResource( 1 )
 __meta__ = {

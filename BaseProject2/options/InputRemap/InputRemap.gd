@@ -18,6 +18,8 @@ const MOUSE_BUTTONS = {
 # Used for determining key button font size
 const BUTTON_H_CONTENT_MARGIN : int = 30
 const DEFAULT_FONT_SIZE : int = 32
+const BUTTON_V_PADDING : int = 5
+const FONT_PATH : String = "res://assets/fonts/Roboto-Regular.ttf"
 
 # True when a key is being remapped
 var is_mapping : bool = false
@@ -93,14 +95,13 @@ func add_new_input_remap_module(action: String, events: Array, from_save: bool =
 func add_new_key_button(parent, event: InputEvent, action: String, button_ind: int) -> void:
 	var key_button := ButtonSFX.new()
 	key_button.text = input_to_text(event)
-#	key_button.add_font_override("roboto-regular", preload("res://assets/fonts/RobotoRegular32.tres"))
 	key_button.toggle_mode = true
 	key_button.clip_text = true
 	key_button.connect("pressed", self, "_on_key_button_pressed",
 			[parent, key_button, action, button_ind])
 	parent.add_child(key_button)
 	yield(key_button, "draw")
-	key_button.rect_min_size = key_button.rect_size
+	key_button.rect_min_size = key_button.rect_size + Vector2(0, BUTTON_V_PADDING)
 	set_key_button_font_size(key_button, input_to_text(event))
 
 
@@ -110,11 +111,10 @@ func set_key_button_font_size(key_button: ButtonSFX, text: String) -> void:
 	var content_size = key_button.rect_size.x - BUTTON_H_CONTENT_MARGIN
 	var font_lines = font.get_string_size(text).x / content_size
 	# Couldn't find a better way to change font size for single button
-	var path = "res://assets/fonts/Roboto-Regular.ttf"
 	var new_font = DynamicFont.new()
 	var new_data = DynamicFontData.new()
 	var new_font_size : int = floor(min(font.size / font_lines, DEFAULT_FONT_SIZE))
-	new_data.font_path = path
+	new_data.font_path = FONT_PATH
 	new_font.font_data = new_data
 	new_font.size = new_font_size
 	key_button.set("custom_fonts/font", new_font)
