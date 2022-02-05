@@ -48,7 +48,7 @@ func _input(event: InputEvent) -> void:
 # {from_save} is if the provided action and events are from save data
 func add_new_input_remap_module(action: String, events: Array, from_save: bool = true) -> void:
 	var input_remap_module = InputRemapModule.instance()
-	input_remap_module.get_node("H/Label").text = action
+	input_remap_module.get_node("H/Label").text = action.capitalize()
 	var buttons_parent = input_remap_module.get_node("V")
 	if not from_save:
 		InputMap.action_erase_events(action)

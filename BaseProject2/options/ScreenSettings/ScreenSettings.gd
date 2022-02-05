@@ -7,6 +7,9 @@ const DEFAULT_SATURATION := 1.0
 onready var brightness := $V/Brightness
 onready var contrast := $V2/Contrast
 onready var saturation := $V3/Saturation
+onready var b_reset := $V/H/BReset
+onready var c_reset := $V2/H/CReset
+onready var s_reset := $V3/H/SReset
 onready var reset := $Reset
 
 
@@ -70,3 +73,29 @@ func check_defaults() -> void:
 		reset.disabled = true
 	else:
 		reset.disabled = false
+	set_reset_hidden()
+
+
+# Sets brightness to default
+func _on_BReset_pressed() -> void:
+	brightness.value = DEFAULT_BRIGHTNESS
+	check_defaults()
+
+
+# Sets contrast to default
+func _on_CReset_pressed() -> void:
+	contrast.value = DEFAULT_CONTRAST
+	check_defaults()
+
+
+# Sets saturation to default
+func _on_SReset_pressed() -> void:
+	saturation.value = DEFAULT_SATURATION
+	check_defaults()
+
+
+# Sets reset hidden if value is at default
+func set_reset_hidden() -> void:
+	b_reset.visible = not brightness.value == DEFAULT_BRIGHTNESS
+	c_reset.visible = not contrast.value == DEFAULT_CONTRAST
+	s_reset.visible = not saturation.value == DEFAULT_SATURATION

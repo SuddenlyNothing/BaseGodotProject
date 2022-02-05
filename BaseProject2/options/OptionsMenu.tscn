@@ -9,40 +9,12 @@
 [ext_resource path="res://options/ScreenSettings/ScreenSettings.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/fonts/RobotoRegular32.tres" type="DynamicFont" id=8]
 [ext_resource path="res://options/InputRemap/InputRemap.tscn" type="PackedScene" id=9]
-
-[sub_resource type="Shader" id=3]
-code = "shader_type canvas_item;
-
-uniform vec4 COLOR1 : hint_color =  vec4(0.0, 0.0, 0.0, 1.0);
-
-uniform vec4 COLOR2 : hint_color =  vec4(1.0, 1.0, 1.0, 1.0);
-
-uniform vec4 SUN_COLOR : hint_color = vec4(1.0, 1.0, 0.0, 1.0);
-
-uniform vec2 SUN_POS = vec2(1.05, 0);
-
-uniform float SUN_FEATHER = 0.05;
-
-uniform float SUN_SIZE = 0.1;
-
-uniform float distortion_speed = 0.5;
-
-vec4 lerp_color(vec4 a, vec4 b, float t) {
-    return (1.0 - t) * a + t * b;
-}
-
-
-
-void fragment() {
-	float sun_dist = smoothstep(SUN_SIZE, SUN_SIZE + SUN_FEATHER, distance(UV, SUN_POS));
-	COLOR = lerp_color(COLOR1, COLOR2, (cos(TIME * distortion_speed) + 1.0) / 2.0 + UV.x - UV.y);
-	COLOR = lerp_color(SUN_COLOR, COLOR, sun_dist);
-}"
+[ext_resource path="res://assets/Shaders/OptionsMenuBG.tres" type="Shader" id=10]
 
 [sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
-shader_param/COLOR1 = Color( 0.109804, 0.568627, 0.741176, 1 )
-shader_param/COLOR2 = Color( 0.831373, 0.619608, 0.254902, 1 )
+shader = ExtResource( 10 )
+shader_param/COLOR1 = Color( 0.11, 0.57, 0.74, 1 )
+shader_param/COLOR2 = Color( 0.83, 0.62, 0.25, 1 )
 shader_param/SUN_COLOR = Color( 1, 1, 0, 1 )
 shader_param/SUN_POS = Vector2( 1.05, 0.02 )
 shader_param/SUN_FEATHER = 0.05

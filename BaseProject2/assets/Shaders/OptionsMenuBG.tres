@@ -1,0 +1,30 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform vec4 COLOR1 : hint_color =  vec4(0.11, 0.57, 0.74, 1.0);
+
+uniform vec4 COLOR2 : hint_color =  vec4(0.83, 0.62, 0.25, 1.0);
+
+uniform vec4 SUN_COLOR : hint_color = vec4(1.0, 1.0, 0.0, 1.0);
+
+uniform vec2 SUN_POS = vec2(1.05, 0.02);
+
+uniform float SUN_FEATHER = 0.05;
+
+uniform float SUN_SIZE = 0.1;
+
+uniform float distortion_speed = 0.5;
+
+vec4 lerp_color(vec4 a, vec4 b, float t) {
+    return (1.0 - t) * a + t * b;
+}
+
+
+
+void fragment() {
+	float sun_dist = smoothstep(SUN_SIZE, SUN_SIZE + SUN_FEATHER, distance(UV, SUN_POS));
+	COLOR = lerp_color(COLOR1, COLOR2, (cos(TIME * distortion_speed) + 1.0) / 2.0 + UV.x - UV.y);
+	COLOR = lerp_color(SUN_COLOR, COLOR, sun_dist);
+}"

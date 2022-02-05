@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://options/ScreenSettings/ScreenSettings.gd" type="Script" id=1]
 [ext_resource path="res://utils/ButtonSFX.gd" type="Script" id=2]
+[ext_resource path="res://assets/ui/reset.png" type="Texture" id=3]
 
 [node name="ScreenSettings" type="VBoxContainer" groups=["save"]]
 margin_right = 1024.0
@@ -26,19 +27,33 @@ script = ExtResource( 2 )
 [node name="V" type="VBoxContainer" parent="."]
 margin_top = 50.0
 margin_right = 1024.0
-margin_bottom = 85.0
+margin_bottom = 91.0
 custom_constants/separation = 5
 
-[node name="Label" type="Label" parent="V"]
+[node name="H" type="HBoxContainer" parent="V"]
 margin_right = 1024.0
-margin_bottom = 14.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="V/H"]
+margin_top = 3.0
+margin_right = 970.0
+margin_bottom = 17.0
 size_flags_horizontal = 3
 text = "Brightness"
 
-[node name="Brightness" type="HSlider" parent="V"]
-margin_top = 19.0
+[node name="BReset" type="Button" parent="V/H"]
+margin_left = 974.0
 margin_right = 1024.0
-margin_bottom = 35.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+icon = ExtResource( 3 )
+expand_icon = true
+script = ExtResource( 2 )
+
+[node name="Brightness" type="HSlider" parent="V"]
+margin_top = 25.0
+margin_right = 1024.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
@@ -46,21 +61,35 @@ step = 0.01
 value = 1.0
 
 [node name="V2" type="VBoxContainer" parent="."]
-margin_top = 115.0
+margin_top = 121.0
 margin_right = 1024.0
-margin_bottom = 150.0
+margin_bottom = 162.0
 custom_constants/separation = 5
 
-[node name="Label" type="Label" parent="V2"]
+[node name="H" type="HBoxContainer" parent="V2"]
 margin_right = 1024.0
-margin_bottom = 14.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="V2/H"]
+margin_top = 3.0
+margin_right = 970.0
+margin_bottom = 17.0
 size_flags_horizontal = 3
 text = "Contrast"
 
-[node name="Contrast" type="HSlider" parent="V2"]
-margin_top = 19.0
+[node name="CReset" type="Button" parent="V2/H"]
+margin_left = 974.0
 margin_right = 1024.0
-margin_bottom = 35.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+icon = ExtResource( 3 )
+expand_icon = true
+script = ExtResource( 2 )
+
+[node name="Contrast" type="HSlider" parent="V2"]
+margin_top = 25.0
+margin_right = 1024.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
@@ -68,21 +97,35 @@ step = 0.01
 value = 1.0
 
 [node name="V3" type="VBoxContainer" parent="."]
-margin_top = 180.0
+margin_top = 192.0
 margin_right = 1024.0
-margin_bottom = 215.0
+margin_bottom = 233.0
 custom_constants/separation = 5
 
-[node name="Label" type="Label" parent="V3"]
+[node name="H" type="HBoxContainer" parent="V3"]
 margin_right = 1024.0
-margin_bottom = 14.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="V3/H"]
+margin_top = 3.0
+margin_right = 970.0
+margin_bottom = 17.0
 size_flags_horizontal = 3
 text = "Saturation"
 
-[node name="Saturation" type="HSlider" parent="V3"]
-margin_top = 19.0
+[node name="SReset" type="Button" parent="V3/H"]
+margin_left = 974.0
 margin_right = 1024.0
-margin_bottom = 35.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+icon = ExtResource( 3 )
+expand_icon = true
+script = ExtResource( 2 )
+
+[node name="Saturation" type="HSlider" parent="V3"]
+margin_top = 25.0
+margin_right = 1024.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
@@ -90,6 +133,9 @@ step = 0.01
 value = 1.0
 
 [connection signal="pressed" from="Reset" to="." method="_on_Reset_pressed"]
+[connection signal="pressed" from="V/H/BReset" to="." method="_on_BReset_pressed"]
 [connection signal="value_changed" from="V/Brightness" to="." method="_on_Brightness_value_changed"]
+[connection signal="pressed" from="V2/H/CReset" to="." method="_on_CReset_pressed"]
 [connection signal="value_changed" from="V2/Contrast" to="." method="_on_Contrast_value_changed"]
+[connection signal="pressed" from="V3/H/SReset" to="." method="_on_SReset_pressed"]
 [connection signal="value_changed" from="V3/Saturation" to="." method="_on_Saturation_value_changed"]
