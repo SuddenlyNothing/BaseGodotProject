@@ -30,6 +30,8 @@ var map_key_button := {
 	"ind": null,
 }
 
+# Reset buttons for storing action, parent, and reset buttons
+# Used for resetting inputs for actions and determining visibility
 var reset_buttons = {}
 
 onready var reset_all := $ResetAll
@@ -108,7 +110,6 @@ func add_new_key_button(parent, event: InputEvent, action: String, button_ind: i
 	key_button.text = input_to_text(event)
 	key_button.toggle_mode = true
 	key_button.clip_text = true
-	key_button.size_flags_vertical = SIZE_EXPAND_FILL
 	key_button.connect("pressed", self, "_on_key_button_pressed",
 			[parent, key_button, action, button_ind])
 	parent.add_child(key_button)
@@ -223,6 +224,7 @@ func set_reset_all_disabled() -> void:
 	reset_all.disabled = true
 
 
+# Resets all actions to default inputs
 func _on_ResetAll_pressed() -> void:
 	for i in reset_buttons:
 		reset_action(i)
