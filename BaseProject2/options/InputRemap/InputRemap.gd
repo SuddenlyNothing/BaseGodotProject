@@ -17,8 +17,7 @@ const MOUSE_BUTTONS = {
 
 # Used for determining key button font size
 const BUTTON_H_CONTENT_MARGIN : int = 30
-const DEFAULT_FONT_SIZE : int = 32
-const BUTTON_V_PADDING : int = 5
+const DEFAULT_FONT_SIZE : int = 28
 const FONT_PATH : String = "res://assets/fonts/Roboto-Regular.ttf"
 
 # True when a key is being remapped
@@ -31,6 +30,10 @@ var map_key_button := {
 	"ind": null,
 }
 
+var reset_buttons = {}
+
+onready var reset_all := $ResetAll
+
 
 # Called by the Save singleton
 # Loads keys from Variables.user_keys if no data (no saves yet)
@@ -42,6 +45,7 @@ func load_data() -> void:
 		Save.data["actions"] = {}
 		for action in Variables.user_keys:
 			add_new_input_remap_module(action, InputMap.get_action_list(action), false)
+	set_reset_all_disabled()
 
 
 # Maps new inputs to actions using map_key_button
@@ -61,6 +65,9 @@ func _input(event: InputEvent) -> void:
 			# Reset mapping state.
 			is_mapping = false
 			map_key_button.self.pressed = false
+			# Sets reset buttons
+			set_reset_visible(map_key_button.action)
+			set_reset_all_disabled()
 		# Eat inputs so it doesn't propogate further
 		get_tree().set_input_as_handled()
 
@@ -72,7 +79,10 @@ func _input(event: InputEvent) -> void:
 func add_new_input_remap_module(action: String, events: Array, from_save: bool = true) -> void:
 	var input_remap_module = InputRemapModule.instance()
 	input_remap_module.get_node("H/Label").text = action.capitalize()
+	var input_reset_button = input_remap_module.get_node("H/Reset")
 	var buttons_parent = input_remap_module.get_node("V")
+	reset_buttons[action] = [input_reset_button, buttons_parent]
+	input_reset_button.connect("pressed", self, "_on_reset_pressed", [action])
 	if not from_save:
 		InputMap.action_erase_events(action)
 		Save.data.actions[action] = {
@@ -86,6 +96,7 @@ func add_new_input_remap_module(action: String, events: Array, from_save: bool =
 		InputMap.action_add_event(action, events[i])
 		add_new_key_button(buttons_parent, events[i], action, i)
 	add_child(input_remap_module)
+	set_reset_visible(action)
 
 
 # Adds a key button to the given parent
@@ -97,11 +108,12 @@ func add_new_key_button(parent, event: InputEvent, action: String, button_ind: i
 	key_button.text = input_to_text(event)
 	key_button.toggle_mode = true
 	key_button.clip_text = true
+	key_button.size_flags_vertical = SIZE_EXPAND_FILL
 	key_button.connect("pressed", self, "_on_key_button_pressed",
 			[parent, key_button, action, button_ind])
 	parent.add_child(key_button)
 	yield(key_button, "draw")
-	key_button.rect_min_size = key_button.rect_size + Vector2(0, BUTTON_V_PADDING)
+	key_button.rect_min_size = key_button.rect_size
 	set_key_button_font_size(key_button, input_to_text(event))
 
 
@@ -136,7 +148,7 @@ func _on_key_button_pressed(parent, key_button: ButtonSFX, action: String, butto
 # Checks if children of parent with the action child has the default inputs
 func is_children_defaults(parent, action: String) -> bool:
 	var inputs = []
-	for i in Save.data.actions[action].inputs:
+	for i in Save.data.actions[action].default_inputs:
 		inputs.append(input_to_text(i))
 	for i in parent.get_children():
 		if not i.text in inputs:
@@ -150,7 +162,7 @@ func can_map_event(event: InputEvent) -> bool:
 	# some events can't be mapped to actions
 	if not event.is_action_type():
 		return false
-		
+	
 	# wait for button release (this allows for key modifiers)
 	if event.is_pressed():
 		return false
@@ -174,3 +186,44 @@ func input_to_text(input: InputEvent) -> String:
 		return "Joypad Axis %d%s" % [input.axis, "+" if input.axis_value > 0 else "-"]
 	
 	return input.as_text()
+
+
+# Resets inputs of the given action and updates disiability of reset_all
+func _on_reset_pressed(action: String) -> void:
+	set_reset_all_disabled()
+	reset_action(action)
+
+
+# Resets inputs of the given action to saved defaults
+func reset_action(action: String) -> void:
+	reset_buttons[action][0].hide()
+	var buttons_parent = reset_buttons[action][1]
+	for i in buttons_parent.get_child_count():
+		var default_input = Save.data.actions[action].default_inputs[i]
+		var button = buttons_parent.get_child(i)
+		button.text = input_to_text(default_input)
+		set_key_button_font_size(button, button.text)
+		Save.data.actions[action].inputs[i] = default_input
+
+
+# Sets the reset button's visibility based on if children are default
+func set_reset_visible(action: String) -> void:
+	if is_children_defaults(reset_buttons[action][1], action):
+		reset_buttons[action][0].hide()
+	else:
+		reset_buttons[action][0].show()
+
+
+# Sets disabled if all actions are at defaults
+func set_reset_all_disabled() -> void:
+	for i in reset_buttons:
+		if not is_children_defaults(reset_buttons[i][1], i):
+			reset_all.disabled = false
+			return
+	reset_all.disabled = true
+
+
+func _on_ResetAll_pressed() -> void:
+	for i in reset_buttons:
+		reset_action(i)
+	reset_all.disabled = true
