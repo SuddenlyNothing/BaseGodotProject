@@ -36,6 +36,7 @@ border_color = Color( 1, 1, 1, 1 )
 
 [node name="OptionsMenu" type="CanvasLayer"]
 pause_mode = 2
+layer = 128
 script = ExtResource( 11 )
 
 [node name="MouseCapture" type="ColorRect" parent="."]
