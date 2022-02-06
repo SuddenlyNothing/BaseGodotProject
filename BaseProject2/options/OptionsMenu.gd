@@ -10,6 +10,16 @@ func _input(event):
 	if event.is_action_released("pause"):
 		self.active = not active
 		get_tree().set_input_as_handled()
+		
+		# Play click sfx
+		var sfx := AudioStreamPlayer.new()
+		sfx.bus = "SFX"
+		sfx.stream = preload("res://Assets/SFX/OptionsSelect.wav")
+		sfx.pause_mode = Node.PAUSE_MODE_PROCESS
+		sfx.volume_db = -15
+		add_child(sfx)
+		sfx.play()
+		sfx.connect("finished", sfx, "queue_free")
 
 
 # Sets the active of the option menu.
