@@ -191,8 +191,8 @@ func input_to_text(input: InputEvent) -> String:
 
 # Resets inputs of the given action and updates disiability of reset_all
 func _on_reset_pressed(action: String) -> void:
-	set_reset_all_disabled()
 	reset_action(action)
+	set_reset_all_disabled()
 
 
 # Resets inputs of the given action to saved defaults

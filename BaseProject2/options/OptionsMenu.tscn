@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://utils/ButtonSFX.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/themes/OptionsSelect.tres" type="Theme" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://options/InputRemap/InputRemap.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Shaders/OptionsMenuBG.tres" type="Shader" id=10]
+[ext_resource path="res://options/OptionsMenu.gd" type="Script" id=11]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 10 )
@@ -33,14 +34,12 @@ border_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[node name="OptionsMenu" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="OptionsMenu" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 11 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="MouseCapture" type="ColorRect" parent="."]
+visible = false
 material = SubResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,6 +49,7 @@ __meta__ = {
 }
 
 [node name="M" type="MarginContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 200
@@ -166,5 +166,5 @@ margin_bottom = 0.0
 [connection signal="toggled" from="M/H/V/Audio" to="M/H" method="_on_Audio_toggled"]
 [connection signal="toggled" from="M/H/V/Controls" to="M/H" method="_on_Controls_toggled"]
 [connection signal="toggled" from="M/H/V/ScreenSettings" to="M/H" method="_on_ScreenSettings_toggled"]
-[connection signal="pressed" from="M/H/V/Menu" to="M/H" method="_on_Menu_pressed"]
-[connection signal="pressed" from="M/H/V/Back" to="M/H" method="_on_Back_pressed"]
+[connection signal="pressed" from="M/H/V/Menu" to="." method="set_active" binds= [ false ]]
+[connection signal="pressed" from="M/H/V/Back" to="." method="set_active" binds= [ false ]]

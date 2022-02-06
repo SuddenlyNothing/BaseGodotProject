@@ -32,16 +32,6 @@ func _on_ScreenSettings_toggled(button_pressed: bool) -> void:
 		screen_settings.pressed = true
 
 
-# Sets options menu to inactive
-func _on_Menu_pressed() -> void:
-	pass # Replace with function body.
-
-
-# Sets options menu to inactive
-func _on_Back_pressed() -> void:
-	pass # Replace with function body.
-
-
 # Sets the active tab
 func set_current_setting(val: int) -> void:
 	current_setting = val

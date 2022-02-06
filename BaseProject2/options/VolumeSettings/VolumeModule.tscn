@@ -33,7 +33,6 @@ margin_right = 970.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_vertical = 3
-text = "ASDF"
 icon = ExtResource( 3 )
 expand_icon = true
 script = ExtResource( 2 )
