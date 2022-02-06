@@ -199,12 +199,14 @@ func _on_reset_pressed(action: String) -> void:
 func reset_action(action: String) -> void:
 	reset_buttons[action][0].hide()
 	var buttons_parent = reset_buttons[action][1]
+	InputMap.action_erase_events(action)
 	for i in buttons_parent.get_child_count():
 		var default_input = Save.data.actions[action].default_inputs[i]
 		var button = buttons_parent.get_child(i)
 		button.text = input_to_text(default_input)
 		set_key_button_font_size(button, button.text)
 		Save.data.actions[action].inputs[i] = default_input
+		InputMap.action_add_event(action, default_input)
 
 
 # Sets the reset button's visibility based on if children are default
