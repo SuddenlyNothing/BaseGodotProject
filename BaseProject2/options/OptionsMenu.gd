@@ -14,7 +14,7 @@ func _input(event):
 		# Play click sfx
 		var sfx := AudioStreamPlayer.new()
 		sfx.bus = "SFX"
-		sfx.stream = preload("res://Assets/SFX/OptionsSelect.wav")
+		sfx.stream = preload("res://assets/sfx/OptionsSelect.wav")
 		sfx.pause_mode = Node.PAUSE_MODE_PROCESS
 		sfx.volume_db = -15
 		add_child(sfx)

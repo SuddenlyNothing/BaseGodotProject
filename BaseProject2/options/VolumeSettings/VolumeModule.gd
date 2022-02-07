@@ -60,9 +60,9 @@ func load_data() -> void:
 # Sets bus mute value
 func _on_Mute_toggled(button_pressed : bool) -> void:
 	if button_pressed:
-		mute.icon = preload("res://Assets/UI/Mute.png")
+		mute.icon = preload("res://assets/ui/mute.png")
 	else:
-		mute.icon = preload("res://Assets/UI/Speaker.png")
+		mute.icon = preload("res://assets/ui/speaker.png")
 	set_reset_show()
 	Save.data.audio_buses[audio_bus_name]["muted"] = button_pressed
 	AudioServer.set_bus_mute(bus, button_pressed)
