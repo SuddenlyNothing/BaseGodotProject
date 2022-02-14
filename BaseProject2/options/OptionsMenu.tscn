@@ -5,11 +5,11 @@
 [ext_resource path="res://options/OptionsSelect.gd" type="Script" id=3]
 [ext_resource path="res://utils/ButtonChangeScene.gd" type="Script" id=4]
 [ext_resource path="res://assets/ui/themes/Settings.tres" type="Theme" id=5]
-[ext_resource path="res://options/VolumeSettings/VolumeSettings.tscn" type="PackedScene" id=6]
-[ext_resource path="res://options/ScreenSettings/ScreenSettings.tscn" type="PackedScene" id=7]
+[ext_resource path="res://options/volume_settings/VolumeSettings.tscn" type="PackedScene" id=6]
+[ext_resource path="res://options/screen_settings/ScreenSettings.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://options/InputRemap/InputRemap.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/Shaders/OptionsMenuBG.tres" type="Shader" id=10]
+[ext_resource path="res://options/input_remap/InputRemap.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/shaders/OptionsMenuBG.tres" type="Shader" id=10]
 [ext_resource path="res://options/OptionsMenu.gd" type="Script" id=11]
 
 [sub_resource type="ShaderMaterial" id=4]
@@ -36,7 +36,7 @@ border_color = Color( 1, 1, 1, 1 )
 
 [node name="OptionsMenu" type="CanvasLayer"]
 pause_mode = 2
-layer = 128
+layer = 127
 script = ExtResource( 11 )
 
 [node name="MouseCapture" type="ColorRect" parent="."]

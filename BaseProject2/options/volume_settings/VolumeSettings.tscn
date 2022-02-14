@@ -1,24 +1,24 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://options/InputRemap/InputRemap.gd" type="Script" id=1]
+[ext_resource path="res://options/volume_settings/VolumeSettings.gd" type="Script" id=1]
 [ext_resource path="res://utils/ButtonSFX.gd" type="Script" id=2]
 
-[node name="InputRemap" type="VBoxContainer" groups=["save"]]
+[node name="VolumeSettings" type="VBoxContainer" groups=["save"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = true
-custom_constants/separation = 10
+custom_constants/separation = 30
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ResetAll" type="Button" parent="."]
-margin_left = 919.0
+margin_left = 935.0
 margin_right = 1024.0
 margin_bottom = 20.0
 size_flags_horizontal = 8
-text = "Reset Controls"
+text = "Reset Audio"
+expand_icon = true
 script = ExtResource( 2 )
 
 [connection signal="pressed" from="ResetAll" to="." method="_on_ResetAll_pressed"]

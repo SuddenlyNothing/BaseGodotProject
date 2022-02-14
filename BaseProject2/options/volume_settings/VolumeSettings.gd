@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-const VolumeModule := preload("res://options/VolumeSettings/VolumeModule.tscn")
+const VolumeModule := preload("res://options/volume_settings/VolumeModule.tscn")
 
 # Will load audio bus data from this array if not empty.
 const AUDIO_BUSES : Array = []

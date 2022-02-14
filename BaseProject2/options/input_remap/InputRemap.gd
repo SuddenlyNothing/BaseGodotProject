@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-const InputRemapModule := preload("res://options/InputRemap/InputRemapModule.tscn")
+const InputRemapModule := preload("res://options/input_remap/InputRemapModule.tscn")
 
 # Translates button constants to strings.
 const MOUSE_BUTTONS = {
