@@ -78,7 +78,8 @@ func _input(event: InputEvent) -> void:
 # {action} is the action the module is representing
 # {events} are the events that can be remapped
 # {from_save} is if the provided action and events are from save data
-func add_new_input_remap_module(action: String, events: Array, from_save: bool = true) -> void:
+func add_new_input_remap_module(action: String, events: Array,
+		from_save: bool = true) -> void:
 	var input_remap_module = InputRemapModule.instance()
 	input_remap_module.get_node("H/Label").text = action.capitalize()
 	var input_reset_button = input_remap_module.get_node("H/Reset")
@@ -105,7 +106,8 @@ func add_new_input_remap_module(action: String, events: Array, from_save: bool =
 # {event} is InputEvent this button is representing
 # {action} is the InputMap action that this button is a part of
 # {button_ind} is the index of the button. Useful for indexing against
-func add_new_key_button(parent, event: InputEvent, action: String, button_ind: int) -> void:
+func add_new_key_button(parent: Node, event: InputEvent, action: String,
+		button_ind: int) -> void:
 	var key_button := ButtonSFX.new()
 	key_button.text = input_to_text(event)
 	key_button.toggle_mode = true
@@ -134,7 +136,8 @@ func set_key_button_font_size(key_button: ButtonSFX, text: String) -> void:
 
 
 # Sets the mapping state to active starts the input detection
-func _on_key_button_pressed(parent, key_button: ButtonSFX, action: String, button_ind: int) -> void:
+func _on_key_button_pressed(parent: Node, key_button: ButtonSFX, action: String,
+		button_ind: int) -> void:
 	if not key_button.pressed:
 		return
 	is_mapping = true

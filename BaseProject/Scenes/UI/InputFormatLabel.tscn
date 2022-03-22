@@ -5,6 +5,3 @@
 [node name="InputFormatLabel" type="Label" groups=["uses_keys"]]
 margin_bottom = 14.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}

@@ -24,21 +24,13 @@ func goto_scene(path : String) -> void:
 
 # Called by goto_scene to handle freeing the current scene.
 func _deferred_goto_scene(path : String) -> void:
-	# Immediately free the current scene,
-	# there is no risk here.
-	current_scene.free()
-
 	# Load new scene
 	var s = ResourceLoader.load(path)
 
 	# Instance the new scene
 	current_scene = s.instance()
 
-	# Add it to the active scene, as child of root
-	get_tree().get_root().add_child(current_scene)
-
-	# optional, to make it compatible with the SceneTree.change_scene() API
-	get_tree().set_current_scene( current_scene )
+	get_tree().change_scene_to(s)
 	
 	transition.fade_in()
 	get_tree().paused = false
