@@ -70,6 +70,8 @@ func _input(event: InputEvent) -> void:
 			# Sets reset buttons
 			set_reset_visible(map_key_button.action)
 			set_reset_all_disabled()
+			# Update input format
+			update_action_format(map_key_button.action)
 		# Eat inputs so it doesn't propogate further
 		get_tree().set_input_as_handled()
 
@@ -92,12 +94,17 @@ func add_new_input_remap_module(action: String, events: Array,
 			"default_inputs": [],
 			"inputs": [],
 		}
+	
 	for i in events.size():
 		if not from_save:
 			Save.data.actions[action].inputs.append(events[i])
 			Save.data.actions[action].default_inputs.append(events[i])
 		InputMap.action_add_event(action, events[i])
 		add_new_key_button(buttons_parent, events[i], action, i)
+	
+	# Update input format
+	update_action_format(action)
+	
 	add_child(input_remap_module)
 	set_reset_visible(action)
 
@@ -135,18 +142,21 @@ func set_key_button_font_size(key_button: ButtonSFX, text: String) -> void:
 	key_button.set("custom_fonts/font", new_font)
 
 
-# Sets the mapping state to active starts the input detection
-func _on_key_button_pressed(parent: Node, key_button: ButtonSFX, action: String,
-		button_ind: int) -> void:
-	if not key_button.pressed:
-		return
-	is_mapping = true
-	map_key_button.self = key_button
-	map_key_button.parent = parent
-	map_key_button.action = action
-	map_key_button.ind = button_ind
-	key_button.text = "..."
-	set_key_button_font_size(key_button, "...")
+# Updates the input_format in Variables to match the actual keys
+func update_action_format(action: String) -> void:
+	var action_list := InputMap.get_action_list(action)
+	var all_actions = ""
+	for i in action_list.size():
+		if i > 0:
+			if action_list.size() != 2:
+				all_actions += ", "
+			else:
+				all_actions += " "
+			if i == action_list.size() - 1:
+				all_actions += "or "
+		all_actions += input_to_text(action_list[i])
+	Variables.input_format[action] = all_actions
+	get_tree().call_group("needs_keys", "update_keys")
 
 
 # Checks if children of parent with the action child has the default inputs
@@ -192,12 +202,6 @@ func input_to_text(input: InputEvent) -> String:
 	return input.as_text()
 
 
-# Resets inputs of the given action and updates disiability of reset_all
-func _on_reset_pressed(action: String) -> void:
-	reset_action(action)
-	set_reset_all_disabled()
-
-
 # Resets inputs of the given action to saved defaults
 func reset_action(action: String) -> void:
 	reset_buttons[action][0].hide()
@@ -210,6 +214,7 @@ func reset_action(action: String) -> void:
 		set_key_button_font_size(button, button.text)
 		Save.data.actions[action].inputs[i] = default_input
 		InputMap.action_add_event(action, default_input)
+	update_action_format(action)
 
 
 # Sets the reset button's visibility based on if children are default
@@ -220,6 +225,12 @@ func set_reset_visible(action: String) -> void:
 		reset_buttons[action][0].show()
 
 
+# Resets inputs of the given action and updates disiability of reset_all
+func _on_reset_pressed(action: String) -> void:
+	reset_action(action)
+	set_reset_all_disabled()
+
+
 # Sets disabled if all actions are at defaults
 func set_reset_all_disabled() -> void:
 	for i in reset_buttons:
@@ -227,6 +238,20 @@ func set_reset_all_disabled() -> void:
 			reset_all.disabled = false
 			return
 	reset_all.disabled = true
+
+
+# Sets the mapping state to active starts the input detection
+func _on_key_button_pressed(parent: Node, key_button: ButtonSFX, action: String,
+		button_ind: int) -> void:
+	if not key_button.pressed:
+		return
+	is_mapping = true
+	map_key_button.self = key_button
+	map_key_button.parent = parent
+	map_key_button.action = action
+	map_key_button.ind = button_ind
+	key_button.text = "..."
+	set_key_button_font_size(key_button, "...")
 
 
 # Resets all actions to default inputs

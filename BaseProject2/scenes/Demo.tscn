@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://utils/ButtonChangeScene.gd" type="Script" id=1]
+[ext_resource path="res://utils/InputFormatLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/Packed.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
 
 [node name="Demo" type="Node2D"]
 
@@ -10,7 +15,17 @@ margin_bottom = 20.0
 focus_mode = 0
 text = "Change scene"
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 next_scene = "res://scenes/Demo.tscn"
+
+[node name="InputFormatLabel" parent="." instance=ExtResource( 2 )]
+margin_left = 293.0
+margin_top = 166.0
+margin_right = 578.0
+margin_bottom = 271.0
+custom_fonts/font = SubResource( 1 )
+text = "UP: {up}
+DOWN: {down}
+LEFT: {left}
+RIGHT: {right}
+PAUSE: {pause}
+If you rebind keys. This text will update"
