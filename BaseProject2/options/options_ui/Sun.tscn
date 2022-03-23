@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/shaders/OptionsMenuBG.tres" type="Shader" id=2]
+[ext_resource path="res://options/SettingsPanels.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/ui/themes/OptionsSelect.tres" type="Theme" id=4]
+[ext_resource path="res://options/options_ui/OptionsSelect.gd" type="Script" id=5]
+[ext_resource path="res://utils/ButtonChangeScene.gd" type="Script" id=6]
+[ext_resource path="res://assets/ui/themes/Settings.tres" type="Theme" id=7]
+[ext_resource path="res://utils/ButtonSFX.gd" type="Script" id=13]
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 2 )
+shader_param/COLOR1 = Color( 0.11, 0.57, 0.74, 1 )
+shader_param/COLOR2 = Color( 0.83, 0.62, 0.25, 1 )
+shader_param/SUN_COLOR = Color( 1, 1, 0, 1 )
+shader_param/SUN_POS = Vector2( 1.05, 0.02 )
+shader_param/SUN_FEATHER = 0.05
+shader_param/SUN_SIZE = 0.1
+shader_param/distortion_speed = 0.5
+
+[sub_resource type="DynamicFont" id=5]
+resource_local_to_scene = true
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+draw_center = false
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="Sun" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MouseCapture" type="ColorRect" parent="."]
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.317647, 0.580392, 0.0509804, 1 )
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 200
+custom_constants/margin_top = 50
+custom_constants/margin_left = 200
+custom_constants/margin_bottom = 50
+
+[node name="H" type="HBoxContainer" parent="M"]
+margin_left = 200.0
+margin_top = 50.0
+margin_right = 824.0
+margin_bottom = 550.0
+custom_constants/separation = 20
+alignment = 1
+script = ExtResource( 5 )
+
+[node name="V" type="VBoxContainer" parent="M/H"]
+margin_right = 241.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+theme = ExtResource( 4 )
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Audio" type="Button" parent="M/H/V"]
+margin_right = 241.0
+margin_bottom = 84.0
+size_flags_vertical = 3
+disabled = true
+toggle_mode = true
+pressed = true
+text = "Audio"
+script = ExtResource( 13 )
+
+[node name="Controls" type="Button" parent="M/H/V"]
+margin_top = 104.0
+margin_right = 241.0
+margin_bottom = 188.0
+size_flags_vertical = 3
+toggle_mode = true
+text = "Controls"
+script = ExtResource( 13 )
+
+[node name="ScreenSettings" type="Button" parent="M/H/V"]
+margin_top = 208.0
+margin_right = 241.0
+margin_bottom = 292.0
+size_flags_vertical = 3
+toggle_mode = true
+text = "Screen"
+script = ExtResource( 13 )
+
+[node name="Menu" type="Button" parent="M/H/V"]
+margin_top = 312.0
+margin_right = 241.0
+margin_bottom = 396.0
+size_flags_vertical = 3
+text = "Menu"
+script = ExtResource( 6 )
+next_scene = "res://scenes/Demo.tscn"
+
+[node name="Back" type="Button" parent="M/H/V"]
+margin_top = 416.0
+margin_right = 241.0
+margin_bottom = 500.0
+size_flags_vertical = 3
+text = "Back"
+script = ExtResource( 13 )
+
+[node name="V2" type="VBoxContainer" parent="M/H"]
+margin_left = 261.0
+margin_right = 624.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme = ExtResource( 7 )
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="M/H/V2"]
+margin_left = 185.0
+margin_right = 363.0
+margin_bottom = 41.0
+size_flags_horizontal = 10
+custom_fonts/font = SubResource( 5 )
+custom_styles/normal = SubResource( 2 )
+text = "Pause Menu"
+
+[node name="Settings" parent="M/H/V2" instance=ExtResource( 3 )]
+
+[connection signal="toggled" from="M/H/V/Audio" to="M/H" method="_on_button_toggled" binds= [ "AUDIO" ]]
+[connection signal="toggled" from="M/H/V/Controls" to="M/H" method="_on_button_toggled" binds= [ "CONTROLS" ]]
+[connection signal="toggled" from="M/H/V/ScreenSettings" to="M/H" method="_on_button_toggled" binds= [ "SCREEN_SETTINGS" ]]
+[connection signal="pressed" from="M/H/V/Back" to="M/H" method="_on_Back_pressed"]

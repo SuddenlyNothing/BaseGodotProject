@@ -9,6 +9,7 @@ anchor_bottom = 1.0
 rect_clip_content = true
 custom_constants/separation = 10
 script = ExtResource( 1 )
+font_path = "res://assets/fonts/Roboto-Regular.ttf"
 
 [node name="ResetAll" type="Button" parent="."]
 margin_left = 919.0

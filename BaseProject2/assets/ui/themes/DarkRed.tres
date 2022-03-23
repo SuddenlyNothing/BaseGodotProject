@@ -1,0 +1,59 @@
+[gd_resource type="Theme" load_steps=10 format=2]
+
+[ext_resource path="res://assets/fonts/RobotoRegular28.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.129412, 0.129412, 0.129412, 1 )
+border_width_left = 3
+border_width_right = 3
+border_color = Color( 0.129412, 0.129412, 0.129412, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
+border_width_left = 3
+border_width_right = 3
+border_color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.129412, 0.129412, 0.129412, 1 )
+border_width_left = 3
+border_width_right = 3
+border_color = Color( 0.129412, 0.129412, 0.129412, 1 )
+
+[sub_resource type="ImageTexture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.913725, 0.317647, 0.321569, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 20
+
+[sub_resource type="StyleBoxLine" id=9]
+color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
+thickness = 10
+
+[resource]
+default_font = ExtResource( 1 )
+Button/styles/disabled = SubResource( 5 )
+Button/styles/focus = SubResource( 4 )
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = SubResource( 7 )
+HSlider/icons/grabber = SubResource( 6 )
+HSlider/icons/grabber_disabled = SubResource( 6 )
+HSlider/icons/grabber_highlight = SubResource( 6 )
+HSlider/icons/tick = SubResource( 6 )
+HSlider/styles/grabber_area = SubResource( 8 )
+HSlider/styles/grabber_area_highlight = SubResource( 8 )
+HSlider/styles/slider = SubResource( 9 )

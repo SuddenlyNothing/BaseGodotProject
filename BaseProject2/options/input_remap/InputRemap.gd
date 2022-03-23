@@ -1,6 +1,7 @@
 extends VBoxContainer
 
-const InputRemapModule := preload("res://options/input_remap/InputRemapModule.tscn")
+const InputRemapModule := preload("res://options/input_remap/"+
+		"InputRemapModule.tscn")
 
 # Translates button constants to strings.
 const MOUSE_BUTTONS = {
@@ -18,7 +19,9 @@ const MOUSE_BUTTONS = {
 # Used for determining key button font size
 const BUTTON_H_CONTENT_MARGIN : int = 30
 const DEFAULT_FONT_SIZE : int = 28
-const FONT_PATH : String = "res://assets/fonts/Roboto-Regular.ttf"
+
+# Font used for buttons
+export(String, FILE, "*.ttf") var font_path : String
 
 # True when a key is being remapped
 var is_mapping : bool = false
@@ -46,7 +49,8 @@ func load_data() -> void:
 	else:
 		Save.data["actions"] = {}
 		for action in Variables.user_keys:
-			add_new_input_remap_module(action, InputMap.get_action_list(action), false)
+			add_new_input_remap_module(action,
+					InputMap.get_action_list(action), false)
 	set_reset_all_disabled()
 
 
@@ -55,7 +59,8 @@ func _input(event: InputEvent) -> void:
 	if is_mapping:
 		if can_map_event(event):
 			map_key_button.self.text = input_to_text(event)
-			var action_inputs : Array = Save.data.actions[map_key_button.action].inputs
+			var action_inputs : Array = Save.data.actions[map_key_button\
+					.action].inputs
 			var old_event : InputEvent = action_inputs[map_key_button.ind]
 			# replace old event
 			action_inputs[map_key_button.ind] = event
@@ -104,8 +109,8 @@ func add_new_input_remap_module(action: String, events: Array,
 	
 	# Update input format
 	update_action_format(action)
-	
 	add_child(input_remap_module)
+	
 	set_reset_visible(action)
 
 
@@ -129,14 +134,15 @@ func add_new_key_button(parent: Node, event: InputEvent, action: String,
 
 # Update font size to fit text within button
 func set_key_button_font_size(key_button: ButtonSFX, text: String) -> void:
-	var font : DynamicFont = key_button.get_font("name")
+	var font : DynamicFont = key_button.get_font("")
 	var content_size = key_button.rect_size.x - BUTTON_H_CONTENT_MARGIN
 	var font_lines = font.get_string_size(text).x / content_size
 	# Couldn't find a better way to change font size for single button
 	var new_font = DynamicFont.new()
 	var new_data = DynamicFontData.new()
-	var new_font_size : int = floor(min(font.size / font_lines, DEFAULT_FONT_SIZE))
-	new_data.font_path = FONT_PATH
+	var new_font_size : int = floor(min(font.size / font_lines,
+			DEFAULT_FONT_SIZE))
+	new_data.font_path = font_path
 	new_font.font_data = new_data
 	new_font.size = new_font_size
 	key_button.set("custom_fonts/font", new_font)
@@ -197,7 +203,8 @@ func input_to_text(input: InputEvent) -> String:
 		return "Joypad Button %d" % input.button_index
 		
 	if input is InputEventJoypadMotion:
-		return "Joypad Axis %d%s" % [input.axis, "+" if input.axis_value > 0 else "-"]
+		return "Joypad Axis %d%s" % [input.axis,
+				"+" if input.axis_value > 0 else "-"]
 	
 	return input.as_text()
 

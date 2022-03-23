@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var active : bool = false setget set_active
 
-onready var mouse_capture := $MouseCapture
+onready var options_ui := get_child(0)
 
 
 # Toggles option menu on "pause" press.
@@ -25,6 +25,5 @@ func _input(event):
 # Sets the active of the option menu.
 func set_active(val) -> void:
 	active = val
-	$M.visible = val
-	mouse_capture.visible = val
+	options_ui.visible = val
 	get_tree().paused = val

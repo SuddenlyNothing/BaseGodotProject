@@ -11,9 +11,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Reset" type="Button" parent="."]
 margin_left = 929.0
@@ -46,9 +43,15 @@ margin_left = 974.0
 margin_right = 1024.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
-icon = ExtResource( 3 )
 expand_icon = true
 script = ExtResource( 2 )
+
+[node name="ResetIcon" type="TextureRect" parent="V/H/BReset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
 
 [node name="Brightness" type="HSlider" parent="V"]
 margin_top = 25.0
@@ -82,9 +85,15 @@ margin_left = 974.0
 margin_right = 1024.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
-icon = ExtResource( 3 )
 expand_icon = true
 script = ExtResource( 2 )
+
+[node name="ResetIcon" type="TextureRect" parent="V2/H/CReset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
 
 [node name="Contrast" type="HSlider" parent="V2"]
 margin_top = 25.0
@@ -118,9 +127,15 @@ margin_left = 974.0
 margin_right = 1024.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
-icon = ExtResource( 3 )
 expand_icon = true
 script = ExtResource( 2 )
+
+[node name="ResetIcon" type="TextureRect" parent="V3/H/SReset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
 
 [node name="Saturation" type="HSlider" parent="V3"]
 margin_top = 25.0

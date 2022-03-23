@@ -14,22 +14,9 @@ onready var screen_settings : Button = $V/ScreenSettings
 onready var settings : TabContainer = $V2/Settings
 
 
-# Sets the audio tab to active
-func _on_Audio_toggled(button_pressed: bool) -> void:
+func _on_button_toggled(button_pressed: bool, button: String) -> void:
 	if button_pressed:
-		set_current_setting(TAB.AUDIO)
-
-# Sets the controls tab to active
-func _on_Controls_toggled(button_pressed: bool) -> void:
-	if button_pressed:
-		set_current_setting(TAB.CONTROLS)
-
-# Sets the screen settings tab to active
-func _on_ScreenSettings_toggled(button_pressed: bool) -> void:
-	if button_pressed:
-		set_current_setting(TAB.SCREEN_SETTINGS)
-	elif current_setting == TAB.SCREEN_SETTINGS:
-		screen_settings.pressed = true
+		set_current_setting(TAB[button])
 
 
 # Sets the active tab
@@ -56,4 +43,7 @@ func set_current_setting(val: int) -> void:
 					continue
 				screen_settings.pressed = false
 				screen_settings.disabled = false
-	
+
+
+func _on_Back_pressed() -> void:
+	OptionsMenu.set_active(false)
