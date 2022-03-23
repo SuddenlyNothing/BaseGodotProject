@@ -132,4 +132,5 @@ text = "Pause Menu"
 [connection signal="toggled" from="M/H/V/Audio" to="M/H" method="_on_button_toggled" binds= [ "AUDIO" ]]
 [connection signal="toggled" from="M/H/V/Controls" to="M/H" method="_on_button_toggled" binds= [ "CONTROLS" ]]
 [connection signal="toggled" from="M/H/V/ScreenSettings" to="M/H" method="_on_button_toggled" binds= [ "SCREEN_SETTINGS" ]]
+[connection signal="pressed" from="M/H/V/Menu" to="M/H" method="_on_Back_pressed"]
 [connection signal="pressed" from="M/H/V/Back" to="M/H" method="_on_Back_pressed"]
