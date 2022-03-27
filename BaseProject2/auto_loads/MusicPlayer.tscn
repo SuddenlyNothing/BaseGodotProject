@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/tmp/level-section-A.wav" type="AudioStream" id=1]
 [ext_resource path="res://auto_loads/MusicPlayer.gd" type="Script" id=2]
 
 [node name="MusicPlayer" type="Node"]
@@ -8,4 +7,3 @@ pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="Level" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )

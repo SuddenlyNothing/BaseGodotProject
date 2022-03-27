@@ -1,7 +1,8 @@
+tool
 class_name ChangeScene
 extends ButtonSFX
 
-export(String, FILE, "*.tscn") var next_scene
+export(String, FILE, "*.tscn") var next_scene : String
 
 
 func _ready() -> void:
@@ -15,3 +16,11 @@ func _ready() -> void:
 func _pressed() -> void:
 	SceneHandler.goto_scene(next_scene)
 	._pressed()
+
+
+# Sets config warning when next_scene is missing
+func _get_configuration_warning() -> String:
+	var warning := ""
+	if not next_scene:
+		warning = "Please set the next scene value"
+	return warning
