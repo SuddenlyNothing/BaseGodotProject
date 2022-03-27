@@ -43,6 +43,7 @@ Save="*res://auto_loads/Save.gd"
 ScreenFilter="*res://auto_loads/ScreenFilter.tscn"
 Variables="*res://auto_loads/Variables.gd"
 OptionsMenu="*res://options/OptionsMenu.tscn"
+MusicPlayer="*res://auto_loads/MusicPlayer.tscn"
 
 [display]
 
