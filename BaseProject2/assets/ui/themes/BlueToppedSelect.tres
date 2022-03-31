@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://assets/fonts/RobotoRegular32.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.486275, 0.627451, 0.756863, 0.705882 )
+border_width_bottom = 3
+border_color = Color( 0.615686, 0.752941, 0.827451, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.486275, 0.627451, 0.756863, 0.705882 )
+border_width_bottom = 3
+border_color = Color( 0.486275, 0.627451, 0.756863, 0.705882 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+draw_center = false
+border_width_bottom = 3
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.411765, 0.552941, 0.682353, 0.705882 )
+border_width_bottom = 3
+border_color = Color( 0.411765, 0.552941, 0.682353, 0.705882 )
+
+[resource]
+default_font = ExtResource( 1 )
+Button/colors/font_color_disabled = Color( 1, 1, 1, 1 )
+Button/styles/disabled = SubResource( 4 )
+Button/styles/focus = SubResource( 6 )
+Button/styles/hover = SubResource( 7 )
+Button/styles/normal = SubResource( 10 )
+Button/styles/pressed = SubResource( 9 )

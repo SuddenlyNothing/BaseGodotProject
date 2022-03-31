@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Control
 
 enum TAB {
 	AUDIO,

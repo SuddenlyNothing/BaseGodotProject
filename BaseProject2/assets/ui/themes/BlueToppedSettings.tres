@@ -1,0 +1,68 @@
+[gd_resource type="Theme" load_steps=12 format=2]
+
+[ext_resource path="res://assets/fonts/RobotoRegular28.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.321569, 0.580392, 0.709804, 0.705882 )
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 3.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.290196, 0.545098, 0.67451, 0.705882 )
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 3.0
+expand_margin_bottom = 1.0
+shadow_color = Color( 0, 0, 0, 0.156863 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.2709, 0.5103, 0.63, 0.705882 )
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 3.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="ImageTexture" id=14]
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.4374, 0.81, 0.78516, 1 )
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.517647, 0.890196, 0.898039, 1 )
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+
+[sub_resource type="StyleBoxLine" id=17]
+color = Color( 0.245, 0.40225, 0.5, 1 )
+thickness = 10
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.546, 0.5838, 0.6, 1 )
+expand_margin_left = 6.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[resource]
+default_font = ExtResource( 1 )
+Button/styles/disabled = SubResource( 9 )
+Button/styles/focus = SubResource( 10 )
+Button/styles/hover = SubResource( 11 )
+Button/styles/normal = SubResource( 8 )
+Button/styles/pressed = SubResource( 12 )
+HSlider/icons/grabber = SubResource( 14 )
+HSlider/icons/grabber_disabled = SubResource( 14 )
+HSlider/icons/grabber_highlight = SubResource( 14 )
+HSlider/icons/tick = SubResource( 14 )
+HSlider/styles/grabber_area = SubResource( 18 )
+HSlider/styles/grabber_area_highlight = SubResource( 16 )
+HSlider/styles/slider = SubResource( 17 )
+Label/styles/normal = SubResource( 13 )

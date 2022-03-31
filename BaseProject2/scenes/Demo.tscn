@@ -31,8 +31,8 @@ PAUSE: {pause}
 If you rebind keys. This text will update"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 477.0
-margin_top = 90.0
-margin_right = 517.0
-margin_bottom = 130.0
+margin_left = 459.0
+margin_top = 117.0
+margin_right = 499.0
+margin_bottom = 157.0
 color = Color( 2, 2, 2, 1 )

@@ -44,7 +44,6 @@ stretch_mode = 6
 [node name="V" type="VBoxContainer" parent="."]
 margin_left = 412.0
 margin_right = 1024.0
-rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 0
 size_flags_stretch_ratio = 1.5

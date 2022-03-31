@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://utils/ButtonSFX.gd" type="Script" id=1]
+[ext_resource path="res://utils/ButtonChangeScene.gd" type="Script" id=2]
+[ext_resource path="res://options/options_ui/OptionsSelect.gd" type="Script" id=3]
+[ext_resource path="res://options/SettingsPanels.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui/themes/BlueToppedSelect.tres" type="Theme" id=5]
+[ext_resource path="res://assets/ui/themes/BlueToppedSettings.tres" type="Theme" id=7]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float blur_amount : hint_range(-2.0, 10.0);
+uniform float mix_amount : hint_range(0.0, 1.0);
+uniform vec4 color_over : hint_color;
+
+void fragment() {
+	vec4 blurred = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount);
+	vec4 fin = mix(blurred, color_over, mix_amount);
+	COLOR = fin;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 1 )
+shader_param/blur_amount = 2.0
+shader_param/mix_amount = 0.7
+shader_param/color_over = Color( 0.411765, 0.552941, 0.682353, 1 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/blur_amount = 2.0
+shader_param/mix_amount = 0.7
+shader_param/color_over = Color( 0.384314, 0.490196, 0.643137, 1 )
+
+[node name="BlueTopped" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -153, -115 )
+
+[node name="V" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+
+[node name="TopBar" type="ColorRect" parent="V"]
+material = SubResource( 5 )
+margin_right = 1024.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 0, 86 )
+
+[node name="Blur" type="ColorRect" parent="V"]
+material = SubResource( 2 )
+margin_top = 86.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 30
+
+[node name="V" type="VBoxContainer" parent="M"]
+margin_left = 50.0
+margin_right = 974.0
+margin_bottom = 570.0
+custom_constants/separation = 50
+script = ExtResource( 3 )
+
+[node name="V" type="HBoxContainer" parent="M/V"]
+margin_right = 924.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_constants/separation = 0
+alignment = 1
+
+[node name="Audio" type="Button" parent="M/V/V"]
+margin_right = 150.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 150, 35 )
+disabled = true
+toggle_mode = true
+text = "Audio"
+script = ExtResource( 1 )
+
+[node name="Controls" type="Button" parent="M/V/V"]
+margin_left = 150.0
+margin_right = 300.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 150, 35 )
+toggle_mode = true
+text = "Controls"
+script = ExtResource( 1 )
+
+[node name="ScreenSettings" type="Button" parent="M/V/V"]
+margin_left = 300.0
+margin_right = 450.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 150, 35 )
+toggle_mode = true
+text = "Video"
+script = ExtResource( 1 )
+
+[node name="Menu" type="Button" parent="M/V/V"]
+margin_left = 624.0
+margin_right = 774.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 10
+size_flags_vertical = 3
+text = "Menu"
+script = ExtResource( 2 )
+next_scene = "res://scenes/Demo.tscn"
+
+[node name="Back" type="Button" parent="M/V/V"]
+margin_left = 774.0
+margin_right = 924.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_vertical = 3
+text = "Back"
+script = ExtResource( 1 )
+
+[node name="V2" type="VBoxContainer" parent="M/V"]
+margin_top = 136.0
+margin_right = 924.0
+margin_bottom = 570.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+theme = ExtResource( 7 )
+
+[node name="Settings" parent="M/V/V2" instance=ExtResource( 4 )]
+margin_top = 0.0
+margin_right = 924.0
+margin_bottom = 434.0
+
+[connection signal="toggled" from="M/V/V/Audio" to="M/V" method="_on_button_toggled" binds= [ "AUDIO" ]]
+[connection signal="toggled" from="M/V/V/Controls" to="M/V" method="_on_button_toggled" binds= [ "CONTROLS" ]]
+[connection signal="toggled" from="M/V/V/ScreenSettings" to="M/V" method="_on_button_toggled" binds= [ "SCREEN_SETTINGS" ]]
+[connection signal="pressed" from="M/V/V/Menu" to="M/V" method="_on_Back_pressed"]
+[connection signal="pressed" from="M/V/V/Back" to="M/V" method="_on_Back_pressed"]
