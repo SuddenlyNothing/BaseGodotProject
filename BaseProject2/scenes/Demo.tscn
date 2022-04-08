@@ -23,12 +23,7 @@ margin_top = 166.0
 margin_right = 578.0
 margin_bottom = 271.0
 custom_fonts/font = SubResource( 1 )
-text = "UP: {up}
-DOWN: {down}
-LEFT: {left}
-RIGHT: {right}
-PAUSE: {pause}
-If you rebind keys. This text will update"
+text = "Does this font look good?"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 459.0

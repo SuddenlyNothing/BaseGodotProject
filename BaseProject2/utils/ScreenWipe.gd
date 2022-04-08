@@ -28,4 +28,3 @@ func fade_out() -> void:
 	fade_out_t.start()
 	yield(fade_out_t, "tween_all_completed")
 	emit_signal("faded_out")
-
