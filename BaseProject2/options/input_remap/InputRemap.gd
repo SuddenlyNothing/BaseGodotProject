@@ -93,8 +93,8 @@ func add_new_input_remap_module(action: String, events: Array,
 	var buttons_parent = input_remap_module.get_node("V")
 	reset_buttons[action] = [input_reset_button, buttons_parent]
 	input_reset_button.connect("pressed", self, "_on_reset_pressed", [action])
+	InputMap.action_erase_events(action)
 	if not from_save:
-		InputMap.action_erase_events(action)
 		Save.data.actions[action] = {
 			"default_inputs": [],
 			"inputs": [],
