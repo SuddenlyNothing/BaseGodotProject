@@ -1,8 +1,8 @@
 extends Node
 
-var music : Dictionary = {}
-var num_lowers : int = 0
-var current : String = ""
+var music: Dictionary = {}
+var num_lowers: int = 0
+var current: String = ""
 
 
 func _ready() -> void:

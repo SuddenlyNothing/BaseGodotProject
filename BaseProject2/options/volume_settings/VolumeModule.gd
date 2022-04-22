@@ -2,14 +2,14 @@ extends VBoxContainer
 
 signal updated
 
-var audio_bus_name : String setget set_audio_bus_name
+var audio_bus_name: String setget set_audio_bus_name
 
 # Is volume and mute at default value
-var is_default : bool
+var is_default: bool
 
-var bus : int
-var default_mute : bool
-var default_volume : float
+var bus: int
+var default_mute: bool
+var default_volume: float
 onready var mute := $H/Mute
 onready var mute_icon := $H/Mute/MuteIcon
 onready var reset := $H/Reset
@@ -18,7 +18,7 @@ onready var bus_label := $H/BusLabel
 
 
 # Sets the label to the audio bus name
-func set_audio_bus_name(val : String) -> void:
+func set_audio_bus_name(val: String) -> void:
 	bus = AudioServer.get_bus_index(val)
 	assert(bus != -1, "'" + val + "' is not a valid audio bus name")
 	audio_bus_name = val
@@ -27,7 +27,7 @@ func set_audio_bus_name(val : String) -> void:
 
 
 # Updates save data as well as bus volume
-func _on_VolumeSlider_value_changed(value : float) -> void:
+func _on_VolumeSlider_value_changed(value: float) -> void:
 	Save.data.audio_buses[audio_bus_name]["volume"] = value
 	AudioServer.set_bus_volume_db(bus, linear2db(value))
 	set_reset_show()
@@ -59,7 +59,7 @@ func load_data() -> void:
 
 # Updates Save mute
 # Sets bus mute value
-func _on_Mute_toggled(button_pressed : bool) -> void:
+func _on_Mute_toggled(button_pressed: bool) -> void:
 	if button_pressed:
 		mute_icon.texture = preload("res://assets/ui/mute.png")
 	else:

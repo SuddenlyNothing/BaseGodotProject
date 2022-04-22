@@ -17,14 +17,14 @@ const MOUSE_BUTTONS = {
 }
 
 # Used for determining key button font size
-const BUTTON_H_CONTENT_MARGIN : int = 30
-const DEFAULT_FONT_SIZE : int = 28
+const BUTTON_H_CONTENT_MARGIN: int = 30
+const DEFAULT_FONT_SIZE: int = 28
 
 # Font used for buttons
-export(String, FILE, "*.ttf") var font_path : String
+export(String, FILE, "*.ttf") var font_path: String
 
 # True when a key is being remapped
-var is_mapping : bool = false
+var is_mapping: bool = false
 # Button being remapped set on remap button pressed
 var map_key_button := {
 	"self": null,
@@ -35,7 +35,7 @@ var map_key_button := {
 
 # Reset buttons for storing action, parent, and reset buttons
 # Used for resetting inputs for actions and determining visibility
-var reset_buttons = {}
+var reset_buttons := {}
 
 onready var reset_all := $ResetAll
 

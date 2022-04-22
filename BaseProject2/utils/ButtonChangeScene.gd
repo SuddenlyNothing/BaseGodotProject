@@ -2,7 +2,7 @@ tool
 class_name ChangeScene
 extends ButtonSFX
 
-export(String, FILE, "*.tscn") var next_scene : String
+export(String, FILE, "*.tscn") var next_scene: String
 
 
 func _ready() -> void:

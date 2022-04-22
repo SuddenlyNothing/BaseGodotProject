@@ -3,7 +3,7 @@ extends VBoxContainer
 const VolumeModule := preload("res://options/volume_settings/VolumeModule.tscn")
 
 # Will load audio bus data from this array if not empty.
-const AUDIO_BUSES : Array = []
+const AUDIO_BUSES: Array = []
 
 onready var reset_all := $ResetAll
 

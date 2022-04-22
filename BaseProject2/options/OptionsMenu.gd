@@ -6,7 +6,7 @@ onready var options_ui := get_child(0)
 
 
 # Toggles option menu on "pause" press.
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event.is_action_released("pause"):
 		self.active = not active
 		get_tree().set_input_as_handled()
@@ -23,7 +23,7 @@ func _input(event):
 
 
 # Sets the active of the option menu.
-func set_active(val) -> void:
+func set_active(val: bool) -> void:
 	active = val
 	options_ui.visible = val
 	get_tree().paused = val

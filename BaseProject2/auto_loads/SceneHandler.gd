@@ -2,11 +2,11 @@ extends Control
 
 onready var transition := $CanvasLayer/ScreenWipe
 
-var loader : ResourceInteractiveLoader
-var wait_frames : int
-var time_max : int = 10 # msec
+var loader: ResourceInteractiveLoader
+var wait_frames: int
+var time_max: int = 10 # msec
 var current_scene
-var current_scene_res : PackedScene
+var current_scene_res: PackedScene
 
 
 # Sets the current scene.

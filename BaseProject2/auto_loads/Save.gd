@@ -1,8 +1,8 @@
 extends Node
 
-const SAVE_DIR = "user://saves/"
+const SAVE_DIR := "user://saves/"
 
-var settings_save_path = SAVE_DIR + "settings.dat"
+var settings_save_path := SAVE_DIR + "settings.dat"
 var data
 
 

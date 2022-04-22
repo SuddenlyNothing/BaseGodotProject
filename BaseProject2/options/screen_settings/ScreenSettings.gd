@@ -48,9 +48,9 @@ func load_data() -> void:
 		saturation.value = screen_data.saturation
 	else:
 		Save.data["screen"] = {
-			"brightness":1,
-			"contrast":1,
-			"saturation":1
+			"brightness": 1,
+			"contrast": 1,
+			"saturation": 1,
 		}
 	check_defaults()
 
@@ -67,12 +67,9 @@ func _on_Reset_pressed() -> void:
 # Checks if brightness, contrast, and saturation values are at their default and
 # sets reset to disabled if they are not at their defaults.
 func check_defaults() -> void:
-	if brightness.value == DEFAULT_BRIGHTNESS &&\
-			contrast.value == DEFAULT_CONTRAST &&\
-			saturation.value == DEFAULT_SATURATION:
-		reset.disabled = true
-	else:
-		reset.disabled = false
+	reset.disabled = brightness.value == DEFAULT_BRIGHTNESS and\
+			contrast.value == DEFAULT_CONTRAST and\
+			saturation.value == DEFAULT_SATURATION
 	set_reset_hidden()
 
 

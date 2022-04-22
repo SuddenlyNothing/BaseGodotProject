@@ -8,12 +8,13 @@ enum TAB {
 
 var current_setting = TAB.AUDIO setget set_current_setting
 
-onready var audio : Button = $V/Audio
-onready var controls : Button = $V/Controls
-onready var screen_settings : Button = $V/ScreenSettings
-onready var settings : TabContainer = $V2/Settings
+onready var audio: Button = $V/Audio
+onready var controls: Button = $V/Controls
+onready var screen_settings: Button = $V/ScreenSettings
+onready var settings: TabContainer = $V2/Settings
 
 
+# Sets active panel to the one associated with the given button
 func _on_button_toggled(button_pressed: bool, button: String) -> void:
 	if button_pressed:
 		set_current_setting(TAB[button])
