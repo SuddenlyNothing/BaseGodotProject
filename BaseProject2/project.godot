@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://scenes/characters/StateMachine.gd"
+}, {
+"base": "Resource",
+"class": "StyleTrans",
+"language": "GDScript",
+"path": "res://utils/StyleTrans.gd"
 } ]
 _global_script_class_icons={
 "ButtonSFX": "",
 "ChangeScene": "",
-"StateMachine": ""
+"StateMachine": "",
+"StyleTrans": ""
 }
 
 [application]

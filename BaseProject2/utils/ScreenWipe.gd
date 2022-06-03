@@ -19,11 +19,13 @@ func fade_in() -> void:
 	fade_in_t.interpolate_property(self, "modulate:a", 1, 0, fade_duration)
 	fade_in_t.start()
 	yield(fade_in_t, "tween_all_completed")
+	hide()
 	emit_signal("faded_in")
 
 
 # Fades out.
 func fade_out() -> void:
+	show()
 	fade_out_t.interpolate_property(self, "modulate:a", 0, 1, fade_duration)
 	fade_out_t.start()
 	yield(fade_out_t, "tween_all_completed")

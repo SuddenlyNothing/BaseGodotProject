@@ -72,7 +72,6 @@ func goto_scene(path: String) -> void:
 # Update progress here
 func update_progress() -> void:
 	var progress = float(loader.get_stage()) / loader.get_stage_count()
-	print(progress)
 
 
 # Sets the new scene to the given scene_resource

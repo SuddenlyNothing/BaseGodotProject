@@ -18,7 +18,7 @@ const MOUSE_BUTTONS = {
 
 # Used for determining key button font size
 const BUTTON_H_CONTENT_MARGIN: int = 30
-const DEFAULT_FONT_SIZE: int = 28
+const DEFAULT_FONT_SIZE: int = 31
 
 # Font used for buttons
 export(String, FILE, "*.ttf") var font_path: String
@@ -32,6 +32,10 @@ var map_key_button := {
 	"action": null,
 	"ind": null,
 }
+# New input
+var remap_text := "..."
+# Prevents pause being mapped to mouse button
+var pause_action := "pause"
 
 # Reset buttons for storing action, parent, and reset buttons
 # Used for resetting inputs for actions and determining visibility
@@ -58,6 +62,8 @@ func load_data() -> void:
 func _input(event: InputEvent) -> void:
 	if is_mapping:
 		if can_map_event(event):
+			if map_key_button.action == "pause" and not is_valid_pause_input(event):
+				return
 			map_key_button.self.text = input_to_text(event)
 			var action_inputs : Array = Save.data.actions[map_key_button\
 					.action].inputs
@@ -194,6 +200,10 @@ func can_map_event(event: InputEvent) -> bool:
 	return true
 
 
+func is_valid_pause_input(event: InputEvent) -> bool:
+	return not event is InputEventMouseButton
+
+
 # Takes an input and returns it as text.
 func input_to_text(input: InputEvent) -> String:
 	if input is InputEventMouseButton:
@@ -257,8 +267,8 @@ func _on_key_button_pressed(parent: Node, key_button: ButtonSFX, action: String,
 	map_key_button.parent = parent
 	map_key_button.action = action
 	map_key_button.ind = button_ind
-	key_button.text = "..."
-	set_key_button_font_size(key_button, "...")
+	key_button.text = remap_text
+	set_key_button_font_size(key_button, remap_text)
 
 
 # Resets all actions to default inputs

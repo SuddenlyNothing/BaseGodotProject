@@ -23,11 +23,4 @@ margin_top = 166.0
 margin_right = 578.0
 margin_bottom = 271.0
 custom_fonts/font = SubResource( 1 )
-text = "Does this font look good?"
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 459.0
-margin_top = 117.0
-margin_right = 499.0
-margin_bottom = 157.0
-color = Color( 2, 2, 2, 1 )
+text = "{up}, {down}, {left}, {right}"
