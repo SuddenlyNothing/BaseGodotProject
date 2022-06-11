@@ -35,7 +35,6 @@ shader_param/color_over = Color( 0.384314, 0.490196, 0.643137, 1 )
 [node name="BlueTopped" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( -153, -115 )
 
 [node name="V" type="VBoxContainer" parent="."]
 anchor_right = 1.0
