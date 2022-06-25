@@ -47,12 +47,13 @@ onready var reset_all := $ResetAll
 # Called by the Save singleton
 # Loads keys from Variables.user_keys if no data (no saves yet)
 func load_data() -> void:
-	if "actions" in Save.data:
-		for action in Save.data.actions:
-			add_new_input_remap_module(action, Save.data.actions[action].inputs)
-	else:
-		Save.data["actions"] = {}
-		for action in Variables.user_keys:
+	if not "actions" in Save.data.settings:
+		Save.data.settings["actions"] = {}
+	for action in Variables.user_keys:
+		if action in Save.data.settings.actions:
+			add_new_input_remap_module(action,
+					Save.data.settings.actions[action].inputs)
+		else:
 			add_new_input_remap_module(action,
 					InputMap.get_action_list(action), false)
 	set_reset_all_disabled()
@@ -65,7 +66,7 @@ func _input(event: InputEvent) -> void:
 			if map_key_button.action == "pause" and not is_valid_pause_input(event):
 				return
 			map_key_button.self.text = input_to_text(event)
-			var action_inputs : Array = Save.data.actions[map_key_button\
+			var action_inputs : Array = Save.data.settings.actions[map_key_button\
 					.action].inputs
 			var old_event : InputEvent = action_inputs[map_key_button.ind]
 			# replace old event
@@ -101,15 +102,15 @@ func add_new_input_remap_module(action: String, events: Array,
 	input_reset_button.connect("pressed", self, "_on_reset_pressed", [action])
 	InputMap.action_erase_events(action)
 	if not from_save:
-		Save.data.actions[action] = {
+		Save.data.settings.actions[action] = {
 			"default_inputs": [],
 			"inputs": [],
 		}
 	
 	for i in events.size():
 		if not from_save:
-			Save.data.actions[action].inputs.append(events[i])
-			Save.data.actions[action].default_inputs.append(events[i])
+			Save.data.settings.actions[action].inputs.append(events[i])
+			Save.data.settings.actions[action].default_inputs.append(events[i])
 		InputMap.action_add_event(action, events[i])
 		add_new_key_button(buttons_parent, events[i], action, i)
 	
@@ -174,7 +175,7 @@ func update_action_format(action: String) -> void:
 # Checks if children of parent with the action child has the default inputs
 func is_children_defaults(parent, action: String) -> bool:
 	var inputs = []
-	for i in Save.data.actions[action].default_inputs:
+	for i in Save.data.settings.actions[action].default_inputs:
 		inputs.append(input_to_text(i))
 	for i in parent.get_children():
 		if not i.text in inputs:
@@ -225,11 +226,11 @@ func reset_action(action: String) -> void:
 	var buttons_parent = reset_buttons[action][1]
 	InputMap.action_erase_events(action)
 	for i in buttons_parent.get_child_count():
-		var default_input = Save.data.actions[action].default_inputs[i]
+		var default_input = Save.data.settings.actions[action].default_inputs[i]
 		var button = buttons_parent.get_child(i)
 		button.text = input_to_text(default_input)
 		set_key_button_font_size(button, button.text)
-		Save.data.actions[action].inputs[i] = default_input
+		Save.data.settings.actions[action].inputs[i] = default_input
 		InputMap.action_add_event(action, default_input)
 	update_action_format(action)
 

@@ -28,7 +28,7 @@ func set_audio_bus_name(val: String) -> void:
 
 # Updates save data as well as bus volume
 func _on_VolumeSlider_value_changed(value: float) -> void:
-	Save.data.audio_buses[audio_bus_name]["volume"] = value
+	Save.data.settings.audio_buses[audio_bus_name]["volume"] = value
 	AudioServer.set_bus_volume_db(bus, linear2db(value))
 	set_reset_show()
 
@@ -36,21 +36,21 @@ func _on_VolumeSlider_value_changed(value: float) -> void:
 # Loads data from Save singleton
 # If no data, loads default data from AudioServer
 func load_data() -> void:
-	if not audio_bus_name in Save.data.audio_buses:
+	if not audio_bus_name in Save.data.settings.audio_buses:
 		var bus_volume = db2linear(AudioServer.get_bus_volume_db(bus))
 		var is_bus_mute = AudioServer.is_bus_mute(bus)
-		Save.data.audio_buses[audio_bus_name] = {
+		Save.data.settings.audio_buses[audio_bus_name] = {
 			"default_volume": bus_volume,
 			"default_muted": is_bus_mute,
 			"volume": bus_volume,
 			"muted": is_bus_mute,
 		}
-	var volume = Save.data.audio_buses[audio_bus_name]["volume"]
+	var volume = Save.data.settings.audio_buses[audio_bus_name]["volume"]
 	volume_slider.value = volume
 	AudioServer.set_bus_volume_db(bus, linear2db(volume))
-	var muted = Save.data.audio_buses[audio_bus_name]["muted"]
-	default_mute = Save.data.audio_buses[audio_bus_name]["default_muted"]
-	default_volume = Save.data.audio_buses[audio_bus_name]["default_volume"]
+	var muted = Save.data.settings.audio_buses[audio_bus_name]["muted"]
+	default_mute = Save.data.settings.audio_buses[audio_bus_name]["default_muted"]
+	default_volume = Save.data.settings.audio_buses[audio_bus_name]["default_volume"]
 	mute.pressed = muted
 	_on_Mute_toggled(muted)
 	AudioServer.set_bus_mute(bus, muted)
@@ -65,14 +65,14 @@ func _on_Mute_toggled(button_pressed: bool) -> void:
 	else:
 		mute_icon.texture = preload("res://assets/ui/speaker.png")
 	set_reset_show()
-	Save.data.audio_buses[audio_bus_name]["muted"] = button_pressed
+	Save.data.settings.audio_buses[audio_bus_name]["muted"] = button_pressed
 	AudioServer.set_bus_mute(bus, button_pressed)
 
 
 # Resets volume to default values
 func reset() -> void:
-	volume_slider.value = Save.data.audio_buses[audio_bus_name]["default_volume"]
-	mute.pressed = Save.data.audio_buses[audio_bus_name]["default_muted"]
+	volume_slider.value = Save.data.settings.audio_buses[audio_bus_name]["default_volume"]
+	mute.pressed = Save.data.settings.audio_buses[audio_bus_name]["default_muted"]
 	set_reset_show()
 
 

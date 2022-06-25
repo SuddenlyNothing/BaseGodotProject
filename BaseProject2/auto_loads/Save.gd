@@ -2,8 +2,8 @@ extends Node
 
 const SAVE_DIR := "user://saves/"
 
-var settings_save_path := SAVE_DIR + "settings.dat"
-var data
+var settings_save_path := SAVE_DIR + "settings.tres"
+var data : SaveData
 
 
 # Loads data of all nodes that are in group "save".
@@ -14,14 +14,10 @@ func _ready() -> void:
 
 # Loads data from folder if the folder filepath exists.
 func load_data() -> void:
-	var file = File.new()
-	if file.file_exists(settings_save_path):
-		var error = file.open(settings_save_path, File.READ)
-		if error == OK:
-			data = file.get_var(true)
-		file.close()
+	if ResourceLoader.exists(settings_save_path):
+		data = load(settings_save_path)
 	else:
-		data = {}
+		data = SaveData.new()
 
 
 # Saves data to folder filepath.
@@ -30,11 +26,9 @@ func save_data() -> void:
 	if not dir.dir_exists(SAVE_DIR):
 		dir.make_dir_recursive(SAVE_DIR)
 	
-	var file = File.new()
-	var error = file.open(settings_save_path, File.WRITE)
-	if error == OK:
-		file.store_var(data, true)
-	file.close()
+	if data:
+		# warning-ignore:return_value_discarded
+		ResourceSaver.save(settings_save_path, data)
 
 
 # Handles saving when the game is closed.

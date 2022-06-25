@@ -11,11 +11,11 @@ onready var reset_all := $ResetAll
 # Called from Save singleton and loads the audio buses from save data or from
 # AUDIO_BUSES or directly from AudioServer.
 func load_data() -> void:
-	if "audio_buses" in Save.data:
-		for audio_bus in Save.data.audio_buses:
+	if "audio_buses" in Save.data.settings:
+		for audio_bus in Save.data.settings.audio_buses:
 			load_module(audio_bus)
 	else:
-		Save.data["audio_buses"] = {}
+		Save.data.settings["audio_buses"] = {}
 		if AUDIO_BUSES.empty():
 			for i in AudioServer.bus_count:
 				load_module(AudioServer.get_bus_name(i))
