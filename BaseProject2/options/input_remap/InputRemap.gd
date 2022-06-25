@@ -180,6 +180,7 @@ func is_children_defaults(parent, action: String) -> bool:
 	for i in parent.get_children():
 		if not i.text in inputs:
 			return false
+		inputs.erase(i.text)
 	return true
 
 
