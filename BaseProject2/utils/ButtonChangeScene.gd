@@ -15,7 +15,6 @@ func _ready() -> void:
 # Changes scene to next_scene
 func _pressed() -> void:
 	SceneHandler.goto_scene(next_scene)
-	._pressed()
 
 
 # Sets config warning when next_scene is missing
