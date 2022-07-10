@@ -142,7 +142,7 @@ func cover_overrides() -> void:
 		var disabled_override_color = get("custom_colors/font_color_disabled")
 		if disabled_override_color != null:
 			disabled_text_color = disabled_override_color
-		elif "font_color_pressed" in color_list:
+		elif "font_color_disabled" in color_list:
 			var disabled_theme_color := scene_theme.get_color("font_color_disabled", "Button")
 			disabled_text_color = disabled_theme_color
 		
