@@ -23,11 +23,13 @@ mouse_filter = 2
 [node name="Tween" type="Tween" parent="."]
 
 [node name="HoverSFX" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 2 )
 volume_db = -20.0
 bus = "SFX"
 
 [node name="PressedSFX" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 3 )
 volume_db = -15.0
 bus = "SFX"

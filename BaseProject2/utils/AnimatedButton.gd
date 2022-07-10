@@ -24,6 +24,8 @@ enum Easing {
 
 }
 
+export(String, FILE, "*.tscn") var next_scene
+
 export(bool) var refresh_theme := false setget set_refresh_theme
 export(Transitions) var transition_type := Transitions.TRANS_BACK
 export(Easing) var easing_type := Easing.EASE_OUT
@@ -55,6 +57,11 @@ onready var pressed_sfx := $PressedSFX
 
 func _ready() -> void:
 	refresh_theme()
+
+
+func _pressed() -> void:
+	if next_scene:
+		SceneHandler.goto_scene(next_scene)
 
 
 func set_refresh_theme(val: bool) -> void:
