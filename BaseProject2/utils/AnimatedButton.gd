@@ -34,8 +34,8 @@ export(Color) var hover_text_color := Color( 1, 1, 1, 1 )
 export(Color) var pressed_text_color :=  Color( 0.94, 0.94, 0.94, 1 )
 export(Color) var disabled_text_color := Color( 0.9, 0.9, 0.9, 0.2 )
 
-export(float) var normal_timing := 0.2
-export(float) var hover_timing := 0.4
+export(float) var normal_timing := 0.1
+export(float) var hover_timing := 0.2
 export(float) var pressed_timing := 0.02
 export(float) var disabled_timing := 0.0
 
