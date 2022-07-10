@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://utils/AnimatedButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://utils/AnimatedButtonChangeScene.gd" type="Script" id=2]
+
+[node name="AnimatedButtonChangeScene" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
