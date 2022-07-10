@@ -84,7 +84,11 @@ func refresh_theme() -> void:
 		add_color_override("font_color_hover", curr_text_color)
 		add_color_override("font_color_pressed", curr_text_color)
 		add_color_override("font_color_focus", curr_text_color)
-		if normal_style:
+		if disabled and disabled_style:
+			$BG.add_stylebox_override("panel", disabled_style.duplicate())
+		elif pressed and pressed_style:
+			$BG.add_stylebox_override("panel", pressed_style.duplicate())
+		elif normal_style:
 			$BG.add_stylebox_override("panel", normal_style.duplicate())
 
 
