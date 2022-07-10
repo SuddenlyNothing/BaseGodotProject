@@ -45,6 +45,7 @@ export(StyleBoxFlat) var pressed_style: StyleBoxFlat
 export(StyleBoxFlat) var disabled_style: StyleBoxFlat
 
 var is_mouse_inside := false
+var previous_disabled := false
 
 onready var t := $Tween
 onready var bg := $BG
@@ -77,6 +78,7 @@ func refresh_theme() -> void:
 			curr_text_color = pressed_text_color
 		else:
 			curr_text_color = normal_text_color
+		previous_disabled = disabled
 		add_color_override("font_color", curr_text_color)
 		add_color_override("font_color_disabled", curr_text_color)
 		add_color_override("font_color_hover", curr_text_color)
@@ -133,18 +135,26 @@ func cover_overrides() -> void:
 			var disabled_theme_color := scene_theme.get_color("font_color_disabled", "Button")
 			disabled_text_color = disabled_theme_color
 		
-	var theme_normal := scene_theme.get_stylebox("normal", "Button")
+	var theme_normal := empty_to_flat(scene_theme.get_stylebox("normal", "Button"))
 	if theme_normal is StyleBoxFlat and not normal_style:
 		normal_style = theme_normal
-	var theme_hover := scene_theme.get_stylebox("hover", "Button")
+	var theme_hover := empty_to_flat(scene_theme.get_stylebox("hover", "Button"))
 	if theme_hover is StyleBoxFlat and not hover_style:
 		hover_style = theme_hover
-	var theme_pressed := scene_theme.get_stylebox("pressed", "Button")
+	var theme_pressed := empty_to_flat(scene_theme.get_stylebox("pressed", "Button"))
 	if theme_pressed is StyleBoxFlat and not pressed_style:
 		pressed_style = theme_pressed
-	var theme_disabled := scene_theme.get_stylebox("disabled", "Button")
+	var theme_disabled := empty_to_flat(scene_theme.get_stylebox("disabled", "Button"))
 	if theme_disabled is StyleBoxFlat and not disabled_style:
 		disabled_style = theme_disabled
+
+
+func empty_to_flat(empty: StyleBox) -> StyleBox:
+	if empty is StyleBoxEmpty:
+		var new_stylebox := StyleBoxFlat.new()
+		new_stylebox.bg_color = Color.transparent
+		return new_stylebox
+	return empty
 
 
 func set_color(to: Color) -> void:
@@ -180,7 +190,12 @@ func set_style(to: String) -> void:
 	t.remove_all()
 	t.interpolate_method(self, "set_color", get("custom_colors/font_color"), new_color, timing)
 	if from and style:
-		t.interpolate_property(bg.get_stylebox("panel"), "bg_color", null, style.bg_color, timing)
+		if style.bg_color.a:
+			t.interpolate_property(bg.get_stylebox("panel"), "bg_color", null,
+					style.bg_color, timing)
+		else:
+			t.interpolate_property(bg.get_stylebox("panel"), "bg_color:a", null,
+					style.bg_color.a, timing)
 		
 		t.interpolate_property(bg.get_stylebox("panel"), "border_width_top", null,
 				style.border_width_top, timing, transition_type, easing_type)
@@ -228,11 +243,6 @@ func set_normal_style(style: StyleBoxFlat) -> void:
 		$BG.add_stylebox_override("panel", normal_style)
 
 
-func set_disabled(val: bool) -> void:
-	set_style("disabled")
-	.set_disabled(val)
-
-
 func _on_AnimButton_mouse_entered() -> void:
 	is_mouse_inside = true
 	if pressed or disabled:
@@ -265,3 +275,17 @@ func _on_AnimButton_button_up() -> void:
 		set_style("hover")
 	else:
 		set_style("normal")
+
+
+func _on_AnimatedButton_draw() -> void:
+	if previous_disabled != disabled:
+		if disabled:
+			set_style("disabled")
+		else:
+			if pressed:
+				set_style("pressed")
+			elif is_mouse_inside:
+				set_style("hover")
+			else:
+				set_style("normal")
+	previous_disabled = disabled
