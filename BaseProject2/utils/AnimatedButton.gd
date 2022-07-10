@@ -217,8 +217,14 @@ func set_style(to: String) -> void:
 		t.interpolate_property(bg.get_stylebox("panel"), "border_width_left", null,
 				style.border_width_left, timing, transition_type, easing_type)
 		
-		t.interpolate_property(bg.get_stylebox("panel"), "border_color", null,
-				style.border_color, timing)
+		if not style.border_color.a or (not style.border_width_top and not\
+				style.border_width_bottom and not style.border_width_right\
+				and not style.border_width_left):
+			t.interpolate_property(bg.get_stylebox("panel"), "border_color:a", null,
+					style.border_color.a, timing)
+		else:
+			t.interpolate_property(bg.get_stylebox("panel"), "border_color", null,
+					style.border_color, timing)
 		
 		t.interpolate_property(bg.get_stylebox("panel"), "corner_radius_top_right", null, 
 				style.corner_radius_top_right, timing, transition_type, easing_type)
@@ -238,8 +244,13 @@ func set_style(to: String) -> void:
 		t.interpolate_property(bg.get_stylebox("panel"), "expand_margin_left", null, 
 				style.expand_margin_left, timing, transition_type, easing_type)
 		
-		t.interpolate_property(bg.get_stylebox("panel"), "shadow_color", null,
-				style.shadow_color, timing)
+		if not style.shadow_color.a or not style.shadow_size:
+			t.interpolate_property(bg.get_stylebox("panel"), "shadow_color:a", null,
+					style.shadow_color.a, timing)
+		else:
+			t.interpolate_property(bg.get_stylebox("panel"), "shadow_color", null,
+					style.shadow_color, timing)
+		
 		t.interpolate_property(bg.get_stylebox("panel"), "shadow_offset", null,
 				style.shadow_offset, timing, transition_type, easing_type)
 		t.interpolate_property(bg.get_stylebox("panel"), "shadow_size", null,
