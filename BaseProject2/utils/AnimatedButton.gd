@@ -103,29 +103,34 @@ func cover_overrides() -> void:
 		return
 	
 	if not override_text_colors:
+		var color_list := scene_theme.get_color_list("Button")
+		
 		var normal_override_color = get("custom_colors/font_color")
-		var normal_theme_color := scene_theme.get_color("font_color", "Button")
 		if normal_override_color != null:
 			normal_text_color = normal_override_color
-		elif normal_theme_color != null:
+		elif "font_color" in color_list:
+			var normal_theme_color := scene_theme.get_color("font_color", "Button")
 			normal_text_color = normal_theme_color
+		
 		var hover_override_color = get("custom_colors/font_color_hover")
-		var hover_theme_color := scene_theme.get_color("font_color_hover", "Button")
 		if hover_override_color != null:
 			hover_text_color = hover_override_color
-		elif hover_theme_color != null:
+		elif "font_color_hover" in color_list:
+			var hover_theme_color := scene_theme.get_color("font_color_hover", "Button")
 			hover_text_color = hover_theme_color
+		
 		var pressed_override_color = get("custom_colors/font_color_pressed")
-		var pressed_theme_color := scene_theme.get_color("font_color_pressed", "Button")
 		if pressed_override_color != null:
 			pressed_text_color = pressed_override_color
-		elif pressed_theme_color != null:
+		elif "font_color_pressed" in color_list:
+			var pressed_theme_color := scene_theme.get_color("font_color_pressed", "Button")
 			pressed_text_color = pressed_theme_color
+		
 		var disabled_override_color = get("custom_colors/font_color_disabled")
-		var disabled_theme_color := scene_theme.get_color("font_color_disabled", "Button")
 		if disabled_override_color != null:
 			disabled_text_color = disabled_override_color
-		elif disabled_theme_color != null:
+		elif "font_color_pressed" in color_list:
+			var disabled_theme_color := scene_theme.get_color("font_color_disabled", "Button")
 			disabled_text_color = disabled_theme_color
 		
 	var theme_normal := scene_theme.get_stylebox("normal", "Button")
@@ -224,7 +229,6 @@ func set_normal_style(style: StyleBoxFlat) -> void:
 
 
 func set_disabled(val: bool) -> void:
-	print("bruh?")
 	set_style("disabled")
 	.set_disabled(val)
 
