@@ -92,10 +92,19 @@ func refresh_theme() -> void:
 		add_color_override("font_color_pressed", curr_text_color)
 		add_color_override("font_color_focus", curr_text_color)
 		if disabled and disabled_style:
+			if not disabled_style.draw_center:
+				disabled_style.draw_center = true
+				disabled_style.bg_color = Color.transparent
 			$BG.add_stylebox_override("panel", disabled_style.duplicate())
 		elif pressed and pressed_style:
+			if not pressed_style.draw_center:
+				pressed_style.draw_center = true
+				pressed_style.bg_color = Color.transparent
 			$BG.add_stylebox_override("panel", pressed_style.duplicate())
 		elif normal_style:
+			if not normal_style.draw_center:
+				normal_style.draw_center = true
+				normal_style.bg_color = Color.transparent
 			$BG.add_stylebox_override("panel", normal_style.duplicate())
 
 
@@ -201,59 +210,76 @@ func set_style(to: String) -> void:
 	t.remove_all()
 	t.interpolate_method(self, "set_color", get("custom_colors/font_color"), new_color, timing)
 	if from and style:
-		if style.bg_color.a:
-			t.interpolate_property(bg.get_stylebox("panel"), "bg_color", null,
+		if not from.bg_color.a or not from.draw_center:
+			var old_color := style.bg_color
+			old_color.a = 0
+			t.interpolate_property(from, "bg_color", old_color,
 					style.bg_color, timing)
+		elif not style.bg_color.a or not style.draw_center:
+			t.interpolate_property(from, "bg_color:a", null,
+					0, timing)
 		else:
-			t.interpolate_property(bg.get_stylebox("panel"), "bg_color:a", null,
-					style.bg_color.a, timing)
+			t.interpolate_property(from, "bg_color", null,
+					style.bg_color, timing)
 		
-		t.interpolate_property(bg.get_stylebox("panel"), "border_width_top", null,
+		t.interpolate_property(from, "border_width_top", null,
 				style.border_width_top, timing, transition_type, easing_type)
-		t.interpolate_property(bg.get_stylebox("panel"), "border_width_right", null,
+		t.interpolate_property(from, "border_width_right", null,
 				style.border_width_right, timing, transition_type, easing_type)
-		t.interpolate_property(bg.get_stylebox("panel"), "border_width_bottom", null,
+		t.interpolate_property(from, "border_width_bottom", null,
 				style.border_width_bottom, timing, transition_type, easing_type)
-		t.interpolate_property(bg.get_stylebox("panel"), "border_width_left", null,
+		t.interpolate_property(from, "border_width_left", null,
 				style.border_width_left, timing, transition_type, easing_type)
 		
 		if not style.border_color.a or (not style.border_width_top and not\
 				style.border_width_bottom and not style.border_width_right\
 				and not style.border_width_left):
-			t.interpolate_property(bg.get_stylebox("panel"), "border_color:a", null,
-					style.border_color.a, timing)
+			t.interpolate_property(from, "border_color:a", null,
+					0, timing)
+		elif not from.border_color.a or (not from.border_width_top and not\
+				from.border_width_bottom and not from.border_width_right\
+				and not from.border_width_left):
+			var old_color := style.border_color
+			old_color.a = 0
+			t.interpolate_property(from, "border_color", old_color,
+					style.border_color, timing)
 		else:
-			t.interpolate_property(bg.get_stylebox("panel"), "border_color", null,
+			t.interpolate_property(from, "border_color", null,
 					style.border_color, timing)
 		
-		t.interpolate_property(bg.get_stylebox("panel"), "corner_radius_top_right", null, 
+		t.interpolate_property(from, "corner_radius_top_right", null, 
 				style.corner_radius_top_right, timing, transition_type, easing_type)
-		t.interpolate_property(bg.get_stylebox("panel"), "corner_radius_bottom_right", null, 
+		t.interpolate_property(from, "corner_radius_bottom_right", null, 
 				style.corner_radius_bottom_right, timing, transition_type, easing_type)
-		t.interpolate_property(bg.get_stylebox("panel"), "corner_radius_bottom_left", null, 
+		t.interpolate_property(from, "corner_radius_bottom_left", null, 
 				style.corner_radius_bottom_left, timing, transition_type, easing_type)
-		t.interpolate_property(bg.get_stylebox("panel"), "corner_radius_top_left", null, 
+		t.interpolate_property(from, "corner_radius_top_left", null, 
 				style.corner_radius_top_left, timing, transition_type, easing_type)
 		
-		t.interpolate_property(bg.get_stylebox("panel"), "expand_margin_top", null, 
+		t.interpolate_property(from, "expand_margin_top", null, 
 				style.expand_margin_top, timing, transition_type, easing_type)
-		t.interpolate_property(bg.get_stylebox("panel"), "expand_margin_right", null, 
+		t.interpolate_property(from, "expand_margin_right", null, 
 				style.expand_margin_right, timing, transition_type, easing_type)
-		t.interpolate_property(bg.get_stylebox("panel"), "expand_margin_bottom", null, 
+		t.interpolate_property(from, "expand_margin_bottom", null, 
 				style.expand_margin_bottom, timing, transition_type, easing_type)
-		t.interpolate_property(bg.get_stylebox("panel"), "expand_margin_left", null, 
+		t.interpolate_property(from, "expand_margin_left", null, 
 				style.expand_margin_left, timing, transition_type, easing_type)
 		
 		if not style.shadow_color.a or not style.shadow_size:
-			t.interpolate_property(bg.get_stylebox("panel"), "shadow_color:a", null,
-					style.shadow_color.a, timing)
+			t.interpolate_property(from, "shadow_color:a", null,
+					0, timing)
+		elif not from.shadow_color.a or not from.shadow_size:
+			var old_color := style.shadow_color
+			old_color.a = 0
+			t.interpolate_property(from, "shadow_color", old_color,
+					style.shadow_color, timing)
 		else:
-			t.interpolate_property(bg.get_stylebox("panel"), "shadow_color", null,
+			t.interpolate_property(from, "shadow_color", null,
 					style.shadow_color, timing)
 		
-		t.interpolate_property(bg.get_stylebox("panel"), "shadow_offset", null,
+		t.interpolate_property(from, "shadow_offset", null,
 				style.shadow_offset, timing, transition_type, easing_type)
-		t.interpolate_property(bg.get_stylebox("panel"), "shadow_size", null,
+		t.interpolate_property(from, "shadow_size", null,
 				style.shadow_size, timing, transition_type, easing_type)
 	
 	t.start()
