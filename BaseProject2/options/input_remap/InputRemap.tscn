@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://options/input_remap/InputRemap.gd" type="Script" id=1]
-[ext_resource path="res://utils/ButtonSFX.gd" type="Script" id=2]
+[ext_resource path="res://utils/AnimatedButton.tscn" type="PackedScene" id=3]
 
 [node name="InputRemap" type="VBoxContainer" groups=["save"]]
 anchor_right = 1.0
@@ -10,12 +10,11 @@ custom_constants/separation = 10
 script = ExtResource( 1 )
 font_path = "res://assets/fonts/Roboto-Regular.ttf"
 
-[node name="ResetAll" type="Button" parent="."]
+[node name="ResetAll" parent="." instance=ExtResource( 3 )]
 margin_left = 919.0
 margin_right = 1024.0
 margin_bottom = 20.0
 size_flags_horizontal = 8
 text = "Reset Controls"
-script = ExtResource( 2 )
 
 [connection signal="pressed" from="ResetAll" to="." method="_on_ResetAll_pressed"]

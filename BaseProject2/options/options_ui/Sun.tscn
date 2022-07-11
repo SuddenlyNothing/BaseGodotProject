@@ -1,13 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/shaders/OptionsMenuBG.tres" type="Shader" id=2]
 [ext_resource path="res://options/SettingsPanels.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/ui/themes/OptionsSelect.tres" type="Theme" id=4]
 [ext_resource path="res://options/options_ui/OptionsSelect.gd" type="Script" id=5]
-[ext_resource path="res://utils/ButtonChangeScene.gd" type="Script" id=6]
 [ext_resource path="res://assets/ui/themes/Settings.tres" type="Theme" id=7]
-[ext_resource path="res://utils/ButtonSFX.gd" type="Script" id=13]
+[ext_resource path="res://utils/AnimatedButton.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 2 )
@@ -64,7 +63,7 @@ theme = ExtResource( 4 )
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Audio" type="Button" parent="M/H/V"]
+[node name="Audio" parent="M/H/V" instance=ExtResource( 8 )]
 margin_right = 241.0
 margin_bottom = 84.0
 size_flags_vertical = 3
@@ -72,42 +71,43 @@ disabled = true
 toggle_mode = true
 pressed = true
 text = "Audio"
-script = ExtResource( 13 )
+pressed_timing = 0.2
+disabled_timing = 0.2
 
-[node name="Controls" type="Button" parent="M/H/V"]
+[node name="Controls" parent="M/H/V" instance=ExtResource( 8 )]
 margin_top = 104.0
 margin_right = 241.0
 margin_bottom = 188.0
 size_flags_vertical = 3
 toggle_mode = true
 text = "Controls"
-script = ExtResource( 13 )
+pressed_timing = 0.2
+disabled_timing = 0.2
 
-[node name="ScreenSettings" type="Button" parent="M/H/V"]
+[node name="ScreenSettings" parent="M/H/V" instance=ExtResource( 8 )]
 margin_top = 208.0
 margin_right = 241.0
 margin_bottom = 292.0
 size_flags_vertical = 3
 toggle_mode = true
 text = "Screen"
-script = ExtResource( 13 )
+pressed_timing = 0.2
+disabled_timing = 0.2
 
-[node name="Menu" type="Button" parent="M/H/V"]
+[node name="Menu" parent="M/H/V" instance=ExtResource( 8 )]
 margin_top = 312.0
 margin_right = 241.0
 margin_bottom = 396.0
 size_flags_vertical = 3
 text = "Menu"
-script = ExtResource( 6 )
 next_scene = "res://scenes/Demo.tscn"
 
-[node name="Back" type="Button" parent="M/H/V"]
+[node name="Back" parent="M/H/V" instance=ExtResource( 8 )]
 margin_top = 416.0
 margin_right = 241.0
 margin_bottom = 500.0
 size_flags_vertical = 3
 text = "Back"
-script = ExtResource( 13 )
 
 [node name="V2" type="VBoxContainer" parent="M/H"]
 margin_left = 261.0

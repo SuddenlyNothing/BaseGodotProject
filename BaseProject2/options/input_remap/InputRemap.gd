@@ -2,6 +2,7 @@ extends VBoxContainer
 
 const InputRemapModule := preload("res://options/input_remap/"+
 		"InputRemapModule.tscn")
+const AnimatedButtonScene := preload("res://utils/AnimatedButton.tscn")
 
 # Translates button constants to strings.
 const MOUSE_BUTTONS = {
@@ -127,7 +128,7 @@ func add_new_input_remap_module(action: String, events: Array,
 # {button_ind} is the index of the button. Useful for indexing against
 func add_new_key_button(parent: Node, event: InputEvent, action: String,
 		button_ind: int) -> void:
-	var key_button := ButtonSFX.new()
+	var key_button := AnimatedButtonScene.instance()
 	key_button.text = input_to_text(event)
 	key_button.toggle_mode = true
 	key_button.clip_text = true
@@ -140,7 +141,7 @@ func add_new_key_button(parent: Node, event: InputEvent, action: String,
 
 
 # Update font size to fit text within button
-func set_key_button_font_size(key_button: ButtonSFX, text: String) -> void:
+func set_key_button_font_size(key_button: Button, text: String) -> void:
 	var font : DynamicFont = key_button.get_font("")
 	var content_size = key_button.rect_size.x - BUTTON_H_CONTENT_MARGIN
 	var font_lines = font.get_string_size(text).x / content_size
@@ -260,7 +261,7 @@ func set_reset_all_disabled() -> void:
 
 
 # Sets the mapping state to active starts the input detection
-func _on_key_button_pressed(parent: Node, key_button: ButtonSFX, action: String,
+func _on_key_button_pressed(parent: Node, key_button: Button, action: String,
 		button_ind: int) -> void:
 	if not key_button.pressed:
 		return

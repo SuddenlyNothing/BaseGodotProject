@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://utils/ButtonSFX.gd" type="Script" id=1]
-[ext_resource path="res://utils/ButtonChangeScene.gd" type="Script" id=2]
 [ext_resource path="res://options/options_ui/OptionsSelect.gd" type="Script" id=3]
 [ext_resource path="res://options/SettingsPanels.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/ui/themes/BlueToppedSelect.tres" type="Theme" id=5]
+[ext_resource path="res://utils/AnimatedButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/ui/themes/BlueToppedSettings.tres" type="Theme" id=7]
 
 [sub_resource type="Shader" id=1]
@@ -75,54 +74,60 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
 custom_constants/separation = 0
-alignment = 1
 
-[node name="Audio" type="Button" parent="M/V/V"]
+[node name="Audio" parent="M/V/V" instance=ExtResource( 6 )]
 margin_right = 150.0
 margin_bottom = 86.0
 rect_min_size = Vector2( 150, 35 )
+size_flags_vertical = 3
 disabled = true
 toggle_mode = true
+pressed = true
 text = "Audio"
-script = ExtResource( 1 )
+pressed_timing = 0.1
+disabled_timing = 0.1
 
-[node name="Controls" type="Button" parent="M/V/V"]
+[node name="Controls" parent="M/V/V" instance=ExtResource( 6 )]
 margin_left = 150.0
 margin_right = 300.0
 margin_bottom = 86.0
 rect_min_size = Vector2( 150, 35 )
+size_flags_vertical = 3
 toggle_mode = true
 text = "Controls"
-script = ExtResource( 1 )
+pressed_timing = 0.1
+disabled_timing = 0.1
 
-[node name="ScreenSettings" type="Button" parent="M/V/V"]
+[node name="ScreenSettings" parent="M/V/V" instance=ExtResource( 6 )]
 margin_left = 300.0
 margin_right = 450.0
 margin_bottom = 86.0
 rect_min_size = Vector2( 150, 35 )
+size_flags_vertical = 3
 toggle_mode = true
-text = "Video"
-script = ExtResource( 1 )
+text = "Screen"
+pressed_timing = 0.1
+disabled_timing = 0.1
 
-[node name="Menu" type="Button" parent="M/V/V"]
+[node name="Menu" parent="M/V/V" instance=ExtResource( 6 )]
 margin_left = 624.0
 margin_right = 774.0
 margin_bottom = 86.0
-rect_min_size = Vector2( 150, 0 )
+rect_min_size = Vector2( 150, 35 )
 size_flags_horizontal = 10
 size_flags_vertical = 3
 text = "Menu"
-script = ExtResource( 2 )
 next_scene = "res://scenes/Demo.tscn"
+pressed_timing = 0.1
 
-[node name="Back" type="Button" parent="M/V/V"]
+[node name="Back" parent="M/V/V" instance=ExtResource( 6 )]
 margin_left = 774.0
 margin_right = 924.0
 margin_bottom = 86.0
-rect_min_size = Vector2( 150, 0 )
+rect_min_size = Vector2( 150, 35 )
 size_flags_vertical = 3
 text = "Back"
-script = ExtResource( 1 )
+pressed_timing = 0.1
 
 [node name="V2" type="VBoxContainer" parent="M/V"]
 margin_top = 136.0
