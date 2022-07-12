@@ -1,16 +1,16 @@
-extends VBoxContainer
+extends MarginContainer
 
 const DEFAULT_BRIGHTNESS := 1.0
 const DEFAULT_CONTRAST := 1.0
 const DEFAULT_SATURATION := 1.0
 
-onready var brightness := $V/Brightness
-onready var contrast := $V2/Contrast
-onready var saturation := $V3/Saturation
-onready var b_reset := $V/H/BReset
-onready var c_reset := $V2/H/CReset
-onready var s_reset := $V3/H/SReset
-onready var reset := $Reset
+onready var brightness := $V/V/Brightness
+onready var contrast := $V/V2/Contrast
+onready var saturation := $V/V3/Saturation
+onready var b_reset := $V/V/H/BReset
+onready var c_reset := $V/V2/H/CReset
+onready var s_reset := $V/V3/H/SReset
+onready var reset := $V/Reset
 
 
 # Updates Save for brightness

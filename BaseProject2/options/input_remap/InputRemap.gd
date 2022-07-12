@@ -42,7 +42,8 @@ var pause_action := "pause"
 # Used for resetting inputs for actions and determining visibility
 var reset_buttons := {}
 
-onready var reset_all := $ResetAll
+onready var reset_all := $M/ResetAll
+onready var modules_parent := $S/M/ModulesParent
 
 
 # Called by the Save singleton
@@ -117,7 +118,7 @@ func add_new_input_remap_module(action: String, events: Array,
 	
 	# Update input format
 	update_action_format(action)
-	add_child(input_remap_module)
+	modules_parent.add_child(input_remap_module)
 	
 	set_reset_visible(action)
 
