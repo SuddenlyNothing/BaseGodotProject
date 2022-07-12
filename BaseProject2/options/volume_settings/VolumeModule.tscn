@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/ui/reset.png" type="Texture" id=2]
 [ext_resource path="res://options/volume_settings/VolumeModule.gd" type="Script" id=3]
 [ext_resource path="res://utils/AnimatedButton.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
 
 [node name="VolumeModule" type="VBoxContainer"]
 anchor_right = 1.0
@@ -13,22 +15,22 @@ alignment = 1
 script = ExtResource( 3 )
 
 [node name="H" type="HBoxContainer" parent="."]
-margin_top = 279.0
+margin_top = 282.0
 margin_right = 1024.0
-margin_bottom = 299.0
+margin_bottom = 296.0
 
 [node name="BusLabel" type="Label" parent="H"]
-margin_top = 3.0
 margin_right = 916.0
-margin_bottom = 17.0
+margin_bottom = 14.0
 size_flags_horizontal = 3
 
 [node name="Reset" parent="H" instance=ExtResource( 4 )]
 margin_left = 920.0
 margin_right = 970.0
-margin_bottom = 20.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
 expand_icon = true
 
 [node name="ResetIcon" type="TextureRect" parent="H/Reset"]
@@ -41,9 +43,10 @@ stretch_mode = 6
 [node name="Mute" parent="H" instance=ExtResource( 4 )]
 margin_left = 974.0
 margin_right = 1024.0
-margin_bottom = 20.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
 toggle_mode = true
 expand_icon = true
 
@@ -54,11 +57,11 @@ expand = true
 stretch_mode = 6
 
 [node name="VolumeSlider" type="HSlider" parent="."]
-margin_top = 304.0
+margin_top = 301.0
 margin_right = 1024.0
-margin_bottom = 320.0
+margin_bottom = 317.0
 max_value = 1.0
-step = 0.01
+step = 0.0
 value = 1.0
 
 [connection signal="pressed" from="H/Reset" to="." method="reset"]

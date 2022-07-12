@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://options/screen_settings/ScreenSettings.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/reset.png" type="Texture" id=3]
 [ext_resource path="res://utils/AnimatedButton.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
 
 [node name="ScreenSettings" type="MarginContainer" groups=["save"]]
 margin_right = 1024.0
@@ -40,17 +42,21 @@ margin_right = 1004.0
 margin_bottom = 20.0
 
 [node name="Label" type="Label" parent="V/V/H"]
-margin_top = 3.0
 margin_right = 950.0
-margin_bottom = 17.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "Brightness"
+valign = 1
 
 [node name="BReset" parent="V/V/H" instance=ExtResource( 4 )]
 margin_left = 954.0
 margin_right = 1004.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
 expand_icon = true
 
 [node name="ResetIcon" type="TextureRect" parent="V/V/H/BReset"]
@@ -67,7 +73,7 @@ margin_bottom = 41.0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
-step = 0.01
+step = 0.0
 value = 1.0
 
 [node name="V2" type="VBoxContainer" parent="V"]
@@ -81,17 +87,21 @@ margin_right = 1004.0
 margin_bottom = 20.0
 
 [node name="Label" type="Label" parent="V/V2/H"]
-margin_top = 3.0
 margin_right = 950.0
-margin_bottom = 17.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "Contrast"
+valign = 1
 
 [node name="CReset" parent="V/V2/H" instance=ExtResource( 4 )]
 margin_left = 954.0
 margin_right = 1004.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
 expand_icon = true
 
 [node name="ResetIcon" type="TextureRect" parent="V/V2/H/CReset"]
@@ -108,7 +118,7 @@ margin_bottom = 41.0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
-step = 0.01
+step = 0.0
 value = 1.0
 
 [node name="V3" type="VBoxContainer" parent="V"]
@@ -122,17 +132,21 @@ margin_right = 1004.0
 margin_bottom = 20.0
 
 [node name="Label" type="Label" parent="V/V3/H"]
-margin_top = 3.0
 margin_right = 950.0
-margin_bottom = 17.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "Saturation"
+valign = 1
 
 [node name="SReset" parent="V/V3/H" instance=ExtResource( 4 )]
 margin_left = 954.0
 margin_right = 1004.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
 expand_icon = true
 
 [node name="ResetIcon" type="TextureRect" parent="V/V3/H/SReset"]
@@ -149,7 +163,7 @@ margin_bottom = 41.0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
-step = 0.01
+step = 0.0
 value = 1.0
 
 [connection signal="pressed" from="V/Reset" to="." method="_on_Reset_pressed"]
