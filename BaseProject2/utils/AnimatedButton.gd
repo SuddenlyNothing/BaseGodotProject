@@ -84,7 +84,7 @@ func refresh_theme() -> void:
 		var curr_text_color := Color()
 		if disabled:
 			curr_text_color = disabled_text_color
-		if pressed:
+		elif pressed:
 			curr_text_color = pressed_text_color
 		else:
 			curr_text_color = normal_text_color
