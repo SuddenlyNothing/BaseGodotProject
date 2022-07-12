@@ -23,11 +23,11 @@ size_flags_vertical = 3
 custom_constants/separation = 30
 
 [node name="Reset" parent="V" instance=ExtResource( 4 )]
-margin_left = 915.0
+margin_left = 909.0
 margin_right = 1004.0
 margin_bottom = 20.0
 size_flags_horizontal = 8
-text = "Reset Audio"
+text = "Reset Screen"
 
 [node name="V" type="VBoxContainer" parent="V"]
 margin_top = 50.0
