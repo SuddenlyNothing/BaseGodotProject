@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=2]
+[gd_resource type="Theme" load_steps=13 format=2]
 
 [ext_resource path="res://assets/fonts/RobotoRegular28.tres" type="DynamicFont" id=1]
 
@@ -51,6 +51,11 @@ expand_margin_right = 2.0
 expand_margin_top = 2.0
 expand_margin_bottom = 2.0
 
+[sub_resource type="StyleBoxLine" id=19]
+color = Color( 0.245, 0.40225, 0.5, 1 )
+thickness = 10
+vertical = true
+
 [resource]
 default_font = ExtResource( 1 )
 Button/styles/disabled = SubResource( 9 )
@@ -66,3 +71,8 @@ HSlider/styles/grabber_area = SubResource( 18 )
 HSlider/styles/grabber_area_highlight = SubResource( 16 )
 HSlider/styles/slider = SubResource( 17 )
 Label/styles/normal = SubResource( 13 )
+VScrollBar/styles/grabber = SubResource( 18 )
+VScrollBar/styles/grabber_highlight = SubResource( 16 )
+VScrollBar/styles/grabber_pressed = SubResource( 16 )
+VScrollBar/styles/scroll = SubResource( 19 )
+VScrollBar/styles/scroll_focus = SubResource( 19 )

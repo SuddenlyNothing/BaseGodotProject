@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=2]
+[gd_resource type="Theme" load_steps=19 format=2]
 
 [ext_resource path="res://assets/fonts/RobotoRegular28.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/ui/grabber_disabled.png" type="Texture" id=2]
@@ -95,6 +95,38 @@ bg_color = Color( 1, 1, 1, 0.27451 )
 border_width_bottom = 3
 border_color = Color( 1, 1, 1, 0.509804 )
 
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0, 1, 0.905882, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0, 1, 0.905882, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxLine" id=19]
+thickness = 10
+vertical = true
+
+[sub_resource type="StyleBoxLine" id=20]
+thickness = 10
+vertical = true
+
 [resource]
 default_font = ExtResource( 1 )
 Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 0.784314 )
@@ -110,3 +142,8 @@ HSlider/styles/grabber_area = SubResource( 9 )
 HSlider/styles/grabber_area_highlight = SubResource( 10 )
 HSlider/styles/slider = SubResource( 11 )
 Label/styles/normal = SubResource( 3 )
+VScrollBar/styles/grabber = SubResource( 16 )
+VScrollBar/styles/grabber_highlight = SubResource( 17 )
+VScrollBar/styles/grabber_pressed = SubResource( 18 )
+VScrollBar/styles/scroll = SubResource( 19 )
+VScrollBar/styles/scroll_focus = SubResource( 20 )

@@ -41,22 +41,22 @@ color = Color( 0.317647, 0.580392, 0.0509804, 1 )
 [node name="M" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 200
+custom_constants/margin_right = 180
 custom_constants/margin_top = 50
-custom_constants/margin_left = 200
+custom_constants/margin_left = 180
 custom_constants/margin_bottom = 50
 
 [node name="H" type="HBoxContainer" parent="M"]
-margin_left = 200.0
+margin_left = 180.0
 margin_top = 50.0
-margin_right = 824.0
+margin_right = 844.0
 margin_bottom = 550.0
 custom_constants/separation = 20
 alignment = 1
 script = ExtResource( 5 )
 
 [node name="V" type="VBoxContainer" parent="M/H"]
-margin_right = 241.0
+margin_right = 257.0
 margin_bottom = 500.0
 size_flags_horizontal = 3
 theme = ExtResource( 4 )
@@ -64,7 +64,7 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Audio" parent="M/H/V" instance=ExtResource( 8 )]
-margin_right = 241.0
+margin_right = 257.0
 margin_bottom = 84.0
 size_flags_vertical = 3
 disabled = true
@@ -76,7 +76,7 @@ disabled_timing = 0.2
 
 [node name="Controls" parent="M/H/V" instance=ExtResource( 8 )]
 margin_top = 104.0
-margin_right = 241.0
+margin_right = 257.0
 margin_bottom = 188.0
 size_flags_vertical = 3
 toggle_mode = true
@@ -86,7 +86,7 @@ disabled_timing = 0.2
 
 [node name="ScreenSettings" parent="M/H/V" instance=ExtResource( 8 )]
 margin_top = 208.0
-margin_right = 241.0
+margin_right = 257.0
 margin_bottom = 292.0
 size_flags_vertical = 3
 toggle_mode = true
@@ -96,7 +96,7 @@ disabled_timing = 0.2
 
 [node name="Menu" parent="M/H/V" instance=ExtResource( 8 )]
 margin_top = 312.0
-margin_right = 241.0
+margin_right = 257.0
 margin_bottom = 396.0
 size_flags_vertical = 3
 text = "Menu"
@@ -104,14 +104,14 @@ next_scene = "res://scenes/Demo.tscn"
 
 [node name="Back" parent="M/H/V" instance=ExtResource( 8 )]
 margin_top = 416.0
-margin_right = 241.0
+margin_right = 257.0
 margin_bottom = 500.0
 size_flags_vertical = 3
 text = "Back"
 
 [node name="V2" type="VBoxContainer" parent="M/H"]
-margin_left = 261.0
-margin_right = 624.0
+margin_left = 277.0
+margin_right = 664.0
 margin_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
@@ -119,8 +119,8 @@ theme = ExtResource( 7 )
 custom_constants/separation = 10
 
 [node name="Label" type="Label" parent="M/H/V2"]
-margin_left = 185.0
-margin_right = 363.0
+margin_left = 209.0
+margin_right = 387.0
 margin_bottom = 41.0
 size_flags_horizontal = 10
 custom_fonts/font = SubResource( 5 )
@@ -128,6 +128,7 @@ custom_styles/normal = SubResource( 2 )
 text = "Pause Menu"
 
 [node name="Settings" parent="M/H/V2" instance=ExtResource( 3 )]
+margin_right = 387.0
 
 [connection signal="toggled" from="M/H/V/Audio" to="M/H" method="_on_button_toggled" binds= [ "AUDIO" ]]
 [connection signal="toggled" from="M/H/V/Controls" to="M/H" method="_on_button_toggled" binds= [ "CONTROLS" ]]
