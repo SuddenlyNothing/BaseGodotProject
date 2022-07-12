@@ -48,6 +48,7 @@ export(StyleBoxFlat) var disabled_style: StyleBoxFlat
 
 var is_mouse_inside := false
 var previous_disabled := false
+var pressing := false
 
 onready var t := $Tween
 onready var bg := $BG
@@ -323,6 +324,7 @@ func _on_AnimButton_mouse_exited() -> void:
 
 # Detects pressed
 func _on_AnimButton_button_down() -> void:
+	pressing = true
 	if action_mode == ACTION_MODE_BUTTON_PRESS:
 		pressed_sfx.play()
 	if disabled:
@@ -332,6 +334,7 @@ func _on_AnimButton_button_down() -> void:
 
 # Detects released
 func _on_AnimButton_button_up() -> void:
+	pressing = false
 	yield(get_tree(), "idle_frame")
 	if action_mode == ACTION_MODE_BUTTON_RELEASE and is_mouse_inside:
 		pressed_sfx.play()
@@ -356,3 +359,15 @@ func _on_AnimatedButton_draw() -> void:
 			else:
 				set_style("normal")
 	previous_disabled = disabled
+
+
+func _toggled(button_pressed: bool) -> void:
+	if pressing or disabled:
+		return
+	if button_pressed:
+		set_style("pressed")
+	else:
+		if is_mouse_inside:
+			set_style("hover")
+		else:
+			set_style("normal")
