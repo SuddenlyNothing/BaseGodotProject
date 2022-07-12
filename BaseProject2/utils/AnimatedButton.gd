@@ -59,15 +59,18 @@ func _ready() -> void:
 	refresh_theme()
 
 
+# Goes to next_scene if the next_scene variable is set
 func _pressed() -> void:
 	if next_scene:
 		SceneHandler.goto_scene(next_scene)
 
 
+# Setget used to refresh theme
 func set_refresh_theme(val: bool) -> void:
 	refresh_theme()
 
 
+# Sets the styling of the button to match the theme or the override
 func refresh_theme() -> void:
 	if Engine.editor_hint:
 		if normal_style:
@@ -108,6 +111,7 @@ func refresh_theme() -> void:
 			$BG.add_stylebox_override("panel", normal_style.duplicate())
 
 
+# Gets the theme of the scene or null if there is none
 func get_theme() -> Theme:
 	var curr = get_parent()
 	var curr_theme: Theme = .get_theme()
@@ -117,6 +121,9 @@ func get_theme() -> Theme:
 	return curr_theme
 
 
+# Replaces the override styles and colors with the one in the button theme
+# override. If there is no button override, uses the theme style/color. Only
+# overrides if the respective property is not set in the export variable.
 func cover_overrides() -> void:
 	if normal_style and hover_style and pressed_style and disabled_style and override_text_colors:
 		return
@@ -169,6 +176,8 @@ func cover_overrides() -> void:
 		disabled_style = theme_disabled
 
 
+# Converts empty styleboxes to flat styleboxes. Returns empty if empty is not a
+# StyleBoxEmpty
 func empty_to_flat(empty: StyleBox) -> StyleBox:
 	if empty is StyleBoxEmpty:
 		var new_stylebox := StyleBoxFlat.new()
@@ -177,6 +186,7 @@ func empty_to_flat(empty: StyleBox) -> StyleBox:
 	return empty
 
 
+# Sets the font color overrides to the given color
 func set_color(to: Color) -> void:
 	set("custom_colors/font_color", to)
 	set("custom_colors/font_color_disabled", to)
@@ -185,6 +195,7 @@ func set_color(to: Color) -> void:
 	set("custom_colors/font_color_focus", to)
 
 
+# Animates the current styling to the new given to style
 func set_style(to: String) -> void:
 	var from := bg.get_stylebox("panel") as StyleBoxFlat
 	var style: StyleBoxFlat = null
@@ -285,12 +296,15 @@ func set_style(to: String) -> void:
 	t.start()
 
 
+# Normal style setget.
+# Sets the style of the panel
 func set_normal_style(style: StyleBoxFlat) -> void:
 	normal_style = style
 	if is_inside_tree():
 		$BG.add_stylebox_override("panel", normal_style)
 
 
+# Detects hover
 func _on_AnimButton_mouse_entered() -> void:
 	is_mouse_inside = true
 	if pressed or disabled:
@@ -299,6 +313,7 @@ func _on_AnimButton_mouse_entered() -> void:
 	hover_sfx.play()
 
 
+# Detects unhover
 func _on_AnimButton_mouse_exited() -> void:
 	is_mouse_inside = false
 	if pressed or disabled:
@@ -306,6 +321,7 @@ func _on_AnimButton_mouse_exited() -> void:
 	set_style("normal")
 
 
+# Detects pressed
 func _on_AnimButton_button_down() -> void:
 	if action_mode == ACTION_MODE_BUTTON_PRESS:
 		pressed_sfx.play()
@@ -314,6 +330,7 @@ func _on_AnimButton_button_down() -> void:
 	set_style("pressed")
 
 
+# Detects released
 func _on_AnimButton_button_up() -> void:
 	yield(get_tree(), "idle_frame")
 	if action_mode == ACTION_MODE_BUTTON_RELEASE and is_mouse_inside:
@@ -326,6 +343,7 @@ func _on_AnimButton_button_up() -> void:
 		set_style("normal")
 
 
+# Detects disabled
 func _on_AnimatedButton_draw() -> void:
 	if previous_disabled != disabled:
 		if disabled:
