@@ -6,13 +6,13 @@ const AnimatedButtonScene := preload("res://utils/AnimatedButton.tscn")
 
 # Translates button constants to strings.
 const MOUSE_BUTTONS = {
-	BUTTON_LEFT: "BUTTON_LEFT", # Left mouse button.
-	BUTTON_RIGHT: "BUTTON_RIGHT", # Right mouse button.
+	BUTTON_LEFT: "Left Click", # Left mouse button.
+	BUTTON_RIGHT: "Right Click", # Right mouse button.
 	BUTTON_MIDDLE: "BUTTON_MIDDLE", # Middle mouse button.
 	BUTTON_XBUTTON1: "BUTTON_XBUTTON1", # Extra mouse button 1
 	BUTTON_XBUTTON2: "BUTTON_XBUTTON2", # Extra mouse button 2
-	BUTTON_WHEEL_UP: "BUTTON_WHEEL_UP", # Mouse wheel up.
-	BUTTON_WHEEL_DOWN: "BUTTON_WHEEL_DOWN", # Mouse wheel down.
+	BUTTON_WHEEL_UP: "Scroll Up", # Mouse wheel up.
+	BUTTON_WHEEL_DOWN: "Scroll Down", # Mouse wheel down.
 	BUTTON_WHEEL_LEFT: "BUTTON_WHEEL_LEFT", # Mouse wheel left button
 	BUTTON_WHEEL_RIGHT: "BUTTON_WHEEL_RIGHT", # Mouse wheel right button
 }

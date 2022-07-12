@@ -17,12 +17,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="H"]
-margin_top = 3.0
 margin_right = 354.0
-margin_bottom = 17.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
+size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 text = "Input"
+valign = 1
 
 [node name="Reset" parent="H" instance=ExtResource( 3 )]
 margin_left = 358.0
@@ -30,7 +32,7 @@ margin_right = 408.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 9
-size_flags_vertical = 3
+size_flags_vertical = 7
 expand_icon = true
 
 [node name="ResetIcon" type="TextureRect" parent="H/Reset"]
@@ -43,8 +45,9 @@ stretch_mode = 6
 [node name="V" type="VBoxContainer" parent="."]
 margin_left = 412.0
 margin_right = 1024.0
+margin_bottom = 600.0
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
 custom_constants/separation = 10
 alignment = 1
