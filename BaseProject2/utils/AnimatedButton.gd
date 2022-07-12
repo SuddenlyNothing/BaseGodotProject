@@ -337,7 +337,7 @@ func _on_AnimButton_button_up() -> void:
 		pressed_sfx.play()
 	if pressed or disabled:
 		return
-	if is_mouse_inside:
+	if is_mouse_inside and visible:
 		set_style("hover")
 	else:
 		set_style("normal")
