@@ -132,6 +132,7 @@ func add_new_key_button(parent: Node, event: InputEvent, action: String,
 	var key_button := AnimatedButtonScene.instance()
 	key_button.text = input_to_text(event)
 	key_button.toggle_mode = true
+	key_button.focus_mode = 0
 	key_button.clip_text = true
 	key_button.connect("pressed", self, "_on_key_button_pressed",
 			[parent, key_button, action, button_ind])
