@@ -128,6 +128,8 @@ __meta__ = {
 }
 
 [connection signal="gui_input" from="ColorRect" to="." method="_on_ColorRect_gui_input"]
+[connection signal="mouse_entered" from="ColorRect" to="." method="_on_ColorRect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect" to="." method="_on_ColorRect_mouse_exited"]
 [connection signal="toggled" from="M/V/V/Audio" to="M/V" method="_on_button_toggled" binds= [ "AUDIO" ]]
 [connection signal="toggled" from="M/V/V/Controls" to="M/V" method="_on_button_toggled" binds= [ "CONTROLS" ]]
 [connection signal="toggled" from="M/V/V/ScreenSettings" to="M/V" method="_on_button_toggled" binds= [ "SCREEN_SETTINGS" ]]
