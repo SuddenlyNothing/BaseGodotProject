@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Scenes/UI/InputFormatLabel.gd" type="Script" id=2]
-
-[node name="InputFormatLabel" type="Label" groups=["uses_keys"]]
-margin_bottom = 14.0
-script = ExtResource( 2 )
