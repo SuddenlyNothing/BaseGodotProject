@@ -351,13 +351,12 @@ func _on_AnimatedButton_draw() -> void:
 	if previous_disabled != disabled:
 		if disabled:
 			set_style("disabled")
+		elif pressed:
+			set_style("pressed")
+		elif is_mouse_inside:
+			set_style("hover")
 		else:
-			if pressed:
-				set_style("pressed")
-			elif is_mouse_inside:
-				set_style("hover")
-			else:
-				set_style("normal")
+			set_style("normal")
 	previous_disabled = disabled
 
 
@@ -366,8 +365,14 @@ func _toggled(button_pressed: bool) -> void:
 		return
 	if button_pressed:
 		set_style("pressed")
+	elif is_mouse_inside:
+		set_style("hover")
 	else:
-		if is_mouse_inside:
-			set_style("hover")
-		else:
-			set_style("normal")
+		set_style("normal")
+
+
+func _on_AnimatedButton_hide() -> void:
+	is_mouse_inside = false
+	if disabled:
+		return
+	set_style("normal")

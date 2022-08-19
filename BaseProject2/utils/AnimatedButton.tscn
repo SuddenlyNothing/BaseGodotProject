@@ -37,5 +37,6 @@ bus = "SFX"
 [connection signal="button_down" from="." to="." method="_on_AnimButton_button_down"]
 [connection signal="button_up" from="." to="." method="_on_AnimButton_button_up"]
 [connection signal="draw" from="." to="." method="_on_AnimatedButton_draw"]
+[connection signal="hide" from="." to="." method="_on_AnimatedButton_hide"]
 [connection signal="mouse_entered" from="." to="." method="_on_AnimButton_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_AnimButton_mouse_exited"]
