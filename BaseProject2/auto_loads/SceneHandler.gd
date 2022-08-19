@@ -50,10 +50,13 @@ func _process(delta: float) -> void:
 
 # Reloads the current scene
 func restart_scene() -> void:
-	transition.fade_out()
-	yield(transition, "faded_out")
-	current_scene.queue_free()
-	call_deferred("set_new_scene", current_scene_res)
+	if current_scene_res:
+		transition.fade_out()
+		yield(transition, "faded_out")
+		current_scene.queue_free()
+		call_deferred("set_new_scene", current_scene_res)
+	else:
+		goto_scene(current_scene.filename)
 
 
 # Fades out, frees current scene then starts loading the new scene.
