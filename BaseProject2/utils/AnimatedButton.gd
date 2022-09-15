@@ -222,7 +222,7 @@ func set_style(to: String) -> void:
 	t.remove_all()
 	t.interpolate_method(self, "set_color", get("custom_colors/font_color"), new_color, timing)
 	if from and style:
-		if not from.bg_color.a or not from.draw_center:
+		if (not from.bg_color.a or not from.draw_center) and style.draw_center:
 			var old_color := style.bg_color
 			old_color.a = 0
 			t.interpolate_property(from, "bg_color", old_color,
