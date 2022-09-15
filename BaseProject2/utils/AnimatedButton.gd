@@ -234,6 +234,9 @@ func set_style(to: String) -> void:
 			t.interpolate_property(from, "bg_color", null,
 					style.bg_color, timing)
 		
+		t.interpolate_property(from, "skew", null,
+				style.skew, timing, transition_type, easing_type)
+		
 		t.interpolate_property(from, "border_width_top", null,
 				style.border_width_top, timing, transition_type, easing_type)
 		t.interpolate_property(from, "border_width_right", null,
