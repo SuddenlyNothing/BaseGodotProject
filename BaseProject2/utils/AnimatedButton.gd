@@ -339,7 +339,8 @@ func _on_AnimButton_button_down() -> void:
 func _on_AnimButton_button_up() -> void:
 	pressing = false
 	yield(get_tree(), "idle_frame")
-	if action_mode == ACTION_MODE_BUTTON_RELEASE and is_mouse_inside:
+	if action_mode == ACTION_MODE_BUTTON_RELEASE and \
+			(is_mouse_inside or not is_visible_in_tree()):
 		pressed_sfx.play()
 	if pressed or disabled:
 		return
