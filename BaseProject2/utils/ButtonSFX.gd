@@ -11,7 +11,7 @@ func _ready() -> void:
 func _pressed() -> void:
 	var sfx := AudioStreamPlayer.new()
 	sfx.bus = "SFX"
-	sfx.stream = preload("res://assets/sfx/OptionsSelect.wav")
+	sfx.stream = preload("res://assets/sfx/button_pressed.wav")
 	sfx.pause_mode = Node.PAUSE_MODE_PROCESS
 	sfx.volume_db = -15
 	add_child(sfx)
@@ -25,7 +25,7 @@ func _play_hover_sfx() -> void:
 		return
 	var sfx := AudioStreamPlayer.new()
 	sfx.bus = "SFX"
-	sfx.stream = preload("res://assets/sfx/OptionsHover.wav")
+	sfx.stream = preload("res://assets/sfx/button_hover.wav")
 	sfx.pause_mode = Node.PAUSE_MODE_PROCESS
 	sfx.volume_db = -20
 	add_child(sfx)
