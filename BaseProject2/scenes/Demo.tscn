@@ -2,7 +2,7 @@
 
 [ext_resource path="res://utils/ButtonChangeScene.gd" type="Script" id=1]
 [ext_resource path="res://utils/InputFormatLabel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/fonts/RobotoRegular32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/fonts/dp32.tres" type="DynamicFont" id=3]
 
 [node name="Demo" type="Node2D"]
 
