@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://utils/ButtonChangeScene.gd" type="Script" id=1]
 [ext_resource path="res://utils/InputFormatLabel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/fonts/Packed.ttf" type="DynamicFontData" id=3]
-
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 3 )
+[ext_resource path="res://assets/fonts/RobotoRegular32.tres" type="DynamicFont" id=3]
 
 [node name="Demo" type="Node2D"]
 
@@ -22,5 +19,5 @@ margin_left = 293.0
 margin_top = 166.0
 margin_right = 578.0
 margin_bottom = 271.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "{up}, {down}, {left}, {right}, {pause}"
