@@ -1,5 +1,9 @@
 extends Control
 
+## To set up this script, include all respective onready nodes with scene unique
+## node active. Audio, Controls, and ScreenSettings button need toggle mode to
+## be true.
+
 enum TAB {
 	AUDIO,
 	CONTROLS,
@@ -8,10 +12,26 @@ enum TAB {
 
 var current_setting = TAB.AUDIO setget set_current_setting
 
-onready var audio: Button = $V/Audio
-onready var controls: Button = $V/Controls
-onready var screen_settings: Button = $V/ScreenSettings
-onready var settings: TabContainer = $V2/Settings
+onready var audio: Button = $"%Audio"
+onready var controls: Button = $"%Controls"
+onready var screen_settings: Button = $"%ScreenSettings"
+onready var settings: TabContainer = $"%Settings"
+onready var back: Button = $"%Back"
+onready var menu: Button = $"%Menu"
+
+
+func _ready() -> void:
+	setup_signals()
+
+
+# Sets up signals so I don't need to do them in editor
+func setup_signals() -> void:
+	audio.connect("toggled", self, "_on_button_toggled", ["AUDIO"])
+	controls.connect("toggled", self, "_on_button_toggled", ["CONTROLS"])
+	screen_settings.connect("toggled", self, "_on_button_toggled",
+			["SCREEN_SETTINGS"])
+	back.connect("pressed", self, "_on_Back_pressed")
+	menu.connect("pressed", self, "_on_Back_pressed")
 
 
 # Sets active panel to the one associated with the given button
@@ -46,5 +66,6 @@ func set_current_setting(val: int) -> void:
 				screen_settings.disabled = false
 
 
+# Turns off menu
 func _on_Back_pressed() -> void:
 	OptionsMenu.set_active(false)

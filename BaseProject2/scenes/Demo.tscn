@@ -23,4 +23,4 @@ margin_top = 166.0
 margin_right = 578.0
 margin_bottom = 271.0
 custom_fonts/font = SubResource( 1 )
-text = "{up}, {down}, {left}, {right}"
+text = "{up}, {down}, {left}, {right}, {pause}"

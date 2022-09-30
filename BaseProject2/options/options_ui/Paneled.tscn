@@ -52,6 +52,7 @@ custom_constants/separation = 0
 alignment = 1
 
 [node name="Audio" parent="M/V/V" instance=ExtResource( 3 )]
+unique_name_in_owner = true
 margin_right = 141.0
 margin_bottom = 33.0
 size_flags_horizontal = 3
@@ -63,6 +64,7 @@ pressed_timing = 0.2
 disabled_timing = 0.2
 
 [node name="Controls" parent="M/V/V" instance=ExtResource( 3 )]
+unique_name_in_owner = true
 margin_left = 141.0
 margin_right = 282.0
 margin_bottom = 33.0
@@ -73,6 +75,7 @@ pressed_timing = 0.2
 disabled_timing = 0.2
 
 [node name="ScreenSettings" parent="M/V/V" instance=ExtResource( 3 )]
+unique_name_in_owner = true
 margin_left = 282.0
 margin_right = 424.0
 margin_bottom = 33.0
@@ -92,6 +95,7 @@ custom_constants/margin_right = 3
 custom_constants/margin_left = 3
 
 [node name="Settings" parent="M/V/V2" instance=ExtResource( 2 )]
+unique_name_in_owner = true
 margin_left = 3.0
 margin_top = 0.0
 margin_right = 421.0
@@ -105,12 +109,14 @@ custom_constants/separation = 0
 alignment = 1
 
 [node name="Back" parent="M/V/H" instance=ExtResource( 3 )]
+unique_name_in_owner = true
 margin_right = 212.0
 margin_bottom = 33.0
 size_flags_horizontal = 3
 text = "Back"
 
 [node name="Menu" parent="M/V/H" instance=ExtResource( 3 )]
+unique_name_in_owner = true
 margin_left = 212.0
 margin_right = 424.0
 margin_bottom = 33.0
@@ -130,8 +136,3 @@ __meta__ = {
 [connection signal="gui_input" from="ColorRect" to="." method="_on_ColorRect_gui_input"]
 [connection signal="mouse_entered" from="ColorRect" to="." method="_on_ColorRect_mouse_entered"]
 [connection signal="mouse_exited" from="ColorRect" to="." method="_on_ColorRect_mouse_exited"]
-[connection signal="toggled" from="M/V/V/Audio" to="M/V" method="_on_button_toggled" binds= [ "AUDIO" ]]
-[connection signal="toggled" from="M/V/V/Controls" to="M/V" method="_on_button_toggled" binds= [ "CONTROLS" ]]
-[connection signal="toggled" from="M/V/V/ScreenSettings" to="M/V" method="_on_button_toggled" binds= [ "SCREEN_SETTINGS" ]]
-[connection signal="pressed" from="M/V/H/Back" to="M/V" method="_on_Back_pressed"]
-[connection signal="pressed" from="M/V/H/Menu" to="M/V" method="_on_Back_pressed"]
