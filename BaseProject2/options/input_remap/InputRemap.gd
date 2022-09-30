@@ -65,13 +65,21 @@ func load_data() -> void:
 func _input(event: InputEvent) -> void:
 	if is_mapping:
 		if can_map_event(event):
+			# Disable binding pausing to left click
 			if map_key_button.action == "pause" and not is_valid_pause_input(event):
+				return
+			# Cancel if button is already mapped to action
+			if InputMap.action_has_event(map_key_button.action, event):
+				map_key_button.self.text = input_to_text(Save.data.settings\
+						.actions[map_key_button.action]\
+						.inputs[map_key_button.ind])
+				stop_mapping()
 				return
 			map_key_button.self.text = input_to_text(event)
 			var action_inputs : Array = Save.data.settings.actions[map_key_button\
 					.action].inputs
 			var old_event : InputEvent = action_inputs[map_key_button.ind]
-			# replace old event
+			# Replace old event
 			action_inputs[map_key_button.ind] = event
 			# Map action to new event
 			InputMap.action_erase_event(map_key_button.action, old_event)
@@ -79,8 +87,7 @@ func _input(event: InputEvent) -> void:
 			# Set font size
 			set_key_button_font_size(map_key_button.self, input_to_text(event))
 			# Reset mapping state.
-			is_mapping = false
-			map_key_button.self.pressed = false
+			stop_mapping()
 			# Sets reset buttons
 			set_reset_visible(map_key_button.action)
 			set_reset_all_disabled()
@@ -187,7 +194,7 @@ func is_children_defaults(parent, action: String) -> bool:
 	return true
 
 
-# Check if event is mappable.
+# Check if event is mappable
 # (e.g. an actual keypress, joypad input or mouse click)
 func can_map_event(event: InputEvent) -> bool:
 	# some events can't be mapped to actions
@@ -205,11 +212,18 @@ func can_map_event(event: InputEvent) -> bool:
 	return true
 
 
+# Returns true if event is valid pause input
 func is_valid_pause_input(event: InputEvent) -> bool:
 	return not event is InputEventMouseButton
 
 
-# Takes an input and returns it as text.
+# Resets the mapping state to false
+func stop_mapping() -> void:
+	is_mapping = false
+	map_key_button.self.pressed = false
+
+
+# Takes an input and returns it as text
 func input_to_text(input: InputEvent) -> String:
 	if input is InputEventMouseButton:
 		return MOUSE_BUTTONS[input.button_index]
