@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://utils/DialogPlayer.gd" type="Script" id=1]
+[ext_resource path="res://assets/sfx/text.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/fonts/dp32.tres" type="DynamicFont" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="DialogPlayer" type="Control" groups=["needs_keys"]]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+default_audio = ExtResource( 2 )
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_top = 400
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="M"]
+margin_top = 400.0
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="M" type="MarginContainer" parent="M/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 50
+custom_constants/margin_top = 10
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="M/ColorRect/M"]
+margin_left = 50.0
+margin_top = 85.0
+margin_right = 974.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 3 )
+custom_styles/normal = SubResource( 1 )
+autowrap = true
+
+[node name="TextSFX" type="AudioStreamPlayer" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
