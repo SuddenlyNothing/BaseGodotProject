@@ -44,10 +44,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="M/ColorRect/M"]
 margin_left = 50.0
-margin_top = 85.0
+margin_top = 93.0
 margin_right = 974.0
-margin_bottom = 115.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 107.0
 custom_styles/normal = SubResource( 1 )
 autowrap = true
 
