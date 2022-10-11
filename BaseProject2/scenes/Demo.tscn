@@ -5,3 +5,19 @@
 [ext_resource path="res://assets/fonts/dp32.tres" type="DynamicFont" id=3]
 
 [node name="Demo" type="Node2D"]
+
+[node name="ChangeScene" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+focus_mode = 0
+text = "Change scene"
+script = ExtResource( 1 )
+next_scene = "res://scenes/Demo.tscn"
+
+[node name="InputFormatLabel" parent="." instance=ExtResource( 2 )]
+margin_left = 293.0
+margin_top = 166.0
+margin_right = 578.0
+margin_bottom = 271.0
+custom_fonts/font = ExtResource( 3 )
+text = "{up}, {down}, {left}, {right}, {pause}"
