@@ -8,3 +8,6 @@ export(bool) var loaded: bool = false
 export(float) var screen_brightness: float
 export(float) var screen_contrast: float
 export(float) var screen_saturation: float
+
+# Audio settings
+export(Dictionary) var audio_buses: Dictionary
