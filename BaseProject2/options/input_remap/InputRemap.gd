@@ -49,12 +49,10 @@ onready var modules_parent := $S/M/ModulesParent
 # Called by the Save singleton
 # Loads keys from Variables.user_keys if no data (no saves yet)
 func load_data() -> void:
-	if not "actions" in Save.data.settings:
-		Save.data.settings["actions"] = {}
 	for action in Variables.user_keys:
-		if action in Save.data.settings.actions:
+		if action in Save.data.actions:
 			add_new_input_remap_module(action,
-					Save.data.settings.actions[action].inputs)
+					Save.data.actions[action].inputs)
 		else:
 			add_new_input_remap_module(action,
 					InputMap.get_action_list(action), false)
@@ -66,19 +64,20 @@ func _input(event: InputEvent) -> void:
 	if is_mapping:
 		if can_map_event(event):
 			# Disable binding pausing to left click
-			if map_key_button.action == "pause" and not is_valid_pause_input(event):
+			if map_key_button.action == "pause" and \
+					not is_valid_pause_input(event):
 				return
 			# Cancel if button is already mapped to action
 			if InputMap.action_has_event(map_key_button.action, event):
-				map_key_button.self.text = input_to_text(Save.data.settings\
+				map_key_button.self.text = input_to_text(Save.data\
 						.actions[map_key_button.action]\
 						.inputs[map_key_button.ind])
 				stop_mapping()
 				return
 			map_key_button.self.text = input_to_text(event)
-			var action_inputs : Array = Save.data.settings.actions[map_key_button\
-					.action].inputs
-			var old_event : InputEvent = action_inputs[map_key_button.ind]
+			var action_inputs: Array = Save.data.actions\
+					[map_key_button.action].inputs
+			var old_event: InputEvent = action_inputs[map_key_button.ind]
 			# Replace old event
 			action_inputs[map_key_button.ind] = event
 			# Map action to new event
@@ -111,15 +110,15 @@ func add_new_input_remap_module(action: String, events: Array,
 	input_reset_button.connect("pressed", self, "_on_reset_pressed", [action])
 	InputMap.action_erase_events(action)
 	if not from_save:
-		Save.data.settings.actions[action] = {
+		Save.data.actions[action] = {
 			"default_inputs": [],
 			"inputs": [],
 		}
 	
 	for i in events.size():
 		if not from_save:
-			Save.data.settings.actions[action].inputs.append(events[i])
-			Save.data.settings.actions[action].default_inputs.append(events[i])
+			Save.data.actions[action].inputs.append(events[i])
+			Save.data.actions[action].default_inputs.append(events[i])
 		InputMap.action_add_event(action, events[i])
 		add_new_key_button(buttons_parent, events[i], action, i)
 	
@@ -151,13 +150,13 @@ func add_new_key_button(parent: Node, event: InputEvent, action: String,
 
 # Update font size to fit text within button
 func set_key_button_font_size(key_button: Button, text: String) -> void:
-	var font : DynamicFont = key_button.get_font("")
+	var font: DynamicFont = key_button.get_font("")
 	var content_size = key_button.rect_size.x - BUTTON_H_CONTENT_MARGIN
 	var font_lines = font.get_string_size(text).x / content_size
 	# Couldn't find a better way to change font size for single button
 	var new_font = DynamicFont.new()
 	var new_data = DynamicFontData.new()
-	var new_font_size : int = floor(min(font.size / font_lines,
+	var new_font_size: int = floor(min(font.size / font_lines,
 			DEFAULT_FONT_SIZE))
 	new_data.font_path = font_path
 	new_font.font_data = new_data
@@ -185,7 +184,7 @@ func update_action_format(action: String) -> void:
 # Checks if children of parent with the action child has the default inputs
 func is_children_defaults(parent, action: String) -> bool:
 	var inputs = []
-	for i in Save.data.settings.actions[action].default_inputs:
+	for i in Save.data.actions[action].default_inputs:
 		inputs.append(input_to_text(i))
 	for i in parent.get_children():
 		if not i.text in inputs:
@@ -244,11 +243,12 @@ func reset_action(action: String) -> void:
 	var buttons_parent = reset_buttons[action][1]
 	InputMap.action_erase_events(action)
 	for i in buttons_parent.get_child_count():
-		var default_input = Save.data.settings.actions[action].default_inputs[i]
+		var default_input = Save.data.actions[action]\
+				.default_inputs[i]
 		var button = buttons_parent.get_child(i)
 		button.text = input_to_text(default_input)
 		set_key_button_font_size(button, button.text)
-		Save.data.settings.actions[action].inputs[i] = default_input
+		Save.data.actions[action].inputs[i] = default_input
 		InputMap.action_add_event(action, default_input)
 	update_action_format(action)
 

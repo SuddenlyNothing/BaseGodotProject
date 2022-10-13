@@ -16,6 +16,7 @@ func _ready() -> void:
 func load_data() -> void:
 	if ResourceLoader.exists(settings_save_path):
 		data = load(settings_save_path)
+		data.loaded = true
 	else:
 		data = SaveData.new()
 
