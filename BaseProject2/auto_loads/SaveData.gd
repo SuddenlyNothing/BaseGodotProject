@@ -11,3 +11,6 @@ export(float) var screen_saturation: float
 
 # Audio settings
 export(Dictionary) var audio_buses: Dictionary
+
+# Input settings
+export(Dictionary) var actions: Dictionary
