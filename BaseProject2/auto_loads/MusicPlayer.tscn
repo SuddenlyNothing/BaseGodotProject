@@ -7,3 +7,4 @@ pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="Level" type="AudioStreamPlayer" parent="."]
+bus = "Music"
