@@ -1,4 +1,10 @@
 class_name SaveData
 extends Resource
 
-export(Dictionary) var settings := {}
+# If resource has been loaded before
+export(bool) var loaded: bool = false
+
+# Screen settings
+export(float) var screen_brightness: float
+export(float) var screen_contrast: float
+export(float) var screen_saturation: float

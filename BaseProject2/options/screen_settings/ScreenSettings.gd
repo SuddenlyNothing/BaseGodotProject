@@ -16,7 +16,7 @@ onready var reset := $V/Reset
 # Updates Save for brightness
 # Updates ScreenFilter shader params for brightness
 func _on_Brightness_value_changed(value: float) -> void:
-	Save.data.settings.screen.brightness = value
+	Save.data.screen_brightness = value
 	ScreenFilter.set_brightness(value)
 	check_defaults()
 
@@ -24,7 +24,7 @@ func _on_Brightness_value_changed(value: float) -> void:
 # Updates Save for contrast
 # Updates ScreenFilter shader params for contrast 
 func _on_Contrast_value_changed(value: float) -> void:
-	Save.data.settings.screen.contrast = value
+	Save.data.screen_contrast = value
 	ScreenFilter.set_contrast(value)
 	check_defaults()
 
@@ -32,7 +32,7 @@ func _on_Contrast_value_changed(value: float) -> void:
 # Updates Save for saturation
 # Updates ScreenFilter shader params for saturation
 func _on_Saturation_value_changed(value: float) -> void:
-	Save.data.settings.screen.saturation = value
+	Save.data.screen_saturation = value
 	ScreenFilter.set_saturation(value)
 	check_defaults()
 
@@ -41,17 +41,15 @@ func _on_Saturation_value_changed(value: float) -> void:
 # Gets called from Save because this node is in the
 # save group
 func load_data() -> void:
-	if "screen" in Save.data.settings:
-		var screen_data = Save.data.settings.screen
-		brightness.value = screen_data.brightness
-		contrast.value = screen_data.contrast
-		saturation.value = screen_data.saturation
-	else:
-		Save.data.settings["screen"] = {
-			"brightness": 1,
-			"contrast": 1,
-			"saturation": 1,
-		}
+	var screen_data = Save.data
+	if not screen_data.loaded:
+		screen_data.screen_brightness = DEFAULT_BRIGHTNESS
+		screen_data.screen_contrast = DEFAULT_CONTRAST
+		screen_data.screen_saturation = DEFAULT_SATURATION
+	brightness.value = screen_data.screen_brightness
+	contrast.value = screen_data.screen_contrast
+	saturation.value = screen_data.screen_saturation
+	
 	check_defaults()
 
 
