@@ -23,5 +23,3 @@ visible = false
 
 [node name="ScreenSettings" parent="." instance=ExtResource( 4 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0

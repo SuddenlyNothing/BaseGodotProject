@@ -23,37 +23,34 @@ size_flags_vertical = 3
 custom_constants/separation = 4
 
 [node name="Reset" parent="V" instance=ExtResource( 4 )]
-margin_left = 345.0
+margin_left = 351.953
 margin_right = 440.0
-margin_bottom = 20.0
 size_flags_horizontal = 8
 text = "Reset Screen"
 
 [node name="V" type="VBoxContainer" parent="V"]
-margin_top = 24.0
+margin_top = 26.0
 margin_right = 440.0
-margin_bottom = 62.0
+margin_bottom = 66.0
 custom_constants/separation = 2
 
 [node name="H" type="HBoxContainer" parent="V/V"]
 margin_right = 440.0
-margin_bottom = 20.0
+margin_bottom = 22.0
 custom_constants/separation = 2
 
 [node name="Label" type="Label" parent="V/V/H"]
-margin_right = 388.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
+margin_right = 416.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Brightness"
 valign = 1
 
 [node name="BReset" parent="V/V/H" instance=ExtResource( 4 )]
-margin_left = 390.0
+margin_left = 418.0
 margin_right = 440.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 0 )
+rect_min_size = Vector2( 22, 0 )
 size_flags_vertical = 3
 expand_icon = true
 
@@ -67,9 +64,9 @@ expand = true
 stretch_mode = 6
 
 [node name="Brightness" type="HSlider" parent="V/V"]
-margin_top = 22.0
+margin_top = 24.0
 margin_right = 440.0
-margin_bottom = 38.0
+margin_bottom = 40.0
 focus_mode = 0
 size_flags_horizontal = 3
 min_value = 0.5
@@ -78,30 +75,28 @@ step = 0.0
 value = 1.0
 
 [node name="V2" type="VBoxContainer" parent="V"]
-margin_top = 66.0
+margin_top = 70.0
 margin_right = 440.0
-margin_bottom = 104.0
+margin_bottom = 110.0
 custom_constants/separation = 2
 
 [node name="H" type="HBoxContainer" parent="V/V2"]
 margin_right = 440.0
-margin_bottom = 20.0
+margin_bottom = 22.0
 custom_constants/separation = 2
 
 [node name="Label" type="Label" parent="V/V2/H"]
-margin_right = 388.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
+margin_right = 416.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Contrast"
 valign = 1
 
 [node name="CReset" parent="V/V2/H" instance=ExtResource( 4 )]
-margin_left = 390.0
+margin_left = 418.0
 margin_right = 440.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 0 )
+rect_min_size = Vector2( 22, 0 )
 size_flags_vertical = 3
 expand_icon = true
 
@@ -113,9 +108,9 @@ expand = true
 stretch_mode = 6
 
 [node name="Contrast" type="HSlider" parent="V/V2"]
-margin_top = 22.0
+margin_top = 24.0
 margin_right = 440.0
-margin_bottom = 38.0
+margin_bottom = 40.0
 focus_mode = 0
 size_flags_horizontal = 3
 min_value = 0.5
@@ -124,30 +119,28 @@ step = 0.0
 value = 1.0
 
 [node name="V3" type="VBoxContainer" parent="V"]
-margin_top = 108.0
+margin_top = 114.0
 margin_right = 440.0
-margin_bottom = 146.0
+margin_bottom = 154.0
 custom_constants/separation = 2
 
 [node name="H" type="HBoxContainer" parent="V/V3"]
 margin_right = 440.0
-margin_bottom = 20.0
+margin_bottom = 22.0
 custom_constants/separation = 2
 
 [node name="Label" type="Label" parent="V/V3/H"]
-margin_right = 388.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
+margin_right = 416.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Saturation"
 valign = 1
 
 [node name="SReset" parent="V/V3/H" instance=ExtResource( 4 )]
-margin_left = 390.0
+margin_left = 418.0
 margin_right = 440.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 0 )
+rect_min_size = Vector2( 22, 0 )
 size_flags_vertical = 3
 expand_icon = true
 
@@ -159,9 +152,9 @@ expand = true
 stretch_mode = 6
 
 [node name="Saturation" type="HSlider" parent="V/V3"]
-margin_top = 22.0
+margin_top = 24.0
 margin_right = 440.0
-margin_bottom = 38.0
+margin_bottom = 40.0
 focus_mode = 0
 size_flags_horizontal = 3
 min_value = 0.5

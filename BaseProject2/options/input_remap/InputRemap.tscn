@@ -14,19 +14,18 @@ font_path = "res://assets/fonts/dpcomic.ttf"
 
 [node name="M" type="MarginContainer" parent="."]
 margin_right = 448.0
-margin_bottom = 20.0
+margin_bottom = 22.0
 custom_constants/margin_right = 4
 custom_constants/margin_left = 4
 
 [node name="ResetAll" parent="M" instance=ExtResource( 3 )]
-margin_left = 339.0
+margin_left = 346.594
 margin_right = 444.0
-margin_bottom = 20.0
 size_flags_horizontal = 8
 text = "Reset Controls"
 
 [node name="S" type="ScrollContainer" parent="."]
-margin_top = 24.0
+margin_top = 26.0
 margin_right = 448.0
 margin_bottom = 256.0
 size_flags_horizontal = 3
@@ -34,8 +33,7 @@ size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
 [node name="M" type="MarginContainer" parent="S"]
-margin_right = 448.0
-margin_bottom = 232.0
+margin_right = 436.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 4
@@ -44,7 +42,7 @@ custom_constants/margin_left = 4
 [node name="ModulesParent" type="VBoxContainer" parent="S/M"]
 margin_left = 4.0
 margin_right = 444.0
-margin_bottom = 232.0
+margin_bottom = 230.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 2

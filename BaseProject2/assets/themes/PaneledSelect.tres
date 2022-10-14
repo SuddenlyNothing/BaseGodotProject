@@ -2,15 +2,15 @@
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.12549, 0.235294, 0.337255, 1 )
-expand_margin_top = 18.0
+expand_margin_top = 8.0
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0608, 0.19904, 0.32, 1 )
-expand_margin_top = 9.0
+expand_margin_top = 4.0
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0509804, 0.168627, 0.270588, 1 )
-expand_margin_top = 6.0
+expand_margin_top = 2.0
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.0418, 0.13684, 0.22, 1 )

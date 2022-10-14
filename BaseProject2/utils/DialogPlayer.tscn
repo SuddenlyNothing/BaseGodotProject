@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://utils/DialogPlayer.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx/text.ogg" type="AudioStream" id=2]
-[ext_resource path="res://assets/fonts/dp32.tres" type="DynamicFont" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -17,15 +16,12 @@ default_audio = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_constants/margin_top = 400
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_constants/margin_top = 174
 
 [node name="ColorRect" type="ColorRect" parent="M"]
-margin_top = 400.0
+margin_top = 174.0
 margin_right = 448.0
-margin_bottom = 400.0
+margin_bottom = 256.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.392157 )
 
@@ -43,10 +39,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="M/ColorRect/M"]
 margin_left = 50.0
-margin_top = 10.0
+margin_top = 33.0
 margin_right = 398.0
-margin_bottom = 40.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 49.0
 custom_styles/normal = SubResource( 1 )
 autowrap = true
 
