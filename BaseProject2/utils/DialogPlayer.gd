@@ -4,8 +4,10 @@ signal dialog_finished
 
 const READ_SPEED : float = 30.0
 
+export(bool) var autoplay := false
 export(AudioStream) var default_audio
-export(Color) var default_color = Color("c6dbde")
+export(Color) var default_color = Color.white
+export(Array, String, MULTILINE) var autoplay_dialog := []
 
 var dialogs : Array
 var d_ind : int
@@ -18,7 +20,13 @@ onready var label := $M/ColorRect/M/Label
 onready var text_sfx := $TextSFX
 
 
-func read(d: Array, color: Color = default_color, sfx: AudioStream = default_audio) -> void:
+func _ready() -> void:
+	if autoplay:
+		read(autoplay_dialog)
+
+
+func read(d: Array, color: Color = default_color,
+		sfx: AudioStream = default_audio) -> void:
 	if d.empty():
 		d = ["..."]
 	if not sfx:

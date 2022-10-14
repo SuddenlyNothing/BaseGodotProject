@@ -12,7 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 default_audio = ExtResource( 2 )
-default_color = Color( 1, 1, 1, 1 )
 
 [node name="M" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -52,6 +51,7 @@ custom_styles/normal = SubResource( 1 )
 autowrap = true
 
 [node name="TextSFX" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 
 [node name="Tween" type="Tween" parent="."]
 
