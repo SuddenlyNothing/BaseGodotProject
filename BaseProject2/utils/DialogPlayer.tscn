@@ -24,8 +24,8 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="M"]
 margin_top = 400.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 448.0
+margin_bottom = 400.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.392157 )
 
@@ -43,9 +43,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="M/ColorRect/M"]
 margin_left = 50.0
-margin_top = 81.0
-margin_right = 974.0
-margin_bottom = 119.0
+margin_top = 10.0
+margin_right = 398.0
+margin_bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/normal = SubResource( 1 )
 autowrap = true

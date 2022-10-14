@@ -22,30 +22,22 @@ color = Color( 0.12549, 0.235294, 0.337255, 0.196078 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_constants/margin_right = 300
-custom_constants/margin_top = 60
-custom_constants/margin_left = 300
-custom_constants/margin_bottom = 60
 
 [node name="ColorRect" type="ColorRect" parent="M"]
-margin_left = 300.0
-margin_top = 60.0
-margin_right = 724.0
-margin_bottom = 540.0
+margin_right = 448.0
+margin_bottom = 256.0
 color = Color( 0.12549, 0.235294, 0.337255, 1 )
 
 [node name="V" type="VBoxContainer" parent="M"]
-margin_left = 300.0
-margin_top = 60.0
-margin_right = 724.0
-margin_bottom = 540.0
+margin_right = 448.0
+margin_bottom = 256.0
 theme = ExtResource( 4 )
 custom_constants/separation = 10
 script = ExtResource( 1 )
 
 [node name="V" type="HBoxContainer" parent="M/V"]
-margin_right = 424.0
-margin_bottom = 33.0
+margin_right = 448.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 custom_constants/separation = 0
@@ -53,8 +45,8 @@ alignment = 1
 
 [node name="Audio" parent="M/V/V" instance=ExtResource( 3 )]
 unique_name_in_owner = true
-margin_right = 141.0
-margin_bottom = 33.0
+margin_right = 149.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 disabled = true
 toggle_mode = true
@@ -65,9 +57,9 @@ disabled_timing = 0.2
 
 [node name="Controls" parent="M/V/V" instance=ExtResource( 3 )]
 unique_name_in_owner = true
-margin_left = 141.0
-margin_right = 282.0
-margin_bottom = 33.0
+margin_left = 149.0
+margin_right = 298.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 toggle_mode = true
 text = "Controls"
@@ -76,9 +68,9 @@ disabled_timing = 0.2
 
 [node name="ScreenSettings" parent="M/V/V" instance=ExtResource( 3 )]
 unique_name_in_owner = true
-margin_left = 282.0
-margin_right = 424.0
-margin_bottom = 33.0
+margin_left = 298.0
+margin_right = 448.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 toggle_mode = true
 text = "Screen"
@@ -86,9 +78,9 @@ pressed_timing = 0.2
 disabled_timing = 0.2
 
 [node name="V2" type="MarginContainer" parent="M/V"]
-margin_top = 43.0
-margin_right = 424.0
-margin_bottom = 437.0
+margin_top = 40.0
+margin_right = 448.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 3
@@ -98,28 +90,28 @@ custom_constants/margin_left = 3
 unique_name_in_owner = true
 margin_left = 3.0
 margin_top = 0.0
-margin_right = 421.0
-margin_bottom = 394.0
+margin_right = 445.0
+margin_bottom = 176.0
 
 [node name="H" type="HBoxContainer" parent="M/V"]
-margin_top = 447.0
-margin_right = 424.0
-margin_bottom = 480.0
+margin_top = 226.0
+margin_right = 448.0
+margin_bottom = 256.0
 custom_constants/separation = 0
 alignment = 1
 
 [node name="Back" parent="M/V/H" instance=ExtResource( 3 )]
 unique_name_in_owner = true
-margin_right = 212.0
-margin_bottom = 33.0
+margin_right = 224.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 text = "Back"
 
 [node name="Menu" parent="M/V/H" instance=ExtResource( 3 )]
 unique_name_in_owner = true
-margin_left = 212.0
-margin_right = 424.0
-margin_bottom = 33.0
+margin_left = 224.0
+margin_right = 448.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 text = "Menu"
 next_scene = "res://scenes/Demo.tscn"

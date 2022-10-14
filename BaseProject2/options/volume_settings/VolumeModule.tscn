@@ -8,25 +8,26 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
-custom_constants/separation = 5
+custom_constants/separation = 2
 alignment = 1
 script = ExtResource( 3 )
 
 [node name="H" type="HBoxContainer" parent="."]
-margin_top = 279.0
-margin_right = 1024.0
-margin_bottom = 299.0
+margin_top = 109.0
+margin_right = 448.0
+margin_bottom = 129.0
+custom_constants/separation = 2
 
 [node name="BusLabel" type="Label" parent="H"]
-margin_right = 916.0
+margin_right = 344.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 valign = 1
 
 [node name="Reset" parent="H" instance=ExtResource( 4 )]
-margin_left = 920.0
-margin_right = 970.0
+margin_left = 346.0
+margin_right = 396.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_vertical = 3
@@ -40,8 +41,8 @@ expand = true
 stretch_mode = 6
 
 [node name="Mute" parent="H" instance=ExtResource( 4 )]
-margin_left = 974.0
-margin_right = 1024.0
+margin_left = 398.0
+margin_right = 448.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_vertical = 3
@@ -55,9 +56,9 @@ expand = true
 stretch_mode = 6
 
 [node name="VolumeSlider" type="HSlider" parent="."]
-margin_top = 304.0
-margin_right = 1024.0
-margin_bottom = 320.0
+margin_top = 131.0
+margin_right = 448.0
+margin_bottom = 147.0
 focus_mode = 0
 max_value = 1.0
 step = 0.0
