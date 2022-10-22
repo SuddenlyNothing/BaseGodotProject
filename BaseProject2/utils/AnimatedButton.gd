@@ -63,6 +63,7 @@ func _ready() -> void:
 # Goes to next_scene if the next_scene variable is set
 func _pressed() -> void:
 	if next_scene:
+		pressed_sfx.play()
 		SceneHandler.goto_scene(next_scene)
 
 
