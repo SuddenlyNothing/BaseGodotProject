@@ -2,17 +2,17 @@ extends Control
 
 signal dialog_finished
 
-const READ_SPEED : float = 30.0
 const PAUSE_SYMBOLS := {
 	".": 13,
 	",": 5,
-	":": 5,
+	":": 10,
 	"!": 13,
 	"?": 13,
 	";": 10,
 }
 
 export(bool) var autoplay := false
+export(float) var read_speed: float = 30.0
 export(AudioStream) var default_audio
 export(Color) var default_color = Color.white
 export(String) var empty_dialog := "..."
@@ -69,6 +69,7 @@ func read_next() -> void:
 		hide()
 		return
 	label.percent_visible = 0
+	text_sfx.stream_paused = false
 	text_sfx.play()
 	curr_text = dialogs[d_ind]
 	var new_dialog: String = dialogs[d_ind].format(Variables.input_format)
@@ -76,13 +77,20 @@ func read_next() -> void:
 		new_dialog = empty_dialog
 	label.text = new_dialog
 	
+	set_read_tween(new_dialog)
+	
+	reading = true
+
+
+func set_read_tween(new_dialog: String,
+		starting_percent_visible: float = 0.0) -> void:
 	var new_dialog_spaceless := new_dialog.replace(" ", "")
 	var dialog_len := len(new_dialog_spaceless)
-	var curr_percent_visible := 0.0
+	var curr_percent_visible: float = starting_percent_visible
 	var max_delay := 0.0
 	var has_pause := false
 	t = create_tween()
-	for i in dialog_len:
+	for i in range(int(curr_percent_visible * dialog_len), dialog_len):
 		var curr_char := new_dialog_spaceless[i]
 		if curr_char in PAUSE_SYMBOLS:
 			has_pause = true
@@ -92,17 +100,15 @@ func read_next() -> void:
 			var new_percent_visible := float(i) / dialog_len
 			t.tween_property(label, "percent_visible",
 					new_percent_visible, floor((new_percent_visible - \
-					curr_percent_visible) * dialog_len) / READ_SPEED)
-			t.tween_callback(text_sfx, "stop")
-			t.tween_interval(max_delay / READ_SPEED)
-			t.tween_callback(text_sfx, "play")
+					curr_percent_visible) * dialog_len) / read_speed)
+			t.tween_callback(text_sfx, "set_stream_paused", [true])
+			t.tween_interval(max_delay / read_speed)
+			t.tween_callback(text_sfx, "set_stream_paused", [false])
 			curr_percent_visible = new_percent_visible
 			max_delay = 0.0
 	t.tween_property(label, "percent_visible", 1.0,
-			(1 - curr_percent_visible) * dialog_len / READ_SPEED)
+			(1 - curr_percent_visible) * dialog_len / read_speed)
 	t.tween_callback(self, "stop_reading")
-	
-	reading = true
 
 
 func stop() -> void:
@@ -114,7 +120,13 @@ func stop() -> void:
 
 
 func update_keys():
-	label.text = curr_text.format(Variables.input_format)
+	var new_dialog: String = curr_text.format(Variables.input_format)
+	label.text = new_dialog
+	if new_dialog == curr_text or not t or not t.is_running():
+		return
+	t.kill()
+	text_sfx.stream_paused = false
+	set_read_tween(new_dialog)
 
 
 func stop_reading() -> void:
