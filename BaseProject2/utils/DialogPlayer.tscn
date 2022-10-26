@@ -38,6 +38,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="M/ColorRect/M"]
+unique_name_in_owner = true
 margin_left = 50.0
 margin_top = 33.0
 margin_right = 398.0
@@ -47,7 +48,3 @@ autowrap = true
 
 [node name="TextSFX" type="AudioStreamPlayer" parent="."]
 bus = "SFX"
-
-[node name="Tween" type="Tween" parent="."]
-
-[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

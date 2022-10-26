@@ -6,6 +6,7 @@
 [node name="OptionsMenu" type="CanvasLayer"]
 pause_mode = 2
 layer = 127
+visible = false
 script = ExtResource( 11 )
 
 [node name="Paneled" parent="." instance=ExtResource( 1 )]
