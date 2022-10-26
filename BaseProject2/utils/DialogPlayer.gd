@@ -68,8 +68,6 @@ func read_next() -> void:
 		text_sfx.stop()
 		hide()
 		return
-	label.percent_visible = 0
-	text_sfx.stream_paused = false
 	text_sfx.play()
 	curr_text = dialogs[d_ind]
 	var new_dialog: String = dialogs[d_ind].format(Variables.input_format)
@@ -84,12 +82,14 @@ func read_next() -> void:
 
 func set_read_tween(new_dialog: String,
 		starting_percent_visible: float = 0.0) -> void:
+	label.percent_visible = starting_percent_visible
 	var new_dialog_spaceless := new_dialog.replace(" ", "")
 	var dialog_len := len(new_dialog_spaceless)
 	var curr_percent_visible: float = starting_percent_visible
 	var max_delay := 0.0
 	var has_pause := false
 	t = create_tween()
+	t.tween_callback(text_sfx, "set_stream_paused", [false])
 	for i in range(int(curr_percent_visible * dialog_len), dialog_len):
 		var curr_char := new_dialog_spaceless[i]
 		if curr_char in PAUSE_SYMBOLS:
@@ -125,7 +125,6 @@ func update_keys():
 	if new_dialog == curr_text or not t or not t.is_running():
 		return
 	t.kill()
-	text_sfx.stream_paused = false
 	set_read_tween(new_dialog)
 
 
