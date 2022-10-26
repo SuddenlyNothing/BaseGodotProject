@@ -10,4 +10,3 @@ visible = false
 script = ExtResource( 11 )
 
 [node name="Paneled" parent="." instance=ExtResource( 1 )]
-visible = false
