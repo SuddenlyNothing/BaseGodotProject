@@ -66,7 +66,7 @@ window/stretch/aspect="keep"
 
 [gui]
 
-theme/custom_font="res://assets/fonts/dp16.tres"
+theme/custom_font="res://assets/fonts/rr28.tres"
 
 [importer_defaults]
 
