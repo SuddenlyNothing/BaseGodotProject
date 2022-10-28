@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://utils/DialogPlayer.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx/text.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/fonts/rr32.tres" type="DynamicFont" id=3]
-
-[sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="DialogPlayer" type="Control" groups=["needs_keys"]]
 visible = false
@@ -37,19 +35,18 @@ custom_constants/margin_right = 50
 custom_constants/margin_top = 10
 custom_constants/margin_left = 50
 custom_constants/margin_bottom = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Label" type="Label" parent="M/ColorRect/M"]
+[node name="RichTextLabel" type="RichTextLabel" parent="M/ColorRect/M"]
 unique_name_in_owner = true
 margin_left = 50.0
-margin_top = 81.0
+margin_top = 92.0
 margin_right = 974.0
-margin_bottom = 119.0
-custom_fonts/font = ExtResource( 3 )
-custom_styles/normal = SubResource( 1 )
-autowrap = true
+margin_bottom = 107.0
+rect_clip_content = false
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
 
 [node name="TextSFX" type="AudioStreamPlayer" parent="."]
 bus = "SFX"

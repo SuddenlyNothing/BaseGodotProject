@@ -25,7 +25,7 @@ var has_dialog: bool = false
 var curr_text: String = ""
 var t: SceneTreeTween
 
-onready var label := $"%Label"
+onready var label := $"%RichTextLabel"
 onready var text_sfx := $TextSFX
 
 
@@ -73,7 +73,7 @@ func read_next() -> void:
 	var new_dialog: String = dialogs[d_ind].format(Variables.input_format)
 	if len(new_dialog) <= 0:
 		new_dialog = empty_dialog
-	label.text = new_dialog
+	label.bbcode_text = new_dialog
 	
 	set_read_tween(new_dialog)
 	
@@ -83,7 +83,7 @@ func read_next() -> void:
 func set_read_tween(new_dialog: String,
 		starting_percent_visible: float = 0.0) -> void:
 	label.percent_visible = starting_percent_visible
-	var new_dialog_spaceless := new_dialog.replace(" ", "")
+	var new_dialog_spaceless: String = label.text.replace(" ", "")
 	var dialog_len := len(new_dialog_spaceless)
 	var curr_percent_visible: float = starting_percent_visible
 	var max_delay := 0.0
