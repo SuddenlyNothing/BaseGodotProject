@@ -10,7 +10,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 25
 script = ExtResource( 1 )
-font_path = "res://assets/fonts/Roboto-Regular.ttf"
+font_path = "res://assets/fonts/roboto_regular.ttf"
 
 [node name="M" type="MarginContainer" parent="."]
 margin_right = 1024.0
