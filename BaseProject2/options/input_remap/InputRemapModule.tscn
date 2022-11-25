@@ -1,22 +1,21 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/ui/reset.png" type="Texture" id=2]
-[ext_resource path="res://utils/AnimatedButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://options/utils/HSeparation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://options/utils/ResetButton.tscn" type="PackedScene" id=2]
 
-[node name="InputRemapModule" type="HBoxContainer"]
+[node name="InputRemapModule" instance=ExtResource( 1 )]
 anchor_right = 1.0
 anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-custom_constants/separation = 4
+margin_right = 0.0
+margin_bottom = 0.0
 
-[node name="H" type="HBoxContainer" parent="."]
+[node name="H" parent="." index="0" instance=ExtResource( 1 )]
 margin_right = 408.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="H"]
+[node name="Label" type="Label" parent="H" index="0"]
 margin_right = 354.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
@@ -26,23 +25,11 @@ size_flags_stretch_ratio = 2.0
 text = "Input"
 valign = 1
 
-[node name="Reset" parent="H" instance=ExtResource( 3 )]
+[node name="Reset" parent="H" index="1" instance=ExtResource( 2 )]
 margin_left = 358.0
 margin_right = 408.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 0 )
-size_flags_horizontal = 9
-size_flags_vertical = 7
-expand_icon = true
 
-[node name="ResetIcon" type="TextureRect" parent="H/Reset"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 6
-
-[node name="V" type="VBoxContainer" parent="."]
+[node name="V" type="VBoxContainer" parent="." index="1"]
 margin_left = 412.0
 margin_right = 1024.0
 margin_bottom = 600.0
