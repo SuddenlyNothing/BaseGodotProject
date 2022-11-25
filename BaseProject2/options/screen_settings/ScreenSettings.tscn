@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://options/screen_settings/ScreenSettings.gd" type="Script" id=1]
-[ext_resource path="res://assets/ui/reset.png" type="Texture" id=3]
+[ext_resource path="res://options/utils/SliderOutsideSeparation.tscn" type="PackedScene" id=2]
 [ext_resource path="res://utils/AnimatedButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://options/utils/SliderInsideSeparation.tscn" type="PackedScene" id=5]
+[ext_resource path="res://options/utils/HSeparation.tscn" type="PackedScene" id=6]
+[ext_resource path="res://options/utils/ResetButton.tscn" type="PackedScene" id=7]
 
 [node name="ScreenSettings" type="MarginContainer" groups=["save"]]
 margin_right = 1024.0
@@ -13,14 +16,10 @@ custom_constants/margin_right = 10
 custom_constants/margin_left = 10
 script = ExtResource( 1 )
 
-[node name="V" type="VBoxContainer" parent="."]
+[node name="V" parent="." instance=ExtResource( 2 )]
 margin_left = 10.0
 margin_right = 1014.0
 margin_bottom = 600.0
-rect_pivot_offset = Vector2( -316, -83 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 30
 
 [node name="Reset" parent="V" instance=ExtResource( 4 )]
 margin_left = 909.0
@@ -29,13 +28,15 @@ margin_bottom = 20.0
 size_flags_horizontal = 8
 text = "Reset Screen"
 
-[node name="V" type="VBoxContainer" parent="V"]
+[node name="V" parent="V" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 50.0
 margin_right = 1004.0
 margin_bottom = 91.0
-custom_constants/separation = 5
+size_flags_vertical = 1
 
-[node name="H" type="HBoxContainer" parent="V/V"]
+[node name="H" parent="V/V" instance=ExtResource( 6 )]
 margin_right = 1004.0
 margin_bottom = 20.0
 
@@ -48,41 +49,29 @@ size_flags_vertical = 1
 text = "Brightness"
 valign = 1
 
-[node name="BReset" parent="V/V/H" instance=ExtResource( 4 )]
+[node name="BReset" parent="V/V/H" instance=ExtResource( 7 )]
 margin_left = 954.0
 margin_right = 1004.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 0 )
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="ResetIcon" type="TextureRect" parent="V/V/H/BReset"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
 
 [node name="Brightness" type="HSlider" parent="V/V"]
 margin_top = 25.0
 margin_right = 1004.0
 margin_bottom = 41.0
-focus_mode = 0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
 step = 0.0
 value = 1.0
 
-[node name="V2" type="VBoxContainer" parent="V"]
+[node name="V2" parent="V" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 121.0
 margin_right = 1004.0
 margin_bottom = 162.0
-custom_constants/separation = 5
+size_flags_vertical = 1
 
-[node name="H" type="HBoxContainer" parent="V/V2"]
+[node name="H" parent="V/V2" instance=ExtResource( 6 )]
 margin_right = 1004.0
 margin_bottom = 20.0
 
@@ -95,39 +84,29 @@ size_flags_vertical = 1
 text = "Contrast"
 valign = 1
 
-[node name="CReset" parent="V/V2/H" instance=ExtResource( 4 )]
+[node name="CReset" parent="V/V2/H" instance=ExtResource( 7 )]
 margin_left = 954.0
 margin_right = 1004.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 0 )
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="ResetIcon" type="TextureRect" parent="V/V2/H/CReset"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
 
 [node name="Contrast" type="HSlider" parent="V/V2"]
 margin_top = 25.0
 margin_right = 1004.0
 margin_bottom = 41.0
-focus_mode = 0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
 step = 0.0
 value = 1.0
 
-[node name="V3" type="VBoxContainer" parent="V"]
+[node name="V3" parent="V" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 192.0
 margin_right = 1004.0
 margin_bottom = 233.0
-custom_constants/separation = 5
+size_flags_vertical = 1
 
-[node name="H" type="HBoxContainer" parent="V/V3"]
+[node name="H" parent="V/V3" instance=ExtResource( 6 )]
 margin_right = 1004.0
 margin_bottom = 20.0
 
@@ -140,26 +119,14 @@ size_flags_vertical = 1
 text = "Saturation"
 valign = 1
 
-[node name="SReset" parent="V/V3/H" instance=ExtResource( 4 )]
+[node name="SReset" parent="V/V3/H" instance=ExtResource( 7 )]
 margin_left = 954.0
 margin_right = 1004.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 0 )
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="ResetIcon" type="TextureRect" parent="V/V3/H/SReset"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
 
 [node name="Saturation" type="HSlider" parent="V/V3"]
 margin_top = 25.0
 margin_right = 1004.0
 margin_bottom = 41.0
-focus_mode = 0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5

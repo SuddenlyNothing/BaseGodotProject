@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="HSeparation" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/separation = 4
