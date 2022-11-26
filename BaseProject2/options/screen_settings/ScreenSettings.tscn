@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://options/screen_settings/ScreenSettings.gd" type="Script" id=1]
 [ext_resource path="res://options/utils/VResetSeparator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://utils/HSliderSFX.tscn" type="PackedScene" id=3]
 [ext_resource path="res://utils/AnimatedButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://options/utils/SliderInsideSeparation.tscn" type="PackedScene" id=5]
 [ext_resource path="res://options/utils/HSeparation.tscn" type="PackedScene" id=6]
@@ -53,14 +54,13 @@ valign = 1
 margin_left = 954.0
 margin_right = 1004.0
 
-[node name="Brightness" type="HSlider" parent="V/V"]
+[node name="Brightness" parent="V/V" instance=ExtResource( 3 )]
 margin_top = 25.0
 margin_right = 1004.0
 margin_bottom = 41.0
-size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
-step = 0.0
+step = 0.05
 value = 1.0
 
 [node name="V2" parent="V" instance=ExtResource( 5 )]
@@ -88,14 +88,13 @@ valign = 1
 margin_left = 954.0
 margin_right = 1004.0
 
-[node name="Contrast" type="HSlider" parent="V/V2"]
+[node name="Contrast" parent="V/V2" instance=ExtResource( 3 )]
 margin_top = 25.0
 margin_right = 1004.0
 margin_bottom = 41.0
-size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
-step = 0.0
+step = 0.05
 value = 1.0
 
 [node name="V3" parent="V" instance=ExtResource( 5 )]
@@ -123,14 +122,13 @@ valign = 1
 margin_left = 954.0
 margin_right = 1004.0
 
-[node name="Saturation" type="HSlider" parent="V/V3"]
+[node name="Saturation" parent="V/V3" instance=ExtResource( 3 )]
 margin_top = 25.0
 margin_right = 1004.0
 margin_bottom = 41.0
-size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
-step = 0.0
+step = 0.05
 value = 1.0
 
 [connection signal="pressed" from="V/Reset" to="." method="_on_Reset_pressed"]
