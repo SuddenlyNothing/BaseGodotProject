@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://assets/sfx/button_pressed.wav" type="AudioStream" id=1]
 [ext_resource path="res://options/OptionsMenu.gd" type="Script" id=11]
 
 [node name="OptionsMenu" type="CanvasLayer"]
@@ -7,3 +8,8 @@ pause_mode = 2
 layer = 127
 visible = false
 script = ExtResource( 11 )
+
+[node name="PressedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -15.0
+bus = "SFX"
