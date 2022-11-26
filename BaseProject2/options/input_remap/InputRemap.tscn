@@ -34,8 +34,7 @@ follow_focus = true
 scroll_horizontal_enabled = false
 
 [node name="M" type="MarginContainer" parent="S"]
-margin_right = 448.0
-margin_bottom = 230.0
+margin_right = 436.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 4

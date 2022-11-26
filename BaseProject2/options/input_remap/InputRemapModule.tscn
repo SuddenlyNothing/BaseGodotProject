@@ -28,7 +28,6 @@ valign = 1
 [node name="Reset" parent="H" index="1" instance=ExtResource( 2 )]
 margin_left = 127.0
 margin_right = 177.0
-margin_bottom = 22.0
 
 [node name="V" type="VBoxContainer" parent="." index="1"]
 margin_left = 181.0
