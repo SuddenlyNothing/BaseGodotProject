@@ -18,7 +18,6 @@ size_flags_vertical = 0
 [node name="Label" type="Label" parent="H" index="0"]
 margin_right = 354.0
 margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
