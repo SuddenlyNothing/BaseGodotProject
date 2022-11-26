@@ -44,7 +44,6 @@ margin_bottom = 20.0
 [node name="Label" type="Label" parent="V/V/H"]
 margin_right = 950.0
 margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Brightness"
@@ -78,7 +77,6 @@ margin_bottom = 20.0
 [node name="Label" type="Label" parent="V/V2/H"]
 margin_right = 950.0
 margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Contrast"
@@ -112,7 +110,6 @@ margin_bottom = 20.0
 [node name="Label" type="Label" parent="V/V3/H"]
 margin_right = 950.0
 margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Saturation"
