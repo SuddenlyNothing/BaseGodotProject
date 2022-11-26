@@ -35,7 +35,6 @@ anchor_bottom = 0.0
 margin_top = 50.0
 margin_right = 1004.0
 margin_bottom = 91.0
-size_flags_vertical = 1
 
 [node name="H" parent="V/V" instance=ExtResource( 6 )]
 margin_right = 1004.0
@@ -68,7 +67,6 @@ anchor_bottom = 0.0
 margin_top = 121.0
 margin_right = 1004.0
 margin_bottom = 162.0
-size_flags_vertical = 1
 
 [node name="H" parent="V/V2" instance=ExtResource( 6 )]
 margin_right = 1004.0
@@ -101,7 +99,6 @@ anchor_bottom = 0.0
 margin_top = 192.0
 margin_right = 1004.0
 margin_bottom = 233.0
-size_flags_vertical = 1
 
 [node name="H" parent="V/V3" instance=ExtResource( 6 )]
 margin_right = 1004.0
