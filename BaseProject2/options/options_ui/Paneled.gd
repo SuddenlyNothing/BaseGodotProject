@@ -1,4 +1,4 @@
-extends Control
+extends OptionsSelect
 
 var is_mouse_inside := false
 
