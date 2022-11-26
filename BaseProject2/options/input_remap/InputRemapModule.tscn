@@ -10,14 +10,14 @@ margin_right = 0.0
 margin_bottom = 0.0
 
 [node name="H" parent="." index="0" instance=ExtResource( 1 )]
-margin_right = 178.0
+margin_right = 177.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_constants/separation = 2
 
 [node name="Label" type="Label" parent="H" index="0"]
-margin_right = 154.0
+margin_right = 125.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
@@ -27,11 +27,12 @@ text = "Input"
 valign = 1
 
 [node name="Reset" parent="H" index="1" instance=ExtResource( 2 )]
-margin_left = 156.0
-margin_right = 178.0
+margin_left = 127.0
+margin_right = 177.0
+margin_bottom = 22.0
 
 [node name="V" type="VBoxContainer" parent="." index="1"]
-margin_left = 180.0
+margin_left = 181.0
 margin_right = 448.0
 margin_bottom = 256.0
 size_flags_horizontal = 3

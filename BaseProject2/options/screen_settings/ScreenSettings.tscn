@@ -30,9 +30,9 @@ text = "Reset Screen"
 [node name="V" parent="V" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 26.0
+margin_top = 52.0
 margin_right = 440.0
-margin_bottom = 66.0
+margin_bottom = 95.0
 size_flags_vertical = 1
 
 [node name="H" parent="V/V" instance=ExtResource( 6 )]
@@ -40,7 +40,7 @@ margin_right = 440.0
 margin_bottom = 22.0
 
 [node name="Label" type="Label" parent="V/V/H"]
-margin_right = 416.0
+margin_right = 386.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -48,13 +48,14 @@ text = "Brightness"
 valign = 1
 
 [node name="BReset" parent="V/V/H" instance=ExtResource( 7 )]
-margin_left = 418.0
+margin_left = 390.0
 margin_right = 440.0
+margin_bottom = 22.0
 
 [node name="Brightness" type="HSlider" parent="V/V"]
-margin_top = 24.0
+margin_top = 27.0
 margin_right = 440.0
-margin_bottom = 40.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
@@ -64,9 +65,9 @@ value = 1.0
 [node name="V2" parent="V" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 70.0
+margin_top = 125.0
 margin_right = 440.0
-margin_bottom = 110.0
+margin_bottom = 168.0
 size_flags_vertical = 1
 
 [node name="H" parent="V/V2" instance=ExtResource( 6 )]
@@ -74,7 +75,7 @@ margin_right = 440.0
 margin_bottom = 22.0
 
 [node name="Label" type="Label" parent="V/V2/H"]
-margin_right = 416.0
+margin_right = 386.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -82,13 +83,14 @@ text = "Contrast"
 valign = 1
 
 [node name="CReset" parent="V/V2/H" instance=ExtResource( 7 )]
-margin_left = 418.0
+margin_left = 390.0
 margin_right = 440.0
+margin_bottom = 22.0
 
 [node name="Contrast" type="HSlider" parent="V/V2"]
-margin_top = 24.0
+margin_top = 27.0
 margin_right = 440.0
-margin_bottom = 40.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
@@ -98,9 +100,9 @@ value = 1.0
 [node name="V3" parent="V" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 114.0
+margin_top = 198.0
 margin_right = 440.0
-margin_bottom = 154.0
+margin_bottom = 241.0
 size_flags_vertical = 1
 
 [node name="H" parent="V/V3" instance=ExtResource( 6 )]
@@ -108,7 +110,7 @@ margin_right = 440.0
 margin_bottom = 22.0
 
 [node name="Label" type="Label" parent="V/V3/H"]
-margin_right = 416.0
+margin_right = 386.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -116,13 +118,14 @@ text = "Saturation"
 valign = 1
 
 [node name="SReset" parent="V/V3/H" instance=ExtResource( 7 )]
-margin_left = 418.0
+margin_left = 390.0
 margin_right = 440.0
+margin_bottom = 22.0
 
 [node name="Saturation" type="HSlider" parent="V/V3"]
-margin_top = 24.0
+margin_top = 27.0
 margin_right = 440.0
-margin_bottom = 40.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 min_value = 0.5
 max_value = 1.5
