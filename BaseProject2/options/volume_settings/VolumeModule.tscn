@@ -15,16 +15,15 @@ margin_right = 448.0
 margin_bottom = 128.0
 
 [node name="BusLabel" type="Label" parent="H" index="0"]
-margin_right = 368.0
+margin_right = 396.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 valign = 1
 
 [node name="Reset" parent="H" index="1" instance=ExtResource( 2 )]
-margin_left = 372.0
+margin_left = 400.0
 margin_right = 422.0
-margin_bottom = 22.0
 
 [node name="Mute" parent="H" index="2" instance=ExtResource( 4 )]
 margin_left = 426.0
