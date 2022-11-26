@@ -1,3 +1,4 @@
+class_name OptionsSelect
 extends Control
 
 ## To set up this script, include all respective onready nodes with scene unique

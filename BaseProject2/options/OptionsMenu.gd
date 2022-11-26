@@ -3,7 +3,6 @@ extends CanvasLayer
 var active : bool = false setget set_active
 var previous_focus: Control
 
-onready var open_sfx := $OpenSFX
 onready var ui := get_child(0)
 
 
@@ -19,5 +18,4 @@ func set_active(val: bool) -> void:
 	active = val
 	visible = val
 	get_tree().paused = val
-	open_sfx.play()
 	ui.set_focus_button_active(val)
