@@ -35,11 +35,9 @@ custom_constants/margin_bottom = 10
 [node name="RichTextLabel" type="RichTextLabel" parent="M/ColorRect/M"]
 unique_name_in_owner = true
 margin_left = 50.0
-margin_top = 33.0
+margin_top = 10.0
 margin_right = 398.0
-margin_bottom = 49.0
-custom_styles/normal = SubResource( 1 )
-autowrap = true
+margin_bottom = 72.0
 
 [node name="TextSFX" type="AudioStreamPlayer" parent="."]
 bus = "SFX"
