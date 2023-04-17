@@ -12,9 +12,11 @@ enum TAB {
 }
 
 export(NodePath) var start_focus_button_path
+export(String, FILE, "*.tscn") var menu_scene
 
 var current_setting = TAB.AUDIO setget set_current_setting
 var previous_focus: Control
+var prevent_menu := false
 
 onready var audio: Button = $"%Audio"
 onready var controls: Button = $"%Controls"
@@ -47,6 +49,7 @@ func _on_button_toggled(button_pressed: bool, button: String) -> void:
 
 func set_focus_button_active(is_active: bool) -> void:
 	if is_active:
+		prevent_menu = false
 		previous_focus = get_focus_owner()
 		start_focus_button.grab_focus()
 	else:
@@ -81,6 +84,15 @@ func set_current_setting(val: int) -> void:
 				screen_settings.disabled = false
 
 
-# Turns off menu
+# Turns off pause menu
 func _on_Back_pressed() -> void:
+	OptionsMenu.set_active(false)
+
+
+# Goes to main menu
+func _on_Menu_pressed() -> void:
+	if prevent_menu:
+		return
+	prevent_menu = true
+	SceneHandler.goto_scene(menu_scene)
 	OptionsMenu.set_active(false)
