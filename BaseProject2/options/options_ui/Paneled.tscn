@@ -13,6 +13,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 4 )
 script = ExtResource( 6 )
 start_focus_button_path = NodePath("M/V/V/Audio")
+menu_scene = "res://scenes/Demo.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -122,7 +123,6 @@ margin_right = 208.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 text = "Menu"
-next_scene = "res://scenes/Demo.tscn"
 
 [node name="PressedSFX" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
