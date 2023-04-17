@@ -347,12 +347,14 @@ func set_normal_style(style: StyleBoxFlat) -> void:
 # Detects hover
 func _on_AnimButton_mouse_entered() -> void:
 	is_mouse_inside = true
-	if pressed or disabled:
+	if disabled:
+		return
+	if play_hover:
+		hover_sfx.play()
+	if pressed:
 		return
 	set_style("hover")
 	grab_focus()
-	if play_hover:
-		hover_sfx.play()
 
 
 # Detects unhover
@@ -431,12 +433,13 @@ func _on_AnimatedButton_focus_entered() -> void:
 		return
 	if play_hover:
 		hover_sfx.play()
-	set_style("hover")
+	if not pressed:
+		set_style("hover")
 
 
 func _on_AnimatedButton_focus_exited() -> void:
 	focused = false
-	if disabled or started_scene_transition:
+	if disabled or started_scene_transition or pressed:
 		return
 	set_style("normal")
 
