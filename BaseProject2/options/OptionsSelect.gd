@@ -38,7 +38,7 @@ func setup_signals() -> void:
 	screen_settings.connect("toggled", self, "_on_button_toggled",
 			["SCREEN_SETTINGS"])
 	back.connect("pressed", self, "_on_Back_pressed")
-	menu.connect("pressed", self, "_on_Back_pressed")
+	menu.connect("pressed", self, "_on_Menu_pressed")
 
 
 # Sets active panel to the one associated with the given button
