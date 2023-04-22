@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "StateMachine",
 "language": "GDScript",
-"path": "res://scenes/characters/StateMachine.gd"
+"path": "res://characters/StateMachine.gd"
 } ]
 _global_script_class_icons={
 "AnimatedButton": "",
