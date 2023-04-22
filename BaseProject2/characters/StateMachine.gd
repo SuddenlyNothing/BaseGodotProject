@@ -22,6 +22,7 @@ func _physics_process(delta: float):
 func _state_logic(delta: float) -> void:
 	pass
 
+
 # Return value will be used to change state.
 func _get_transition(delta: float):
 	return null
