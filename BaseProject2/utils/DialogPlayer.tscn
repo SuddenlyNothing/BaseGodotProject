@@ -38,6 +38,7 @@ margin_left = 50.0
 margin_top = 10.0
 margin_right = 398.0
 margin_bottom = 72.0
+bbcode_enabled = true
 
 [node name="TextSFX" type="AudioStreamPlayer" parent="."]
 bus = "SFX"
