@@ -51,7 +51,7 @@ func read(d: Array, color: Color = default_color,
 		sfx: AudioStream = default_audio) -> void:
 	if not sfx:
 		sfx = default_audio
-	label.modulate = color
+	label.set("custom_colors/default_color", color)
 	text_sfx.stream = sfx
 	has_dialog = true
 	d_ind = -1
