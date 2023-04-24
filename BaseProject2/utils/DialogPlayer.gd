@@ -121,7 +121,7 @@ func stop() -> void:
 
 func update_keys():
 	var new_dialog: String = curr_text.format(Variables.input_format)
-	label.text = new_dialog
+	label.bbcode_text = new_dialog
 	if new_dialog == curr_text or not t or not t.is_running():
 		return
 	t.kill()
