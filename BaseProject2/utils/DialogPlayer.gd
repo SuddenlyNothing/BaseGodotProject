@@ -34,7 +34,7 @@ func _ready() -> void:
 		read(autoplay_dialog)
 
 
-func _gui_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if has_dialog:
 		if event.is_action_pressed("continue", false, false):
 			if reading:
